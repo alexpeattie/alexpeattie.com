@@ -1,0 +1,48 @@
+@import 'variables';
+
+.Btn {
+  padding: 12px 16px;
+  color: #4eb0eb;
+  border-radius: 8px;
+  display: inline-block;
+  border: 1px solid #4eb0eb;
+  opacity: 0.7;
+  margin-right: 10px;
+  transition: opacity 0.3s ease;
+
+  p & {
+    margin-bottom: 10px;
+  }
+
+  &:hover {
+    opacity: 1;
+    color: $link;
+  }
+
+  &.Btn--cta {
+    &, &:hover { color: $emLink; }
+    border-color: $emLink;
+  }
+
+  &.Btn--large {
+    font-size: 1.1em;
+    padding: 16px 25px;
+  }
+
+  &.Btn--source {
+    background: image-url('icons/github-thick.svg') no-repeat 15px center;
+    color: $normalText;
+    border-color: $normalText;
+  }
+
+  &.Btn--rubygems {
+    background: image-url('icons/rubygems.svg') no-repeat 15px center;
+    color: #eb4e62;
+    border-color: #eb4e62;
+  }
+
+  &.Btn--source, &.Btn--rubygems {
+    background-size: 25px;
+    padding-left: 50px;
+  }
+}

@@ -1,0 +1,80 @@
+@import 'variables';
+
+.MediaAppearances {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: space-between;
+
+  p, h2, h3 {
+    flex: 0 1 100%;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  > .MediaAppearances-thumb {
+    cursor: pointer;
+    flex: 0 1 20%;
+    margin: 0.5em 0.5em 1.5em 0;
+    a { border-bottom: none; }
+
+    img {
+      border-radius: 100px;
+      max-width: 100%;
+      opacity: 0.6;
+      transition: opacity 0.5s ease;
+    }
+
+    &:hover img { opacity: 1; }
+  }
+
+  .MediaAppearances-details:hover + .MediaAppearances-thumb img {
+    opacity: 1;
+  }
+
+  > .MediaAppearances-details {
+    cursor: pointer;
+    flex: 0 1 76%;
+    &:last-child { margin-bottom: 3.5em; }
+
+    &:hover h4 { color: #000; }
+    &:hover date { color: $darkText; }
+
+    > h4 {
+      color: $darkText;
+      font-size: 1.2em;
+      margin: 1.2em 0 0 0;
+    }
+
+    > date {
+      transition: color 0.3s ease;
+      color: $lightText;
+      font-size: 1.1em;
+      margin-top: 0.4em;
+      display: block;
+    }
+  }
+}
+
+@media(max-width: $mobile) {
+  .MediaAppearances {
+    flex-flow: row wrap;
+    
+    .MediaAppearances-thumb {
+      margin-top: 1.5em;
+    }
+  }
+}
+
+.TimelineItem-pics.-experience--ap {
+  padding-right: 1em !important;
+  @media(max-width: $mobile) { padding-right: initial; }
+}
+
+body.index {
+  .TimelineItem .TimelineItem-pics {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+}

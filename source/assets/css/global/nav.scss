@@ -1,0 +1,231 @@
+@import 'variables';
+@import 'button';
+
+// nav a {
+//   margin-left: 2.5em;
+//   color: #888;
+//   font-weight: normal;
+//   text-decoration: none;
+//   font-size: 1.2em;
+//   border: 1px solid;
+//   padding: 8px 15px;
+//   border-radius: 5px;
+//   &.close { display: none; }
+// }
+
+.MainMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1em 0;
+}
+
+.NavBtn {
+  @extend .Btn;
+  font-weight: normal;
+  font-size: 1.2em;
+  color: $normalText;
+  border-color: $normalText;
+
+  &.NavBtn--close {
+    display: none;
+  }
+
+  &.NavBtn--mobileOnly {
+    display: none;
+    margin-right: 0;
+
+    @media(max-width: $mobile) {
+      display: inline-block;
+    }
+  }
+}
+
+.NavBtn.is-active, .NavBtn:hover {
+  color: $link;
+  border-color: $link;
+
+  .MainMenu-links & {
+    @media(max-width: $mobile) {
+      color: $link;
+      background: rgba(255, 255, 255, 0.7);
+    }
+  }  
+}
+
+body.index .MainMenu #NavBtnAbout,
+body.projects .MainMenu #NavBtnProjects,
+body.blog .MainMenu #NavBtnBlog {
+  @extend .NavBtn.is-active;
+}
+
+// Mobile sticky menu
+@media(max-width: $mobile) {
+  .MainMenu {
+    position: fixed;
+    width: 100%;
+    left: 0em;
+    padding: 0.5em 2em;
+    background: #fff;
+    border-bottom: 1px solid $lightBorder;
+    z-index: 1;
+    top: 0;
+    transition: transform 0.35s ease-in;
+
+    &.is-hidden {
+      transform: translateY(-55px);
+    }
+  }
+}
+
+// Mobile modal menu
+@media(max-width: $mobile) {
+  body.is-modal-menu-open {
+    overflow: hidden;
+    position: fixed;
+    display: block;
+    width: 100%;
+  }
+
+  .NavBtn {
+    font-size: 1em;
+    padding: 8px 12px;
+  }
+
+  .MainMenu-links {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(78, 176, 235, 0.9);
+    z-index: 9;
+    max-width: none;
+    margin: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3em calc(50% - 9em);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    perspective: 1200px;
+
+    .NavBtn {
+      font-size: 2em;
+      width: 9em;
+      text-align: center;
+      margin: 0.5em 0;
+      color: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 0.9);
+      opacity: 0.4;
+      transform: translateY(-25%) rotateX(35deg);
+      transition: transform 0.5s, opacity 0.5s, color 0.5s ease;
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+
+      &.NavBtn--close {
+        display: inline-block;
+        font-size: 3em;
+        border-radius: 2em;
+        width: 2em;
+        height: 2em;
+        line-height: 1.5em;
+        margin-left: 2em;
+      }
+
+      @media screen and (orientation:landscape) { 
+        font-size: 1.5em;
+        width: 11em;
+        margin: 0.3em 0.5em;
+        padding: 3px;
+      }
+    }
+
+    &.is-expanded {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s;
+
+      .NavBtn {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+    }
+  }
+}
+
+nav.main-menu {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.25em;
+  position: relative;
+
+  @media (max-width: 800px) {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(78, 176, 235, 0.9);
+    z-index: 9;
+    max-width: none;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 3em;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    perspective: 1200px;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s;
+    }
+
+    a {
+      font-size: 2em;
+      width: 9em;
+      text-align: center;
+      margin: 0.5em;
+      color: rgba(255, 255, 255, 0.7);
+      opacity: 0.4;
+      transform: translateY(-25%) rotateX(35deg);
+      transition: transform 0.5s, opacity 0.5s, color 0.5s ease;
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+
+      &.active { color: #fff; border-width: 2px; }
+
+      &.close {
+        display: inline;
+        font-size: 3.5em;
+        border-radius: 2em;
+        border-width: 2px;
+        width: 1.7em;
+        height: 1.7em;
+        line-height: 135%;
+        cursor: pointer;
+      }
+
+      @media screen and (orientation:landscape) { 
+        font-size: 1.5em;
+        margin: 0.3em 0.5em;
+        padding: 3px;
+      }
+    }
+
+    &.open a {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+}

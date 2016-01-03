@@ -1,0 +1,28 @@
+@import 'variables';
+
+.Logo {
+  text-transform: none;
+  left: 0;
+  font-size: 2em;
+  margin: 0;
+  top: -.35em;
+  text-decoration: none;
+  letter-spacing: -1px;
+  border-bottom: 1px solid transparent;
+
+  color: $xLightText;
+  span {
+    color: $lightText;
+  }
+}
+
+@media(max-width: $mobile) {
+  header {
+    margin-bottom: 4em;
+  }
+
+  .Logo {
+    font-size: 1.7em;
+    &:hover { border-bottom: none; }
+  }
+}

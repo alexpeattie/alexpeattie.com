@@ -1,0 +1,12 @@
+<div class='remodal' data-remodal-id='video-<%= video %>' data-remodal-options='hashTracking: false'>
+  <button data-remodal-action='close' class='remodal-close'></button>
+
+  <section class='video-js-responsive-container vjs-hd'>
+    <video id='video-elem-<%= video %>' class='video-js vjs-sublime-skin' controls preload='metadata'>
+      <source src='/assets/videos/<%= video %>.mp4' type='video/mp4'>
+      <p class='vjs-no-js'>
+        To view this video please enable JavaScript, and consider upgrading to a web browser that <a href='http://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+      </p>
+    </video>
+  </section>
+</div>

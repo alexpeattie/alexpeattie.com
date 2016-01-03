@@ -1,0 +1,49 @@
+@import 'variables';
+
+.ContentBody > table {
+  margin: 1em auto;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  overflow: scroll;
+  background-color: transparent;
+
+  th,
+  td {
+    color: $normalText;
+    font-weight: normal;
+    padding: 9px;
+    line-height: 170%;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid $lightBorder;
+  }
+
+  th {
+    color: $darkText;
+    background-color: #eee;
+  }
+
+  tbody > tr:nth-child(odd) > td {
+    background-color: #f6f6f6;
+  }
+
+  thead + tbody {
+    > tr:nth-child(odd) > td {
+      background-color: transparent;
+    }
+
+    > tr:nth-child(even) > td {
+      background-color: #f6f6f6;
+    }
+  }
+
+  td:first-child, th:first-child {
+    padding-left: 1em;
+  }
+
+
+  td:last-child, th:last-child {
+    padding-right: 1em;
+  }
+}

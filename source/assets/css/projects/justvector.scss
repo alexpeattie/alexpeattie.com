@@ -1,0 +1,31 @@
+.jv-ColorChangingIcons {
+  margin: 1em 0 2.5em -2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  svg {
+    fill: #1abc9c;
+    animation-name: animation--color-changer;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    width: 6%;
+    margin: 0 3%;
+    height: 10vw;
+    max-height: 100px;
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) { 
+        animation-delay: (0.2s * $i);
+      }
+    }
+  }
+}
+
+.ContentBody .jv-FullPreview {
+  margin: 1em 0 -1em -2%;
+}
+
+.jv-VersionHistory {
+  font-size: 90%;
+}

@@ -1,0 +1,73 @@
+@import 'variables';
+
+.codehilite {
+  margin: 2em 0 2.8em;
+
+  table, tbody {
+    display: block;
+    width: 100%
+  }
+
+  td {
+    border: 1px solid #dee;
+  }
+
+  tr {
+    display: flex;
+    width: 100%;
+  }
+
+  .code {
+    flex: 1 0 0px;
+    margin-left: -1px;
+
+    // firefox again
+    display: block;
+    max-width: calc(100% - 2em);
+  }
+}
+
+pre {
+  padding: 10px;
+  margin: 0;
+  line-height: 23px;
+  white-space: pre;
+  overflow-x: auto;
+  word-break: inherit;
+  word-wrap: inherit;
+}
+
+.codehilite .gl { 
+  background: #fafafa;
+  border-right: 1px solid #ddd;
+  color: $border;
+  user-select: none;
+  padding: 0 5px;
+  overflow: hidden;
+}
+
+p code, li code, td code {
+  color: $darkText;
+  background: #fafafa;
+  padding: 3px 6px;
+  border-radius: 8px;
+  border: 1px dotted $border;
+  margin: 0 4px;
+  font-size: 90%;
+  word-wrap: break-word;
+}
+
+.ArgumentSpec {
+  background: lighten($textHighlight, 3%);
+  padding: 1em 2em;
+  list-style-type: none;
+  line-height: 190%;
+  border-radius: 8px;
+  border: solid 1px $lightBorder;
+  margin: 2.5em 0 1.5em;
+
+  li strong { padding-left: 0; }
+  li code {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}

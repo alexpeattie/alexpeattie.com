@@ -1,0 +1,24 @@
+@import 'variables';
+
+.Callout {
+  background: lighten($textHighlight, 3%);
+  padding: 1em;
+  border-radius: 8px;
+  border: solid 1px $lightBorder;
+  margin: 2.5em 0 1.5em;
+  & strong, .ContentBody & strong {
+    padding-left: 0
+  }
+}
+
+.SourceCallout {
+  background: #f9f9f9;
+  text-align: center;
+  margin: 0;
+  font-size: 95%;
+  padding: 2em;
+
+  > p {
+    margin: 0;
+  }
+}

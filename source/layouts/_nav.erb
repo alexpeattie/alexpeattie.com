@@ -1,0 +1,19 @@
+<header>
+  <nav class='MainMenu'>
+    <a href='/' class='Logo'>
+      <span>alex</span>peattie
+    </a>
+
+    <a class='NavBtn NavBtn--mobileOnly' data-toggle-modal-menu>Menu</a>
+
+    <section class='MainMenu-links'>
+      <a href='/' class='NavBtn' id='NavBtnAbout'>About Me</a>
+      <a href='/projects' class='NavBtn' id='NavBtnProjects'>Projects</a>
+      <a href='/blog' class='NavBtn' id='NavBtnBlog'>Blog</a>
+
+      <a class='NavBtn NavBtn--close' data-toggle-modal-menu>✕</a>
+    </nav>
+  </nav>
+
+  <%= yield_content :header %>  
+</header>

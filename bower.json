@@ -1,0 +1,31 @@
+{
+  "name": "alexpeattie.com",
+  "version": "3.0.0",
+  "authors": [
+    "Alex Peattie <me@alexpeattie.com>"
+  ],
+  "description": "My (Alex Peattie's) personal site",
+  "main": "source/index.html.erb",
+  "license": "MIT",
+  "homepage": "http://alexpeattie.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "normalize-css": "~3.0.3",
+    "video.js": "~4.12.15",
+    "videojs-sublime-skin": "~1.0.3",
+    "FitText.js": "~1.2.0",
+    "remodal": "~1.0.6",
+    "vivus": "~0.2.3",
+    "headroom.js": "~0.7.0",
+    "pygments-css": "https://github.com/richleland/pygments-css.git#146708f9003299106baf05987abf393eae4424fc",
+    "inviewport": "https://github.com/henkbulder/inViewPort.git#26b578fa047cdf1d7369a6617281cb321018600d"
+  }
+}
