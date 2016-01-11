@@ -44,9 +44,9 @@ middleman build
     │   ├── js
     │   └── videos
     ├── blog
-    ├── components          # partials for self-contained components (e.g. modals)
+    ├── components          # reusable components (i.e. partials)
     ├── files               # downloads
-    ├── layouts             # layout files & global partials
+    ├── layouts
     └── projects
 ~~~
 

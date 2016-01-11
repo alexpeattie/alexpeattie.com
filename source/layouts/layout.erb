@@ -35,7 +35,7 @@
   </head>
 
   <body class='<%= page_classes %>'>
-    <%= partial 'layouts/nav' %>
+    <%= partial 'components/nav' %>
 
     <main>
       <%= yield %>
@@ -49,5 +49,7 @@
       <p>© <%= Time.now.year %> Alex Peattie. Questions? Email <a href='mailto:me@alexpeattie.com'>me@alexpeattie.com</a>, or ping me on Twitter: <a href='https://twitter.com/alexpeattie'>@alexpeattie</a>
       </p>
     </footer>
+
+    <%= partial 'components/google-analytics' %>
   </body>
 </html>
