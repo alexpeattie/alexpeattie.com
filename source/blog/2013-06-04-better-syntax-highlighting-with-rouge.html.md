@@ -2,6 +2,8 @@
 title: 'Better GitHub-style syntax highlighting with Rouge'
 ---
 
+<div class='Callout'><p><strong>Update 2016</strong>: This tutorial is out-of-date. See the <a href='https://github.com/alexpeattie/alexpeattie.com'>repository for  alexpeattie.com</a> and the <a href='https://github.com/alexpeattie/alexpeattie.com#syntax-highlighting'>associated README</a> to see how I do it now.</p></div>
+
 This is a sequel to my earlier post: [GitHub-style syntax highlighting with Pygments](/blog/github-style-syntax-highlighting-with-pygments/) - I recently updated the way I do syntax highlighting on this site, so here's a quick writeup of how I'm doing it. As before, here's a snippet of Ruby code to demonstrate how the highlighting looks:
 
 ~~~ruby

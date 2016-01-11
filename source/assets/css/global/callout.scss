@@ -1,13 +1,28 @@
 @import 'variables';
 
 .Callout {
-  background: lighten($textHighlight, 3%);
-  padding: 1em;
-  border-radius: 8px;
-  border: solid 1px $lightBorder;
+  background: darken(#fff, 2%);
+  padding: 1em 2em;
+  border-left: solid 5px #eb894e;
   margin: 2.5em 0 1.5em;
+  position: relative;
   & strong, .ContentBody & strong {
     padding-left: 0
+  }
+
+  &::before {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: -12px;
+    background-color: #eb894e;
+    color: #fff;
+    content: "!";
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
   }
 }
 

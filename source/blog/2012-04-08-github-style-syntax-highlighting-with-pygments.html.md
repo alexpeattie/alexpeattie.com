@@ -2,7 +2,7 @@
 title: 'GitHub-style syntax highlighting with Pygments'
 ---
 
-<div class='alert'><p><em>Update 2013</em>: This tutorial is out-of-date. I've since updated to using Rouge alongside the latest version of middleman - <a href='/blog/better-syntax-highlighting-with-rouge/'>here's the full write up.</a></p></div>
+<div class='Callout'><p><strong>Update 2016</strong>: This tutorial is out-of-date. See the <a href='https://github.com/alexpeattie/alexpeattie.com'>repository for  alexpeattie.com</a> and the <a href='https://github.com/alexpeattie/alexpeattie.com#syntax-highlighting'>associated README</a> to see how I do it now.</p></div>
 
 A few people have asked me how I do the Github-style syntax highlighting on this site. Here's an example Ruby script with highlighting:
 
