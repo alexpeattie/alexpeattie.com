@@ -35,6 +35,16 @@ configure :build do
   activate :gzip
 end
 
+# S3 config, obviously change this if you're not me 😉
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket = 'alexpeattie.com'
+  s3_sync.region = 'us-east-1'
+  s3_sync.aws_access_key_id = ENV['AP_AWS_ACCESS_KEY_ID']
+  s3_sync.aws_secret_access_key = ENV['AP_AWS_SECRET_ACCESS_KEY']
+  s3_sync.version_bucket = true
+  s3_sync.index_document = 'index.html'
+end
+
 # Redirects
 redirect 'projects/justvector_icons.html', to: '/projects/justvector-icons'
 redirect 'projects/animate-textshadow.html', to: '/projects#legacy'
