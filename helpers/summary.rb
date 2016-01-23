@@ -7,7 +7,7 @@ module Summary
       article_body = Nokogiri::HTML::DocumentFragment.parse(article_html)
       content = article_body.css('p').detect { |p|
         not p.text.strip.empty? || p['role'] == 'menu'
-      }&.inner_html
+      }.inner_html rescue nil
 
       TruncateHTML.truncate_html(content, max_length, '') + ellipsis
     end

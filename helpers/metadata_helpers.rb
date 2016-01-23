@@ -1,9 +1,10 @@
 require 'active_support/core_ext/string/inflections'
+require 'sanitize'
 
 module MetadataHelpers
   def title
-    page_title = current_page.data.title
-    return page_title if page_title&.include?('Alex Peattie')
+    page_title = Sanitize.fragment(current_page.data.title)
+    return page_title if page_title.to_s.include?('Alex Peattie')
 
     [(page_title || slug), 'Alex Peattie'].join(' - ')
   end

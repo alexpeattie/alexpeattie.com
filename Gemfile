@@ -1,7 +1,7 @@
 # If you do not have OpenSSL installed, change
 # the following line to use 'http://'
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.2.3'
 
 # For faster file watcher updates on Windows:
 gem 'wdm', '~> 0.1.0', platforms: [:mswin, :mingw]
@@ -16,4 +16,4 @@ gem 'middleman-sprockets', '4.0.0.rc.1'
 gem 'middleman-autoprefixer'
 gem 'middleman-syntax'
 gem 'middleman-blog'
-gem 'middleman-s3_sync', '4.0.1.rc.3'
+gem 'sanitize'

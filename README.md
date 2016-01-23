@@ -9,7 +9,7 @@ In production, I'm hosting the site on Amazon S3.
 ## Getting the site up & running
 
 #### Prerequisites
-- Ruby 2.3
+- Ruby 2.2.3
 - Bundler
 - NPM & Bower
 
