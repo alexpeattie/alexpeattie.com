@@ -1,3 +1,1 @@
 - Move from Sprockets to something like webpack
-- Caching
-- Set up SSL
