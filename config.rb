@@ -8,7 +8,7 @@ set :css_dir, 'assets/css'
 set :js_dir, 'assets/js'
 set :images_dir, 'assets/images'
 
-activate :directory_indexes
+# activate :directory_indexes
 activate :syntax, line_numbers: true, css_class: 'codehilite'
 
 activate :autoprefixer do |config|

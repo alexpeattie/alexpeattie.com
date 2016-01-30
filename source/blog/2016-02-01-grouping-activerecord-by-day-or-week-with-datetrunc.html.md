@@ -2,19 +2,19 @@
 title: "Rails tip – Grouping ActiveRecord objects by day or week using <code>datetrunc</code>"
 ---
 
-Here's a quick Rails question for you. We have a bunch of *Posts* in a Postgres DB which we want to order by publication day - but Posts published on the **same day** should be ordered by a different column: upvotes. (This is basically how [Product Hunt](https://www.producthunt.com/tech) does it). How would we do it?
+Here's a quick Rails question for you. We have a bunch of *Posts* in a Postgres DB which we want to order by publication day - but Posts published on the **same day** should be ordered by a different column: upvotes. (This is basically how [Product Hunt](https://www.producthunt.com/tech) does it). We're paginating, so we only care about the first 100 posts. How would we do it?
 
 Maybe you'd start with something like this:
 
 ~~~ruby
 Post.all.group_by { |post|
-  post.created_at.to_date
+  post.published_at.to_date
 }.flat_map { |day, posts|
   posts.sort_by(&:score).reverse
-}
+}.first(100)
 ~~~
 
-It's not terrible (it works), it's the [kind of thing](http://stackoverflow.com/questions/4987392/how-do-i-group-by-day-instead-of-date) you'll find if you Google "rails group by day". The problem with the code is *a)* it's a bit ugly and *b)* is it's not very efficient. Using our `Enumerable` methods (`group_by` and `flat_map`), means we have to load all our Posts into memory and do the sorting in Ruby - which is relatively slow.
+It's not terrible (it works), it's the [kind of thing](http://stackoverflow.com/questions/4987392/how-do-i-group-by-day-instead-of-date) you'll find if you Google "rails group by day". The problem with the code is *a)* it's a bit ugly and *b)* is it's not very efficient. Using our `Enumerable` methods (`group_by` and `flat_map`), means we have to load **all** our Posts into memory, sort them with Ruby, then pull out the 100 we care about. This is slow & inefficient.
 
 To get me started I ran this on 30K records, it took about 7 seconds (I didn't profile the memory usage, but I'd expect it to be quite high). So we might get away with using Ruby to order a few hundred records, but this doesn't scale to thousands or millions of records.
 
@@ -71,4 +71,41 @@ Post.order("date_trunc('millennium', published_at)")
 
 ### Using indexes for crazy performance 🔥
 
-Using `date_trunc` is faster than our plain-Ruby approach from the get-go - running it on the same 30K rows took about 1.3 seconds.
+Using `date_trunc` is faster than our plain-Ruby approach from the get-go - running our final query (below) on the same 30K rows takes just 155ms seconds!
+
+~~~ruby
+Post.order("date_trunc('day', published_at) DESC, upvotes DESC").limit(100)
+#=> Post Load (155.2ms)  SELECT  "posts".* FROM "posts" ORDER BY date_trunc('day', published_at) DESC, upvotes DESC  LIMIT 100
+~~~
+
+We can push performance even further by adding an index. We're doing something a bit more complex than just indexing the value of column here, because we're running it through a function first. We'll need expression (or function-based) index. These aren't natively supported in vanilla Rails yet (but there's an [open Pull Request](https://github.com/rails/rails/pull/13684) to add them), so we'll use the [`schema_plus_pg_indexes`](https://github.com/SchemaPlus/schema_plus_pg_indexes) gem.
+
+With the gem added to our Gemfile, we'll generate a migration
+
+~~~ruby
+bin/rails g migration add_creation_day_score_index_to_posts
+~~~
+
+Then we'll add our expression index:
+
+~~~ruby
+class AddCreationDayScoreIndexToPosts < ActiveRecord::Migration
+
+  def up
+    add_index :posts, expression: "date_trunc('day', published_at) DESC, score DESC", name: 'posts_creation_day_score_index'
+  end
+
+  def down
+    remove_index :posts, name: 'posts_creation_day_score_index'
+  end
+
+end
+~~~
+
+With the index in place, I saw the query complete in **2.2ms** - that's a 70x speedup. Of course 150ms is already pretty fast - but this has real implications if we're grouping by day/month on a really big table.
+
+I tried using `date_trunc` on a collection of videos from [Peg's](https://peg.co) database, with 16 million rows - ordering the Videos' `published_at` day and `view_count`. Without indexing the query took 42 seconds, with indexing it was only - 20ms not much slower than our 30K row table! I didn't even try the pure Ruby version (spoiler alert: you're in for a bad time).
+
+### Conclusion
+
+`date_trunc` is a very handy little function, that lets you group by time period much much quicker than in plain old Ruby. Have you used `date_trunc`? Any tips for getting the most out of it? Let me know in the comments 😊!
