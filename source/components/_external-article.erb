@@ -1,7 +1,7 @@
 <article class='TimelineItem TimelineItem--post TimelineItem--externalPost'>
   <section class='TimelineItem-details'>
     <h2>
-      <% link_to(article.data.external_link) do %>
+      <% link_to(article.data.external_link, target: '_blank') do %>
         <%= image_tag 'icons/link.png' %>
         <%= article.title %>
       <% end %>

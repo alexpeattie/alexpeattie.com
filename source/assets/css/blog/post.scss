@@ -31,6 +31,10 @@
       left: -8px;
       margin-top: 10px;
     }
+
+    .TimelineItem-details::after {
+      display: none;
+    }
   }
 }
 
