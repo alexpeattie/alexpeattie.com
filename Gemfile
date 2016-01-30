@@ -16,4 +16,6 @@ gem 'middleman-sprockets', '4.0.0.rc.1'
 gem 'middleman-autoprefixer'
 gem 'middleman-syntax'
 gem 'middleman-blog'
+
 gem 'sanitize'
+gem 'rack-rewrite', '~> 1.5.0'

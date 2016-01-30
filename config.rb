@@ -1,4 +1,5 @@
 require 'helpers/summary'
+require 'rack/rewrite'
 
 configure :development do
   activate :livereload
@@ -21,7 +22,7 @@ sprockets.append_path File.join(root, 'bower_components')
 
 activate :blog do |blog|
   blog.prefix = 'blog/'
-  blog.permalink = ':title'
+  blog.permalink = ':title.html'
   blog.layout = 'post'
   blog.summary_generator = Summary::Generator.method(:generate)
 end
@@ -33,6 +34,13 @@ configure :build do
   activate :minify_css
   activate :minify_javascript
   activate :gzip
+end
+
+configure :development do
+  # mimic Netlify's URL rewriting (https://www.netlify.com/docs/redirects#trailing-slash)
+  use ::Rack::Rewrite do
+    rewrite %r{^/([^.]+)$}, '/$1.html'
+  end
 end
 
 # Redirects
