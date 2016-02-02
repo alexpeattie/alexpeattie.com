@@ -1,5 +1,10 @@
 ---
 title: "Rails tip – Grouping ActiveRecord objects by day or week using <code>datetrunc</code>"
+meta: '<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@alexpeattie" />
+<meta name="twitter:title" content="Rails tip – Grouping ActiveRecord objects by day or week using datetrunc" />
+<meta name="twitter:description" content="Imaging we have a bunch of Posts in a Postgres DB which we want to order by publication day - but..." />
+<meta name="twitter:image" content="https://alexpeattie.com/assets/images/posts/grouping-activerecord-by-day-or-week-with-datetrunc/rails.png" />'
 ---
 
 Here's a quick Rails question for you. We have a bunch of *Posts* in a Postgres DB which we want to order by publication day - but Posts published on the **same day** should be ordered by a different column: upvotes. (This is basically how [Product Hunt](https://www.producthunt.com/tech) does it). We're paginating, so we only care about the first 100 posts. How would we do it?
