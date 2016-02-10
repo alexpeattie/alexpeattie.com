@@ -57,6 +57,13 @@ p code, li code, td code {
   word-wrap: break-word;
 }
 
+a code {
+  color: inherit;
+  text-decoration: underline;
+  margin: 0 -1px;
+  padding: 3px 10px;
+}
+
 .ArgumentSpec {
   background: lighten($textHighlight, 3%);
   padding: 1em 2em;
