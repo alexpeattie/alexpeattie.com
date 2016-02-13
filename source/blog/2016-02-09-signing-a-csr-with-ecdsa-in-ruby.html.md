@@ -1,5 +1,10 @@
 ---
 title: Signing a CSR with an ECDSA key in Ruby
+meta: '<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@alexpeattie" />
+<meta name="twitter:title" content="Signing a CSR with an ECDSA key in Ruby" />
+<meta name="twitter:description" content="Let's Encrypt just rolled out support for ECDSA certificates in staging..." />
+<meta name="twitter:image" content="https://alexpeattie.com/assets/images/posts/signing-a-csr-with-ecdsa-in-ruby/certificate.png" />'
 ---
 
 Let's Encrypt just [rolled out support](https://community.letsencrypt.org/t/ecdsa-testing-on-staging/8809) for ECDSA certificates in staging - a move that I think will nudge ECDSA signing more into the mainstream. ECDSA offers higher levels of security at much lower key sizes; as Ivan Ristić explains in [Bulletproof SSL and TLS](https://www.feistyduck.com/books/bulletproof-ssl-and-tls/):
