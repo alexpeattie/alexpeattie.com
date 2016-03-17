@@ -72,24 +72,24 @@ scripts:
 
 
     <section class='MediaAppearances'>
-      <section class='MediaAppearances-details' data-remodal-target='video-londonlive'>
+      <section class='MediaAppearances-details' video-modal='londonlive'>
         <h4>Interview w/ London Live TV</h4>
         <date>19/06/14</date>
       </section>
 
       <section class='MediaAppearances-thumb'>
-        <a data-remodal-target='video-londonlive'>
+        <a video-modal='londonlive'>
           <%= image_tag 'home/londonlive.png' %>
         </a>
       </section>
 
-      <section class='MediaAppearances-details' data-remodal-target='video-sky'>
+      <section class='MediaAppearances-details' video-modal='sky'>
         <h4>Sky News piece</h4>
         <date>18/07/14</date>
       </section>
 
       <section class='MediaAppearances-thumb'>
-        <a data-remodal-target='video-sky'>
+        <a video-modal='sky'>
           <%= image_tag 'home/sky.png' %>
         </a>
       </section>
@@ -116,5 +116,4 @@ scripts:
   </section>
 </article>
 
-<%= partial 'components/video-modal', locals: { video: 'londonlive' } %>
-<%= partial 'components/video-modal', locals: { video: 'sky' } %>
+<%= partial 'components/video-modal' %>
