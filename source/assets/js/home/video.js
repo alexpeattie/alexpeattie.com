@@ -1,29 +1,17 @@
-//= require video.js/dist/video-js/video
 //= require remodal/dist/remodal
 
 $(document).ready(function() {
-  var videoModal;
-  var remodalInstance;
-
-  $(document).on('closing', '.remodal', function (e) {
-    videojs($('[data-remodal-id] video')[0]).pause();
+  $(document).on('closed', '.remodal', function (e) {
+    $('[data-remodal-id]').remove();
   })
 
   $('[video-modal]').on('click', function() {
     $('[data-remodal-id]').remove();
 
     var modalHtml = $('#video-modal-template').html()
-    var vidName = $(this).attr('video-modal');
-
     var modal = $(modalHtml)
-      .find('video').attr('id', 'video-' + vidName).end()
-      .find('source').attr('src', '/assets/videos/' + vidName + '.mp4').end()
+      .find('iframe').attr('src', 'https://www.youtube.com/embed/' + $(this).attr('video-modal') + '?autoplay=1').end()
       .appendTo('body')
-
-    var video = videojs(modal.find('video')[0], {});
-    var remodal = modal.remodal()
-    remodal.open();
-
-    video.play();
+    modal.remodal().open();
   })
 })

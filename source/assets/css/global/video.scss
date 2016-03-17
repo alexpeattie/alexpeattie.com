@@ -1,27 +1,14 @@
-// video.js responsive video
-
-.video-js-responsive-container.vjs-hd {
-  padding-top: 56.25%;
-}
-
-.video-js-responsive-container.vjs-sd {
-  padding-top: 75%;
-}
-
-.video-js-responsive-container {
-  width: 100%;
+.responsive-video-wrapper {
   position: relative;
-
-  .vjs-error-display {
-    font-size: 12px;
-    line-height: 24px;
-  }
+  padding-bottom: 53%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
 }
 
-.video-js-responsive-container .video-js {
-  height: 100% !important; 
-  width: 100% !important;
+.responsive-video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
 }

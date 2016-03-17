@@ -30,6 +30,8 @@ article {
 header {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 
   @media(max-width: $mobile) {
     margin-bottom: 4em;

@@ -19,8 +19,6 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "normalize-css": "~3.0.3",
-    "video.js": "~4.12.15",
-    "videojs-sublime-skin": "~1.0.3",
     "FitText.js": "~1.2.0",
     "remodal": "~1.0.6",
     "vivus": "~0.2.3",
