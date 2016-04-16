@@ -3,8 +3,42 @@ title: Projects (mostly JavaScript and web stuff)
 description: The various personal projects I've released from 2010-2016 - mainly JS & Ruby libraries. Pretty much everything was made just for fun, and is open-source and released under MIT/copy-left licenses.
 ---
 
-
 <article class='TimelineItem TimelineItem--fadeIn'>
+  <aside class='TimelineItem-pics'>
+    <%= image_tag 'projects/investorlist.gif' %>
+  </aside>
+
+  <section class='TimelineItem-details'>
+    <h2><a href='https://investorlist.co/'>InvestorList</a></h2>
+    <h3>Searchable online directory</h3>
+    <p>A searchable, crowdsourced list of over 1k investors. Friday hackathon project: the frontend is powered by Angular and Gulp, consuming CSV from Google Sheets as a super-simple backend.</p>
+
+    <p>
+      <a href='https://investorlist.co/' class='Btn'>Go to InvestorList</a>
+    </p>
+  </section>
+</article>
+
+<article class='TimelineItem'>
+  <aside class='TimelineItem-pics -projects-le'>
+    <%= image_tag 'projects/letsencrypt.png' %>
+  </aside>
+
+  <section class='TimelineItem-details'>
+    <h2><a href='https://github.com/alexpeattie/letsencrypt-fromscratch'>Building a Let's Encrypt client from scratch</a></h2>
+    <h3>In-depth guide</h3>
+    <p>A pretty detailed (7k word) how-to on building a simple ACME client from scratch, able to issue real certificates from <a href='https://letsencrypt.org'>Let's Encrypt</a>. The example code is written in Ruby.</p>
+
+    <p>
+      <a href='https://github.com/alexpeattie/letsencrypt-fromscratch' class='Btn Btn--source'>
+        Read
+      </a>
+    </p>
+  </section>
+</article>
+
+
+<article class='TimelineItem'>
   <aside class='TimelineItem-pics -projects-prideify'>
     <%= image_tag 'projects/prideify/teaser.png', class: 'prideify-Teaser' %>
   </aside>

@@ -1,5 +1,8 @@
-.TimelineItem-pics.-projects-prideify img {
+.TimelineItem-pics.-projects-prideify img, .TimelineItem-pics.-projects-le img  {
   border-radius: 100px;
+}
+
+.TimelineItem-pics.-projects-prideify img {
   mask-image: linear-gradient(to bottom, rgba(0,0,0, 0.2) 0%, rgba(0,0,0, 1) 70%);
 }
 

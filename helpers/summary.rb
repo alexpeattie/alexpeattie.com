@@ -9,7 +9,7 @@ module Summary
         not p.text.strip.empty? || p['role'] == 'menu'
       }.inner_html rescue nil
 
-      TruncateHTML.truncate_html(content, max_length, '') + ellipsis
+      TruncateHTML.truncate_at_length(content, (max_length || 500), "") + ellipsis
     end
   end
 

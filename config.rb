@@ -18,6 +18,7 @@ end
 
 # Keep the root directory clean
 files.watch :source, path: File.join(root, 'source', 'assets', 'favicons'), priority: 100
+
 sprockets.append_path File.join(root, 'bower_components')
 
 activate :blog do |blog|
