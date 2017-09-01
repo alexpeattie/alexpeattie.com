@@ -6,6 +6,14 @@
   mask-image: linear-gradient(to bottom, rgba(0,0,0, 0.2) 0%, rgba(0,0,0, 1) 70%);
 }
 
+.TimelineItem-pics.-projects-nitlink img:first-child {
+  margin-top: 3em;
+}
+
+.TimelineItem-pics.-projects-vidbot {
+  padding: 0 3em 2em;
+}
+
 .TimelineItem-pics.-projects-thumb-windowed img {
   transform: scale(1.3);
 }
