@@ -9,6 +9,11 @@ set :css_dir, 'assets/css'
 set :js_dir, 'assets/js'
 set :images_dir, 'assets/images'
 
+set :markdown, smart_quotes: 'lsquo,rsquo,ldquo,rdquo'
+
+Tilt::KramdownTemplate.send(:remove_const, :DUMB_QUOTES)
+Tilt::KramdownTemplate.const_set(:DUMB_QUOTES, 'lsquo,rsquo,ldquo,rdquo')
+
 # activate :directory_indexes
 activate :syntax, line_numbers: true, css_class: 'codehilite'
 
@@ -19,7 +24,7 @@ end
 # Keep the root directory clean
 files.watch :source, path: File.join(root, 'source', 'assets', 'favicons'), priority: 100
 
-sprockets.append_path File.join(root, 'bower_components')
+sprockets.append_path File.join(root, 'node_modules')
 
 activate :blog do |blog|
   blog.prefix = 'blog/'
@@ -48,3 +53,4 @@ end
 redirect 'projects/justvector_icons.html', to: '/projects/justvector-icons'
 redirect 'projects/animate-textshadow.html', to: '/projects#legacy'
 redirect 'projects/feedback_button.html', to: '/projects#legacy'
+redirect 'hp.html', to: '/talks/hp'

@@ -2,13 +2,14 @@
 
 .Btn {
   padding: 12px 16px;
-  color: #4eb0eb;
+  color: #3697d2;
   border-radius: 8px;
   display: inline-block;
-  border: 1px solid #4eb0eb;
+  border: 1px solid #3697d2;
   opacity: 0.7;
   margin-right: 10px;
   transition: opacity 0.3s ease;
+  outline: none;
 
   p & {
     margin-bottom: 10px;

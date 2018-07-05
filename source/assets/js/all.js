@@ -1,12 +1,12 @@
-//= require jquery/dist/jquery
-//= require vivus/dist/vivus
-//= require inviewport/inviewport.jquery
-//= require headroom.js/dist/headroom
-//= require headroom.js/dist/jQuery.headroom
+//= require @bower_components/jquery/dist/jquery
+//= require @bower_components/vivus/dist/vivus
+//= require @bower_components/inviewport/inviewport.jquery
+//= require @bower_components/headroom.js/dist/headroom
+//= require @bower_components/headroom.js/dist/jQuery.headroom
 
-$(window).load(function(){
+$(window).on('load', function(){
   $('.TimelineItem-pics--jelly > img').inviewport({
-    threshold: 75, 
+    threshold: 75,
     className: 'is-revealed'
   });
 })

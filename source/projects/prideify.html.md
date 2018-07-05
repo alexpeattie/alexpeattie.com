@@ -150,8 +150,8 @@ Setting crossOriginProxy to true will load the image via <http://crossorigin.me>
 If you don't want to use the default colors, or want extra or fewer stripes, you can set use a `customStripes` array. This is a nested array of arrays, each containing the RGB values of each stripe:
 
 ~~~javascript
-Prideify('.profile-pic', { 
-  customStripes: [[0, 0, 0], [255, 255, 255]] 
+Prideify('.profile-pic', {
+  customStripes: [[0, 0, 0], [255, 255, 255]]
 });
 ~~~
 

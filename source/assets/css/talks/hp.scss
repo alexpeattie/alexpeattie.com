@@ -1,0 +1,22 @@
+//= require slick-carousel/slick/slick.css
+
+.Arrows {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.Arrows .Btn {
+  font-weight: 500;
+  border-width: 3px;
+
+  &:hover {
+    color: #3697d2
+  }
+
+  &[aria-disabled=true], &:hover[aria-disabled=true] {
+    color: #ccc;
+    border-color: #ccc;
+    cursor: default;
+    opacity: 0.7;
+  }
+}

@@ -9,6 +9,7 @@
   }
 
   td {
+    background: #27455c;
     border: 1px solid #dee;
   }
 
@@ -20,6 +21,7 @@
   .code {
     flex: 1 0 0px;
     margin-left: -1px;
+    color: #fff;
 
     // firefox again
     display: block;
@@ -37,13 +39,14 @@ pre {
   word-wrap: inherit;
 }
 
-.codehilite .gl { 
+.codehilite .gl {
   background: #fafafa;
   border-right: 1px solid #ddd;
   color: $border;
   user-select: none;
   padding: 0 5px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 p code, li code, td code {

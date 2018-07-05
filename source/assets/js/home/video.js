@@ -1,4 +1,4 @@
-//= require remodal/dist/remodal
+//= require @bower_components/remodal/dist/remodal
 
 $(document).ready(function() {
   $(document).on('closed', '.remodal', function (e) {
