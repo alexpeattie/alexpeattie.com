@@ -71,9 +71,13 @@ blockquote {
   margin: 30px 0;
   font-size: 110%;
   border-left: 3px solid #4eb0eb;
-  padding-left: 40px;
+  padding: 5px 0 5px 40px;
+  background: #fcfcfc;
 
-  p { color: #999; }
+  p, .ContentBody & p {
+    color: #666;
+    margin: 20px 0;
+  }
 }
 
 .ContentBody, .Comments {

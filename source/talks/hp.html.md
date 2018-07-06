@@ -11,6 +11,8 @@ Hi there 👋! Here are my extended notes for [the talk](https://brightonruby.co
 
 ### Introduction
 
+This is a talk based around a big idea: using Ruby to write a brand new Harry Potter story, completely automatically. Whether we're embarking on this journey for self-enlightenment, or to grab a slice of J. K.'s billions, along the way we'll see first-hand the power and elegance of Ruby for tackling problems in the field of [natural language processing](https://en.wikipedia.org/wiki/Natural_language_processing).
+
 Let's get straight to the "good part": what does our final program look like, and what kind of quality can we expect from the Harry Potter stories it generates? Here's a minimal implementation of our final model (a 4-gram model using a weighted random algorithm/maximum likelihood approach for choosing continuations - don't worry if that sounds like gibberish for now!). For the minimal version, we haven't worried about things like testability, object orientedness etc.
 
 ~~~ruby
@@ -43,29 +45,45 @@ puts story.join(" ")
 
 And here's an example output from the program. (Note: I've added punctuation, and also done some heavy cherry-picking to show off one of the better runs, but otherwise the output is untouched).
 
-If you'd like study the code above, and try and see if you can understand what's going on. Or alternatively, read on, as I reveal the Dark Arts of the program's inner workings...
+![Neville, Seamus and Dean were muttering but did not speak when Harry had told Fudge mere weeks ago that Malfoy was crying, actually crying tears, streaming down the sides of their heads. “They revealed a spell to make your bludger” said Harry, anger rising once more.](talks/hp/final-output.png)
+
+If you'd like, study the code above, and try and see if you can understand what's going on. Or alternatively, read on as I reveal the Dark Arts of the program's inner workings...
 
 ### iPhone inspiration
 
 As developers, we're trained to take a large problem and break it down into smaller sub-problems. However, if you're like me, when faced with the problem of telling a story (or even generating a coherent sentence) your first reaction might be "Where on earth do I start?".
 
-There's an old XX proverb: "How do you eat an elephant? One bite at a time." In a similar fashion, the secret to making the problem of generating our Harry Potter pastiche manageable is to focus on *generating it one word at a time*. That is, our program will work iteratively, and at each iteration it will extend our story by a single word (ideally, in such a way that the end result is coherent and Rowling-esque).
+There's an old army proverb: "How do you eat an elephant? One bite at a time." In a similar fashion, the secret to making the problem of generating our Harry Potter pastiche manageable is to focus on *generating it one word at a time*. That is, our program will work iteratively, and at each iteration it will extend our story by a single word (ideally, in such a way that the end result is coherent and Rowling-esque).
 
-Thinking in these terms, it turns out we have an amazing source of inspiration closer than we think (there's a good chance it's sitting in your pocket right now) - our smartphones. All modern smartphones come equipped with a [predictive keyboard]. Although we generally treat predictive keyboard as a typing age, they can also be a surprisingly effective way to generate language. I the recording I took from my phone below, I repeatedly hammer the middle prediction button - have a look at the output in generates:
+Thinking in these terms, it turns out we have an amazing source of inspiration closer than we think (there's a good chance it's sitting in your pocket right now) - our smartphones. All modern smartphones come equipped with a [predictive keyboard](https://en.wikipedia.org/wiki/Predictive_text). Although we generally treat predictive keyboard as a typing aid, they can also be a surprisingly effective way to generate language. In the recording I took from my phone below, I repeatedly hammer the middle prediction button - have a look at the output it generates:
 
-My predictive keyboard, (ab)used in such a way, becomes a surprisingly good language generator - that sentence could easily have been written by a human. What's more, my predictive keyboard, through years of me using my phone has *learnt my style of writing*, the words it suggests are based on my patterns of language use, so the generated sentence, in some ways, "sounds like me". This is why predictive keyboards are of such interest to us: if we can understand how my phone is able to imitate my style of writing, we can apply the same principles to write a Ruby program to imitate the style of J. K. Rowling/the Harry Potter books.
+<p class='u-centerText'>
+  <video width="375" height="450" controls autoplay loop>
+    <source src="/assets/images/talks/hp/predictive.mp4" type="video/mp4">
+  </video>
+</p>
 
-So how does my phone learn my style, and offer predictions tailored to me? Fundamentally, it comes down to counting: my phone counts the words I use most frequently in a given context. For example, buried somewhere in my phones memory are stats like this:
+My predictive keyboard, (ab)used in such a way, becomes a surprisingly good language generator - that sentence could easily have been written by a human. What's more, my predictive keyboard, through years of me using my phone, has *learnt my style of writing*; the words it suggests are based on my patterns of language use, so the generated sentence, in some ways, "sounds like me". This is why predictive keyboards are of such interest to us: if we can understand how my phone is able to imitate my style of writing, we can apply the same principles to write a Ruby program to imitate the style of J. K. Rowling/the Harry Potter books.
+
+So how does my phone learn my style, and offer predictions tailored to me? Fundamentally, it comes down to counting: my phone counts the words I use most frequently in a given context. For example, buried somewhere in my phone's memory are stats like this:
+
+![My phone keeps stats on the words I use after "birthday"](talks/hp/phone-stats1.png)
 
 My phone knows that after "birthday", I used the word "party" more frequently than any other word, so that's the predictive keyboard's #1 suggestion. "cake" and "party", my 2nd and 3rd most frequently chosen follow-on words for "birthday" are accordingly offered as the #2 and #3 suggestions.
 
-How could we build a predictive keyboard trained on the Harry Potter books? (In fact, that's exactly what XX did, yeilding amusing results). Well, for any given word, we just need to enumerate the words that are used directly after that word, and how many times each is used. For example, consider the word "golden":
+How could we build a predictive keyboard trained on the Harry Potter books? (In fact, that's exactly what [Botnik Studios did](https://nerdist.com/new-harry-potter-chapter-predictive-keyboard/), yeilding amusing results). Well, for any given word, we just need to enumerate the words that are used directly after that word, and how many times each is used. For example, consider the word "golden":
 
-The word "golden" is followed most frequently by "egg" in the series (the phrase "golden egg", a key element in the Triwizard tournament, appears 13 times) followed by "snitch" (appearing 11 times) and "light" (10 times).
+![Stats about the words J. K. Rowling uses after "golden"](talks/hp/phone-stats2.png)
 
-Some terminology that will be useful going forward: I'll refer to the word which is used as the basis to generate our suggestions as the *head* or head word, while the suggestions we offer up I'll refer to as the *continuations* (since they continue the sentence).
+The word "golden" is followed most frequently by "egg" in the series (the phrase "golden egg", a key element in the Triwizard tournament, appears 13 times) followed by "snitch" (appearing 11 times) and "plates" (10 times).
+
+Some terminology that will be useful going forward: I'll refer to the word which is used as the basis to generate our suggestions as the **head** or head word, while the suggestions we offer up I'll refer to as the **continuations** (since they continue the sentence).
+
+![We'll keep referring to heads and continuations](talks/hp/phone-terminology.png){:width='400px'}
 
 In summary, we need to collect stats for every unique word which appears in the Harry Potter series (by my count, that's 21,814 words in all), noting each word's continuations and how frequently they occur. Here's a snippet of what our final stats data will look like:
+
+![We'll count each word, it's continuations and how many times each appears](talks/hp/stats-example.png)
 
 Once we've collected these stats, and built our imaginary predictive keyboard, we'll need some procedure to leverage those stats to generate new language. Can we get away with a simple procedure like the one I used in the video above (hammering repeatedly on the predictive keyboard)? Or will we need something more sophisticated? We'll consider that question shortly, but first, let's set up our environment and begin by gathering the stats on J. K.'s language usage.
 
@@ -118,7 +136,8 @@ RSpec.describe HpLanguageModel do
 end
 ~~~
 
-For brevity I'm not taking a purist TDD approach in this tutorial. In real life, you'd want to smaller test cases (e.g. a separate spec for special characters and case), and better coverage of edge cases (what should we get if we pass an empty string to `tokenize`?).
+*Note:* For brevity I'm not taking a purist TDD approach in this tutorial. In real life, you'd want to smaller test cases (e.g. a separate spec for special characters and case), and better coverage of edge cases (what should we get if we pass an empty string to `tokenize`?).
+{: .callout }
 
 Here's a simple implementation of `tokenize` that will pass our spec:
 
@@ -239,7 +258,7 @@ def build_stats
 end
 ~~~
 
-The key bit of  "magic" here, is the [`.each_cons`]((https://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-each_cons)) method, which steps through each consecutive pair of words. The first word in our pair will be our head, the latter our continuation. If this is our first time encountering this head word, we'll add it to our stats hash, with an empty hash as its value. However, rather than doing:
+The key bit of  "magic" here, is the [`.each_cons`](https://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-each_cons) method, which steps through each consecutive pair of words. The first word in our pair will be our head, the latter our continuation. If this is our first time encountering this head word, we'll add it to our stats hash, with an empty hash as its value. However, rather than doing:
 
 ~~~ruby
 stats[head] ||= {}
@@ -247,9 +266,13 @@ stats[head] ||= {}
 
 We instead create a hash with a default value of 0:
 
+~~~ruby
+stats[head] ||= Hash.new(0)
+~~~
+
 That means we can safely call:
 
-~~~
+~~~ruby
 stats[head][continuation] += 1
 ~~~
 
@@ -264,7 +287,17 @@ tokenized_corpus.each_cons(2) do |head, continuation|
 end
 ~~~
 
-If you're not familiar with `.each_cons`, take a look at the slides below, which step through a couple of iterations of the program:
+<!-- If you're not familiar with `.each_cons`, take a look at the slides below, which step through a couple of iterations of the program:
+
+<div data-slick='{ "appendArrows": ".Arrows--stats" }'>
+  <div>
+    <img src='/assets/images/talks/hp/stats-slide1.png' width='800'>
+  </div>
+  <div><img src='/assets/images/talks/hp/stats-slide2.png' width='800'></div>
+  <div><img src='/assets/images/talks/hp/stats-slide3.png' width='800'></div>
+  <div><img src='/assets/images/talks/hp/stats-slide4.png' width='800'></div>
+</div>
+<div class='Arrows Arrows--stats'></div> -->
 
 We have all the code to gather the stats on the way J. K. Rowling's word usage in the Harry Potter, which will form the basis of our imaginary predictive keyboard. Let's lastly knock together a quick script so we can explore the stats we've collected:
 
@@ -332,13 +365,17 @@ pumpkin has 10 unique continuations
 
 > *"Remember what he did, in his ignorance, in his greed and his cruelty."* -- Albus Dumbledore
 
-We've gathered our stats, giving us the data we need to produce the suggested continuations for our imagined predictive keyboard:
+We've gathered our stats, giving us the data we need to produce the suggested continuations for our imagined predictive keyboard in one big stats hash, a portion of which looks like this:
 
-For example, for the word "golden", our top 3 suggestions would be "egg", "snitch" and "plates", since these are the most frequently observed continuations.
+![A portion of our stats hash](talks/hp/stats-portion.png)
+
+For example, we can see that for the word "golden", our top 3 suggestions would be "egg", "snitch" and "plates", since these are the most frequently observed continuations.
 
 How do we now leverage our suggestions to start generating language? The simplest approach is called the "greedy" algorithm. In the same way a greedy child will always go for the biggest, tastiest treat, the greedy algorithm always opts for the "biggest" continuation, always picking the continuation with the **highest observed count**.
 
 We already know the word "egg" appears after the word "golden" in the Harry Potter books more than any other word (13 times in all). The greedy algorithm would thus always generate the word "egg" after "golden". After the word "egg", the word "and" appears more than any other word; the greedy algorithm would thus always pick "and" as the next word. We can think of the greedy algorithm as the equivalent always picking the first suggestion on our predictive keyboard:
+
+![The greedy algorithm always picks the most frequent continuation](talks/hp/greedy-algorithm.png)
 
 Let's implement the greedy algorithm. Revisiting our example sentence - "The cat sat on the mat. The cat was happy." - we can see that "the" appears three times; twice its followed by "cat", once its followed by "mat". The greedy algorithm should always follow "the" with "cat". Let's begin with this assertion:
 
@@ -367,11 +404,11 @@ end
 
 Remember, we'll generate our spangly new HP story one word at a time, using our stats to generate a successor word based on the previous word in our story. We know have almost everything we need to start generating stories with Ruby, but there's one last difficulty to overcome. We generate the next word in our story based on the previous word, but then how do we begin our story? (Obviously, the first word has no previous word so our greedy approach won't work).
 
-Here's a simple approach: let's just pick a random word from our vocabulary (e.g. any of the ~22 thousand words which appear in the Harry Potter series) to begin our story. From there, we'll use the greedy algorithm to extend our story word by word. Let's add a `random_starting_word` and `generate_story` method to `HpLanguageModel`:
+Here's a simple approach: let's just pick a random word from our vocabulary (e.g. any of the ~22 thousand words which appear in the Harry Potter series) to begin our story. From there, we'll use the greedy algorithm to extend our story word by word. Let's add a `random_start` and `generate_story` method to `HpLanguageModel`:
 
 ~~~ruby
 def generate_story(num_words = 50)
-  story = [random_starting_word] # start with a random word from corpus
+  story = [random_start] # start with a random word from corpus
 
   1.upto(num_words - 1) do
     story << pick_next_word_greedily(story.last)
@@ -382,16 +419,16 @@ end
 
 private
 
-def random_starting_word
+def random_start
   stats.keys.sample
 end
 ~~~
 
-Randomly choosing a starting word makes it a bit tricky to test this method. We'll look at more robust ways to address this soon (see *A bit of Herbology: using seeds for randomness* below), but let's add an optional `starting_word` argument to `generate_story`:
+Randomly choosing a starting word makes it a bit tricky to test this method. We'll look at more robust ways to address this soon (see *A bit of Herbology: using seeds for randomness* below), but let's add an optional `start` argument to `generate_story`:
 
 ~~~ruby
-def generate_story(num_words = 50, starting_word = nil)
-  story = [starting_word || random_starting_word]
+def generate_story(num_words = 50, start = nil)
+  story = [start || random_start]
 
   1.upto(num_words - 1) do
     story << pick_next_word_greedily(story.last)
@@ -440,6 +477,8 @@ However, maybe we should give our script another chance. After all, we begin our
 
 Oh no, it's even worse. Well, at least we know what title we should give our new Harry Potter epic...
 
+![Cover for Harry Potter and the door and the door and the door and the door](talks/hp/cover.jpg){:width="350px"}
+
 Why is the greedy algorithm failing so spectacularly? Let's add tweak our script to add some debug info. In `hp_language_model.rb` I'll add a `puts` statement to and set a fixed starting word for our story in `generate_story`:
 
 ~~~ruby
@@ -482,19 +521,13 @@ Choosing 'and' because it is the most frequent continuation for 'door' (appears 
 
 Tracing the greedy algorithm's execution, we can see the problem. "of" is the greedy choice to follow "several" since it's the most frequently observed continuation in the series (edging out "people" which appears 30 times). "of" is most often followed by "the", "the" is most often followed by "door", and "door" is most often followed by "and". The greedy algorithms choices are thus straightforward in each case. However, we run into a problem, after "and", because it's most frequent continuation is "the". But we all know what happens after "the"! It's going to take us back down the same path, ultimately generating another "and" and repeating the sequence. We can see this represented visually below:
 
+![The greedy algorithm quickly gets stuck in a loop](talks/hp/greedy-loop.png)
 
 It's this tendency to get trapped in cycles which is the greedy algorithm's fundamental flaw. Does this always end up happening? Unfortunately, yes. The very best we can do is to pick the word "conference" (by an odd coincidence), in which case we'll get this slightly surreal 20 word sequence:
 
+![conference enchantingly nasty little more than ever since he was a few seconds later they were all the door and…](talks/hp/conference.png)
+
 If that's the best the greedly algorithm can achieve, I think we can safely rule it out.
-
-
-
-
-
-
-
-
-
 
 ### Let's get weird
 
@@ -503,6 +536,9 @@ As they used to say on Monty Python, now for something completely different. The
 For this approach, what I'll call the "uniform random algorithm", we'll simply pick a valid continuation (in other words, a continuation which appears at least once) at random. How do we write a test for this? Testing random behaviour is notoriously tricky, but a simple approach is to just run the procedure many times and test that the result falls within some reasonable range. RSpec makes this quite easy with its `be_within` matcher:
 
 ~~~ruby
+let(:corpus) {
+  "The cat sat on the mat. The cat was happy."
+}
 let(:num_samples) { Float(10_000) }
 
 describe '#pick_next_word_uniform_randomly' do
@@ -525,15 +561,142 @@ end
 
 We'll only need to swap out `pick_next_word_greedily` with `pick_next_word_uniform_randomly` in our `generate_story` method, then we can give it a whirl:
 
-So this is significantly XX.
+![Debris from boys or accompany him bodily from Ron, yell the waters. Harry laughing together soon father would then bleated the smelly cloud.](talks/hp/uniform-random.png)
 
-Why is the output from the uniform random algorithm so... well, weird? One problem is that because we ignore the counts of our continuations, we're not really doing a great job of imitating the style of the HP books. For example, consider the word "house":
+So this is a significantly improvememt over the greedy algorithm, but unless you're really into avant-garde Harry Potter fan fiction, you'll probably agree it's a little odd.
 
-The word house elf
+Why is the output from the uniform random algorithm so... weird? One problem is that because we ignore the counts of our continuations, we're not really doing a great job of imitating the style of the HP books. For example, consider the word "house":
+
+!["house" is followed by "elf" 102 times and "prices" 1 time](talks/hp/house-continuations.png)
+
+The word house "elf" follows "house" more than 100 times; in fact, every 1 in 7 times the word house appears it's followed by elf. In contrast, the word "prices" follows "house" only once in the entire series. However, the uniform random algorithm is equally likely to pick either continuation (about a 1 in 200 chance). Clearly, it's not ideal for Harry Potter storytelling agent to be equally to write about house prices or house elves...
+
+We can fix this by simplest a weighted random selection algorithm. In this case, we select continuations not with equal probability, but with a probability which is **proportionate to how often that continuation appears**. With the weighted random procedure, "elf" has a ~1/7 chance of being picked after "house", while "prices" chance is just ~1/700.
+
+Let's write a spec for this. We'll take the same approach as we took when testing the uniform random algorithm, but here we expect that "cat" appears roughly 2/3rds of the time (since "cat" is observed as a continuation twice, while "mat" is only observed once):
+
+~~~ruby
+let(:corpus) {
+  "The cat sat on the mat. The cat was happy."
+}
+let(:num_samples) { Float(10_000) }
+
+describe '#pick_next_word_weighted_randomly' do
+  it "picks from possible continuations randomly, with probability proportionate to each continuation's count" do
+    next_words = 1.upto(num_samples).map { model.pick_next_word_weighted_randomly :the }
+
+    expect(next_words.count(:cat) / num_samples).to be_within(0.01).of(2.0 / 3)
+  end
+end
+~~~
+
+The implementation is again fairly straightforward:
+
+~~~ruby
+def pick_next_word_weighted_randomly(head)
+  continuations = stats[head]
+  continuations.flat_map { |word, count| [word] * count }.sample
+end
+~~~
+
+Let's see what's going on here with a simple example:
+
+~~~ruby
+continuations = { :apple => 4, :banana => 2, :pear => 1 }
+
+continuations.flat_map { |word, count| [word] * count }
+#= > [:apple, :apple, :apple, :apple, :banana, :banana, :pear]
+~~~
+
+We first build a new array, where each element appears a number of times equal to its count/value. Clearly if we randomly sample from this new array, we'll have a 4/7 chance of drawing "apple", a 1/7 chance of drawing "pear" - as we desire. Another way of understanding this algorithm is to imagine a raffle, where each continuation gets to enter a number of tickets equal to the number of times it appears. We then draw randomly from the entered tickets.
+
+The punchline is that the weighted random approach yields out best output so far:
+
+![Springing forward as though they had a bite of the hippogriff, he staggered blindly retorting Harry some pumpkin tart.](talks/hp/weighted-random.png)
 
 ### Higher Order (of the Phoenix) models
 
-There's one last
+(Sorry, that pun was shoe-horned in a bit. Or should I say slug-horned? Oh no, the madness is setting in...)
+
+There's one last idea that can significantly improve our model's output. When we examined our smartphones' predictive keyboards, we noted that they suggest reasonable continuations for the word we just typed. However, if you play around with your keyboard on a modern phone, you'll find that the story is a little more complicated. For example, if I type the word "and", on its own, I'm offered these (fairly generic) suggestions:
+
+![Generic suggestions follow the word "and"](talks/hp/and-suggestions.png){:width='400px'}
+
+However, if (as I'm, say, giving my friend some Brighton food recommendations) I type "fish and", I'm offered a whole other set of suggestions:
+
+![A whole different set of suggestions follow the words "fish and"](talks/hp/fish-and-suggestions.png){:width='400px'}
+
+Clearly, our phone isn't just looking at the previous word, but is in fact looking deeper into the sentence. This is the final key idea which will help us significantly improve our model.
+
+In our initial model, we were effectively always working with pairs of words: a single head word and it's continuations. We call such a model a **bigram** model (bigram roughly means "two words"):
+
+![A bigram model operates on pairs of words](talks/hp/bigram-model.png)
+
+We can extend this idea by instead making our head a multi-word phrase. If we look at the previous two words in our sentence, we'll create a - you guessed it - trigram model. This will mean our stats hash grows: we have 321,727 unique bigram heads, compared to 21,814 distinct head words. We can likewise extend further, to 4-gram models, 5-gram models (usually these are just pronounced "four gram", "five gram") and so on; collectively we call these **higher order models**.
+
+![A trigram model operates on triples of words](talks/hp/trigram-model.png)
+
+Everything else can more or less remain the same; we'll still use our same generation algorithm (weighted random selection and so on). Let's take a look at how we implement our higher order models (it's surprisingly easy).
+
+A quick sidenote: it's hard to write a good test for our switch to a higher order model; since a lot of it happens "under the hood". Although our output will be qualitatively better, that's hard to test for directly. If we were to test this, it'd be easier to do it coupled with a deterministic algorithm like the greedy algorithm - but for simplicity's sake I'll just focus on the implementation.
+
+The first thing we'll need to do is tweak our `collect_stats` method:
+
+~~~ruby
+def collect_stats
+  @stats = {}
+  n = 3
+
+  tokenized_corpus.each_cons(n) do |*head, continuation|
+    stats[head] ||= Hash.new(0)
+
+    stats[head][continuation] += 1
+  end
+end
+~~~
+
+The changes needed are surprisingly minimal: first we increase the size of the consecutive chunks we iterate through (in this case from pairs of word to triplets, indicating we're building a trigram model) and we add a splat to the `head` block parameter - this indicates that our head isn't a single word, but it can be a variable number of words (passed as an array). In other words, all elements except the last from each consecutive block for the `head` and the last element is the `continuation`:
+
+![The splat operator allows us to pass a multi-word head](talks/hp/head-with-splat.png)
+
+Let's move `n`, indicating the order of the model (`n = 2` for bigram, `n = 3` for trigram etc.) into an instance variable:
+
+~~~ruby
+attr_reader :corpus, :stats, :n
+
+def initialize(corpus, n = 3)
+  @corpus = corpus
+  @n = n
+
+  collect_stats
+end
+~~~
+
+Finally, we'll have to tweak the `generate_story` method, so that our model is looking at the previous *n - 1* words (previous word for bigram, previous 2 words for trigram etc.).
+
+~~~ruby
+story = random_start
+
+1.upto(num_words - (n - 1)) do
+  story << pick_next_word_greedily(story.last(n - 1))
+end
+
+story.join(" ")
+~~~
+
+That's it! We can now increase the order of the model, and enjoy the improved results. Here's an example output from our trigam model:
+
+![Normally when Dudley found his voice barely louder than before. “Dementors” said Dumbledore steadily, he however found all this mess is utterly worthless. Harry looked at him, put Slughorn into his bag more securely on to bigger and bigger until their blackness swallowed Harry whole and started emptying his drawers.](talks/hp/trigram-output.png)
+
+And our 4-gram model (this is the example we saw at the beginning):
+
+![Neville, Seamus and Dean were muttering but did not speak when Harry had told Fudge mere weeks ago that Malfoy was crying, actually crying tears, streaming down the sides of their heads. “They revealed a spell to make your bludger” said Harry, anger rising once more.](talks/hp/final-output.png)
+
+We might be tempted to aggressively increase the order to be much higher - wouldn't a 10-gram model give us an even better output? The big problem is that as we increase the order too high, we stop diverging from our source text (the Harry Potter books). For example, here's the output from a 10-gram model:
+
+![Harry thought of the sinister winged horses he had seen on the night he had arrived and how Luna had said she could see them too. His spirits sank slightly. Had she been lying? But before he could devote much more thought to the matter, Ernie Macmillan had stepped up to him.](talks/hp/10-gram-output.png)
+
+Sounds great right? The problem is, this is actually a word for word imitation of a section from Harry Potter and the Order of the Phoenix. I'll leave it as an exercise for the reader to figure out why this problem arises...
 
 ### Beyond the veil...
 
@@ -568,15 +731,9 @@ text.split(".").join(".\n")
 
 There are a few existing sentence segmentation libraries out there for Ruby which attempt to address these headaches. pragmatic_segmenter seems very comprehensive but is quite slow, whereas snip is super fast, if less fully-featured.
 
-The good news is that if we are able to segment our text and add our start and end tokens it will allow us to improve our output: we can know start our story with the special `:<start>` token and Ruby will pick an appropriate continuation. Another advantage is that the addition of `:<end>` tokens allows us to properly punctuation our story with full stops. (Generally, we'll strip out the `:<start> and `:<end>` tokens in our final output).
+The good news is that if we are able to segment our text and add our start and end tokens it will allow us to improve our output: we can know start our story with the special `:<start>` token and Ruby will pick an appropriate continuation. Another advantage is that the addition of `:<end>` tokens allows us to properly punctuation our story with full stops. (Generally, we'll strip out the `:<start>` and `:<end>` tokens in our final output).
 
 How else could we improve our model? One aspect that we've completely ignored is grammar. Many of our generated sentences are ungrammatical. One approach to address this would be to test the sentences we're generating to test for grammatical correctness, and throw away the ones that aren not. A more ambitious approach would be to try and "repair" ungrammatical sentences.
 
-Another technique we might employ is to intelligently combine multiple models. For example, we might train one model on the narration in the HP books, and train another model on the dialogue. We could then use a state machine to switch between models, as we flip between dialogue narration. Alternatively, we might combine lower- and higher- order models; interpolation or backoff are two common approaches for implementing this.
-
-#### On the cutting edge
-
-### Footnotes
-
-* footnotes will be placed here.
-{:footnotes}
+Another technique we might employ is to intelligently combine multiple models. For example, we might train one model on the narration in the HP books, and train another model on the dialogue. We could then use a state machine to switch between models, as we flip between dialogue narration. Alternatively, we might combine lower- and higher- order models; *interpolation* or *backoff* are two common approaches for implementing this. If you're interested in digging into some of these deeper topics, I'd highly recommend the [chapter on Language Models](https://web.stanford.edu/~jurafsky/slp3/4.pdf) in Jurafsky and Martin's excellent book
+*Speech and Language Processing (3rd edition)*.
