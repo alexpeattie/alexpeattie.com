@@ -61,7 +61,7 @@ There's an old army proverb: "How do you eat an elephant? One bite at a time." I
 Thinking in these terms, it turns out we have an amazing source of inspiration closer than we think (there's a good chance it's sitting in your pocket right now) - our smartphones. All modern smartphones come equipped with a [predictive keyboard](https://en.wikipedia.org/wiki/Predictive_text). Although we generally treat predictive keyboard as a typing aid, they can also be a surprisingly effective way to generate language. In the recording I took from my phone below, I repeatedly hammer the middle prediction button - have a look at the output it generates:
 
 <p class='u-centerText'>
-  <video width="375" height="450" controls autoplay loop>
+  <video class='PredictiveVideo' controls autoplay loop>
     <source src="/assets/images/talks/hp/predictive.mp4" type="video/mp4">
   </video>
 </p>
@@ -732,9 +732,11 @@ text.split(".").join(".\n")
 #= >  Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal.
 ~~~
 
-There are a few existing sentence segmentation libraries out there for Ruby which attempt to address these headaches. pragmatic_segmenter seems very comprehensive but is quite slow, whereas snip is super fast, if less fully-featured.
+There are a few existing sentence segmentation libraries out there for Ruby which attempt to address these headaches. [Pragmatic Segmenter](https://github.com/diasks2/pragmatic_segmenter) seems very comprehensive but is quite slow, whereas [Scalpel](https://github.com/louismullie/scalpel) is super fast, if less fully-featured.
 
 The good news is that if we are able to segment our text and add our start and end tokens it will allow us to improve our output: we can know start our story with the special `:<start>` token and Ruby will pick an appropriate continuation. Another advantage is that the addition of `:<end>` tokens allows us to properly punctuation our story with full stops. (Generally, we'll strip out the `:<start>` and `:<end>` tokens in our final output).
+
+As for other punctuation marks, we have a range of options. The simplest approach is to keep punctuation marks during the tokenization phase; so we'll have a comma token (`:,`), a semicolon token (`:;`) and so on. We'll want to ensure here that our text file maintains typographical quotes, so we have &ldquo; and &rdquo; rather than &quot;. Alternatively, we could train a separate model to punctuate our unpunctuated sentence; you can check out Ottokar Tilk's [punctuator project](https://github.com/ottokart/punctuator) for some great inspiration.
 
 How else could we improve our model? One aspect that we've completely ignored is grammar. Many of our generated sentences are ungrammatical. One approach to address this would be to test the sentences we're generating to test for grammatical correctness, and throw away the ones that aren not. A more ambitious approach would be to try and "repair" ungrammatical sentences.
 

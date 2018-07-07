@@ -30,10 +30,13 @@
     padding: 16px 25px;
   }
 
-  &.Btn--source {
-    background: image-url('icons/github-thick.svg') no-repeat 15px center;
+  &.Btn--subtle, &.Btn--source {
     color: $normalText;
     border-color: $normalText;
+  }
+
+  &.Btn--source {
+    background: image-url('icons/github-thick.svg') no-repeat 15px center;
   }
 
   &.Btn--rubygems {
