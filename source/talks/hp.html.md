@@ -1,8 +1,11 @@
 ---
 title: "Ruby-us Hagrid: Writing Harry Potter with Ruby"
 layout: project
-scripts:
-- talks/hp
+meta: '<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@alexpeattie" />
+<meta name="twitter:title" content="Ruby-us Hagrid: Writing Harry Potter with Ruby" />
+<meta name="twitter:description" content="Hi there 👋! Here are my extended notes for the talk I gave at Brighton Ruby 2018, on 6th July." />
+<meta name="twitter:image" content="https://alexpeattie.com/assets/images/talks/hp/brighton-ruby-logo.png" />'
 ---
 
 # ![Ruby-us Hagrid: Writing Harry Potter with Ruby](talks/hp/header.png){:height="350px"}
