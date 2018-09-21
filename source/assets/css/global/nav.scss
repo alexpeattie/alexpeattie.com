@@ -39,12 +39,13 @@
       color: $link;
       background: rgba(255, 255, 255, 0.7);
     }
-  }  
+  }
 }
 
 body.index .MainMenu #NavBtnAbout,
 body.projects .MainMenu #NavBtnProjects,
-body.blog .MainMenu #NavBtnBlog {
+body.blog .MainMenu #NavBtnBlog,
+body.talks .MainMenu #NavBtnTalks {
   @extend .NavBtn.is-active;
 }
 
@@ -124,7 +125,7 @@ body.blog .MainMenu #NavBtnBlog {
         margin-left: 2em;
       }
 
-      @media screen and (orientation:landscape) { 
+      @media screen and (orientation:landscape) {
         font-size: 1.5em;
         width: 11em;
         margin: 0.3em 0.5em;
@@ -204,7 +205,7 @@ nav.main-menu {
         cursor: pointer;
       }
 
-      @media screen and (orientation:landscape) { 
+      @media screen and (orientation:landscape) {
         font-size: 1.5em;
         margin: 0.3em 0.5em;
         padding: 3px;
