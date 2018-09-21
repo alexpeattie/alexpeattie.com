@@ -59,8 +59,8 @@ end
 The code is quite straightforward: we iterate through every column of every table, and select those that end in `_id`; this is quite a naive way to identify foreign keys, but worked AOK for us. Then we loop through our indexes, and names of the columns they're indexing. If there are any foreign keys which aren't in the list of indexed columns, we output a warning. To install, just save the script as, say, `post_migration_index_checker.rake` and put it in your `libs/tasks` directory. Here's the script in action:
 
 <video autoplay loop poster="http://i.imgur.com/hRYOSiq.jpg" style='width: 100%'>
-  <source src="http://i.imgur.com/hRYOSiq.webm" type="video/webm">
-  <source src="http://i.imgur.com/hRYOSiq.mp4" type="video/mp4">
+  <source src="https://i.imgur.com/hRYOSiq.webm" type="video/webm">
+  <source src="https://i.imgur.com/hRYOSiq.mp4" type="video/mp4">
 </video>
 
 I'm always interested in creative ways to nudge developers towards best practices. Has something similar worked well in your company? Let me know by leaving a comment, [dropping me a line](mailto:me@alexpeattie.com) or pinging me on Twitter [@alexpeattie](https://twitter.com/alexpeattie).
