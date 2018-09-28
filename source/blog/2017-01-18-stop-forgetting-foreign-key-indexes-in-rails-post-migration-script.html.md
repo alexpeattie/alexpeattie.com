@@ -13,7 +13,7 @@ I quickly discovered one source of slowdown: not all of our foreign keys were in
 
 ### Why we were missing foreign key indexes
 
-**Foreign keys should always be indexed** - Tom Ward gives a great explanation of why in [this post](https://tomafro.net/2009/08/using-indexes-in-rails-index-your-associations). So what were we playing at? Human error was to blame - in many instances we'd added the foreign keys as `integer`s rather than (following best practice) as `references`. To recap the difference, if I say:
+**Foreign keys should always be indexed** - Tom Ward gives a great explanation of why in [this post](http://archive.is/i7SLO). So what were we playing at? Human error was to blame - in many instances we'd added the foreign keys as `integer`s rather than (following best practice) as `references`. To recap the difference, if I say:
 
 ~~~bash
 bin/rails g migration AddRegionIdToAddresses region_id:integer
