@@ -8,7 +8,7 @@ Last month I released the [JustVector Social Icon pack](/projects/justvector-ico
 
 <!-- excerpt -->
 
-In that spirit, I'm pleased to roll out the [first update](/projects/justvector-icons) to the pack, adding **50 thoroughly lovely new vectors**. Highlights include icons for Dropbox, Quora, Pinboard and (Apple) Ping, all included by popular demand ([let me know](/about#contact) if there are any icons you'd like to see included). Compatibility has also been improved, the vectors are now CS3+ rather than CS5.
+In that spirit, I'm pleased to roll out the [first update](/projects/justvector-icons) to the pack, adding **50 thoroughly lovely new vectors**. Highlights include icons for Dropbox, Quora, Pinboard and (Apple) Ping, all included by popular demand. Compatibility has also been improved, the vectors are now CS3+ rather than CS5.
 
 ## JustVector web font
 
