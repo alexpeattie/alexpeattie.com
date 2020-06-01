@@ -16,3 +16,8 @@
 [[redirects]]
   from = "/projects/animate-textshadow"
   to = "https://alexpeattie.com/blog/retiring-animate-textshadow-floating-feedback#animate-textshadowjs"
+
+[[redirects]]
+  from = "/*"
+  to = "/404/"
+  status = 404 
