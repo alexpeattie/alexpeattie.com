@@ -4,7 +4,7 @@ title: 'New projects - CSS feedback button & animate-textshadow'
 
 [![animate-textshadow and Pure CSS floating feedback button](/assets/images/posts/new-projects-added/preview.png)](/projects)
 
-It's been a while since I blogged last. Since then, lots has happened in the tech world: we had the [S3 apocalypse](http://www.pcmag.com/article2/0,2817,2384254,00.asp), the [PSN debacle](http://blog.eu.playstation.com/2011/04/23/update-on-playstation-network-qriocity-services/), [Microsoft bought Skype](http://www.microsoft.com/presspass/press/2011/may11/05-10corpnewspr.mspx), the world [bought LinkedIn shares](http://www.bbc.co.uk/news/business-13451057). I've been keeping myself equally busy, and I'm going to be rolling out a bunch of new coolness over the next few weeks.
+It's been a while since I blogged last. Since then, lots has happened in the tech world: we had the [S3 apocalypse](https://uk.pcmag.com/news/105748/with-amazons-cloud-on-the-mend-customers-ask-why), the [PSN debacle](http://blog.eu.playstation.com/2011/04/23/update-on-playstation-network-qriocity-services/), [Microsoft bought Skype](https://web.archive.org/web/20110512044223/http://about.skype.com/press/2011/05/microsoft_to_acquire_skype.html), the world [bought LinkedIn shares](http://www.bbc.co.uk/news/business-13451057). I've been keeping myself equally busy, and I'm going to be rolling out a bunch of new coolness over the next few weeks.
 
 <!-- excerpt -->
 

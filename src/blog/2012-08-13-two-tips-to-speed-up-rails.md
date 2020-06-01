@@ -20,7 +20,7 @@ Technically, we're using `DEFLATE` rather than `GZIP` - there's a good write-up 
 
 ## Loading jQuery from a CDN
 
-By default Rails 3 uses jQuery, and by default it serves jQuery through your app's asset pipeline. This probably isn't ideal - loading jQuery from a content delivery network (CDN) can speed things up significantly, Dave Ward has a [great write-up](http://encosia.com/3-reasons-why-you-should-let-google-host-jquery-for-you/) of why that is. Again, it's really simple to set up, thanks to the [jquery-rails-cdn](https://github.com/kenn/jquery-rails-cdn) gem.
+By default Rails 3 uses jQuery, and by default it serves jQuery through your app's asset pipeline. This probably isn't ideal - loading jQuery from a content delivery network (CDN) can speed things up significantly, Dave Ward has a [great write-up](http://archive.is/p42VX) of why that is. Again, it's really simple to set up, thanks to the [jquery-rails-cdn](https://github.com/kenn/jquery-rails-cdn) gem.
 
 Full instructions are on Github, but basically you need to remove:
 

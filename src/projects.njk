@@ -70,7 +70,7 @@ eleventyNavigation:
     </div>
   </div>
 
-  {% set tags = ['active', 'writing', 'open-source', 'ruby'] %}
+  {% set tags = ['active', 'open-source', 'ruby', 'writing'] %}
   <div class='project' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>
@@ -116,7 +116,30 @@ eleventyNavigation:
     </div>
   </div>
 
-  {% set tags = ['open-source', 'js'] %}
+  {% set tags = ['open-source', 'python'] %}
+  <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='https://github.com/alexpeattie/wethepeopletoolkit'>“We the People” analysis toolkit</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          {% icon 'github' %}
+          <a href='https://github.com/alexpeattie/wethepeopletoolkit'>Repository</a>
+        </span>
+      </div>
+      <p>Toolkit for using We the People petitions data to visualize states by their level of similarity/difference, to create novel clusterings of the electoral map, and generate insights about those clusters using <a href="http://spark.apache.org/">Spark</a>, <a href="https://hive.apache.org/">Hive</a>, <a href="https://www.scipy.org/">SciPy</a>, <a href="http://scikit-learn.org/stable/">scikit-learn</a> and <a href="https://matplotlib.org/">Matplotlib</a>.</p>
+    </div>
+
+    <div class='project__visuals'>
+      <img class='project__image' src='/assets/images/projects/wethepeopletoolkit.png' width='150px'>
+    </div>
+  </div>
+
+  {% set tags = ['js', 'open-source'] %}
   <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>
@@ -139,7 +162,31 @@ eleventyNavigation:
     </div>
   </div>
 
-  {% set tags = ['open-source', 'js'] %}
+  {% set tags = ['open-source', 'ruby'] %}
+  <div class='project' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='https://github.com/alexpeattie/nitlink'>Nitlink gem</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          {% icon 'github' %}
+          <a href='https://github.com/alexpeattie/nitlink'>Repository</a>
+        </span>
+        <span class='link_list__link'>
+          {% icon 'rubygems' %}
+          <a href='https://github.com/alexpeattie/vidbot'>Ruby gem</a>
+        </span>
+      </div>
+      <p>A nice, modern, nitpicky Ruby gem for parsing HTTP Link headers (per RFC 5988).</p>
+    </div>
+  </div>
+
+
+  {% set tags = ['js', 'open-source'] %}
   <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>

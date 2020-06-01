@@ -14,7 +14,7 @@ The problem is, we tend not to think in hashes. Rather, we wonder what changes w
 
 ## Understanding dates in Git: author date vs. committer date & 'approxidate'
 
-There are two kinds of timestamp in git: a `GIT_AUTHOR_DATE` and a `GIT_COMMITTER_DATE`. Although in most cases they both store the same value, they serve slightly different purposes. As the [Pro Git Book](http://progit.org/book/ch2-3.html) explains:
+There are two kinds of timestamp in git: a `GIT_AUTHOR_DATE` and a `GIT_COMMITTER_DATE`. Although in most cases they both store the same value, they serve slightly different purposes. As the [Pro Git Book](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History) explains:
 
 > The author is the person who originally wrote the work, whereas the committer is the person who last applied the work.
 
@@ -32,7 +32,7 @@ $ git log --format=fuller
 
 #### Date parsing with 'approxidate'
 
-Git employs a kind of date parsing which will be familiar to any rubyists who've used [Chronic](http://chronic.rubyforge.org/). The parser, called 'approxidate' is very flexible, and allows both fixed dates in any format you can dream up ("10-11-1998", "Fri Jun 4 15:46:55 2010 +0200", "9/9/83") and relative dates ("today", "1 month 2 days ago", "six minutes ago"). You can include days of the week ("last Tuesday"), timezones ("3PM GMT") and 'named' times ("noon", "tea time").
+Git employs a kind of date parsing which will be familiar to any rubyists who've used [Chronic](https://github.com/mojombo/chronic). The parser, called 'approxidate' is very flexible, and allows both fixed dates in any format you can dream up ("10-11-1998", "Fri Jun 4 15:46:55 2010 +0200", "9/9/83") and relative dates ("today", "1 month 2 days ago", "six minutes ago"). You can include days of the week ("last Tuesday"), timezones ("3PM GMT") and 'named' times ("noon", "tea time").
 
 Approxidate isn't really documented anywhere, but the [code for the parser](https://github.com/git/git/blob/master/date.c) is very readable, so check it out to get an idea of the kind of formats git will accept.
 
@@ -84,7 +84,7 @@ There might be certain situations where you want to alter the timestamps git ass
 
 #### Use `--date`
 
-The `--date` option allows you to specify the author date that git attaches to the commit. Here we can't use approxidate unfortunately, only fixed dates will work (YYYY.MM.DD, MM/DD/YYYY, DD.MM.YYYY, [RFC 2822](http://www.apps.ietf.org/rfc/rfc2822.html#sec-3.3) and [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) are all valid).
+The `--date` option allows you to specify the author date that git attaches to the commit. Here we can't use approxidate unfortunately, only fixed dates will work (YYYY.MM.DD, MM/DD/YYYY, DD.MM.YYYY, [RFC 2822](https://tools.ietf.org/html/rfc2822#section-3.3) and [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) are all valid).
 
 ```bash
 $ git commit --date="Wed Feb 16 14:00 2037 +0100"

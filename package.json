@@ -50,6 +50,7 @@
     "html2plaintext": "^2.1.2",
     "inflected": "^2.0.4",
     "katex": "^0.11.1",
+    "linkinator": "^2.1.1",
     "luxon": "^1.24.1",
     "markdown-it": "^11.0.0",
     "markdown-it-attrs": "^3.0.2",

@@ -62,7 +62,7 @@ activate :syntax, line_numbers: true
 
 ## Styling
 
-Most of the work is done already, thanks to richleland's [Github color scheme](https://github.com/richleland/pygments-css/blob/master/github.css). We just need to tweak the first line, to replace `.hll` with `.highlight`
+Most of the work is done already, thanks to richleland's [Github color scheme](https://github.com/richleland/pygments-css/blob/146708f9003299106baf05987abf393eae4424fc/github.css). We just need to tweak the first line, to replace `.hll` with `.highlight`
 
 ```css
 .hll {
@@ -109,8 +109,8 @@ pre {
 
 ## Markdown
 
-I couldn't get rouge to play nicely with [Redcarpet](https://github.com/vmg/redcarpet) on middleman - so I decided to switch to [Kramdown](https://github.com/gettalong/kramdown), which I highly recommend. It's written in pure Ruby, and comes with [fenced code blocks](http://kramdown.rubyforge.org/syntax.html#fenced-code-blocks) out-of-the-box, as well as footnotes and a bunch of other useful features[^3].
+I couldn't get rouge to play nicely with [Redcarpet](https://github.com/vmg/redcarpet) on middleman - so I decided to switch to [Kramdown](https://github.com/gettalong/kramdown), which I highly recommend. It's written in pure Ruby, and comes with [fenced code blocks](https://kramdown.gettalong.org/syntax.html#fenced-code-blocks) out-of-the-box, as well as footnotes and a bunch of other useful features[^3].
 
-[^1]: <http://crabonature.pl/posts/17-syntax-highlighting-in-ruby-on-rails>
+[^1]: <http://web.archive.org/web/20161220034236/http://crabonature.pl/posts/17-syntax-highlighting-in-ruby-on-rails>
 [^2]: <https://github.com/zzak/glorify>
-[^3]: <http://kramdown.rubyforge.org/syntax.html>
+[^3]: <https://kramdown.gettalong.org/syntax.html#fenced-code-blocks>

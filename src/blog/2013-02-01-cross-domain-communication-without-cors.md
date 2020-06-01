@@ -81,4 +81,4 @@ You'd also probably want to validate the origin the message is being sent from, 
 
 ## Footnotes
 
-[^1]: Alexey Vasiliev has [a good tutorial](http://leopard.in.ua/2012/07/08/using-cors-with-rails/) for setting up CORS on Rails. Additionally, this Rack middleware may be of help: <https://github.com/cyu/rack-cors>.
+[^1]: Alexey Vasiliev has [a good tutorial](https://leopard.in.ua/2012/07/08/using-cors-with-rails) for setting up CORS on Rails. Additionally, this Rack middleware may be of help: <https://github.com/cyu/rack-cors>.

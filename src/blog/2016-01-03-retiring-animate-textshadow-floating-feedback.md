@@ -62,11 +62,7 @@ Prior to retiring the project I did merge in a PR (after a shamefully long delay
 
 ### CSS floating feedback button
 
-This was more a tutorial than a discrete project, specifically focusing on recreating the vertical feedback buttons that we all the rage a few years back (you still see them around a fair bit)
-
-![Feedback button](https://s3.amazonaws.com/img.usabilitypost.com/1104/slideout1.png)
-Image credit [Dmitry Fadeyev](http://usabilitypost.com/2011/04/19/pure-css-slideout-interface/)
-{: .u-imageCaption }
+This was more a tutorial than a discrete project, specifically focusing on recreating the vertical feedback buttons that we all the rage a few years back (you still see them around a fair bit).
 
 The tutorial is not completely obsolete, but collected together [a bunch of workarounds and polyfills](https://web.archive.org/web/20150910072548/http://alexpeattie.com/projects/feedback_button/) that were needed at the time to get any semblance of cross-browser support.
 

@@ -14,7 +14,7 @@ Below you can see a side-by-side comparison of the new site and the old:
 
 #### Cleaner feel
 
-There were a few things I wanted to achieve with redesign. Foremost, I wanted a simpler, cleaner look that made better use of the available space. The new design leverages more of the screen's width, and it uses gradients and shadows sparingly (i.e. [flat design](http://www.matthewmooredesign.com/almost-flat-design/)). The smaller, circular thumbnails further reduce the screen real-estate used leaving room for the larger social icons.
+There were a few things I wanted to achieve with redesign. Foremost, I wanted a simpler, cleaner look that made better use of the available space. The new design leverages more of the screen's width, and it uses gradients and shadows sparingly (i.e. [flat design](http://archive.is/nAVWj)). The smaller, circular thumbnails further reduce the screen real-estate used leaving room for the larger social icons.
 
 #### Typography
 
@@ -30,12 +30,12 @@ I was very happy with the performance of the old site. As a static site generate
 
 #### Great out-of-the-box format support
 
-Middleman supports a [wealth of different templating languages](http://middlemanapp.com/templates/#toc_7). The new site is build with a mixture of [LESS](http://lesscss.org/), [Coffeescript](http://coffeescript.org/), [Slim](http://slim-lang.com/) and [Markdown](http://daringfireball.net/projects/markdown/).
+Middleman supports a [wealth of different templating languages](http://v3.middlemanapp.com/basics/templating_language/). The new site is build with a mixture of [LESS](http://lesscss.org/), [Coffeescript](http://coffeescript.org/), [Slim](http://slim-lang.com/) and [Markdown](http://daringfireball.net/projects/markdown/).
 
 #### Rails-style asset pipeline
 
-Middleman provides an [asset pipeline](http://middlemanapp.com/asset-pipeline/), which makes it easy to write modular JS/CSS. Equally useful is asset preprocessing when your site is built - minifying JS/CSS, optimizing images etc.
+Middleman provides an [asset pipeline](http://v3.middlemanapp.com/advanced/asset_pipeline/), which makes it easy to write modular JS/CSS. Equally useful is asset preprocessing when your site is built - minifying JS/CSS, optimizing images etc.
 
 #### Easily extensible
 
-Jekyll does have [a plugin system](https://github.com/mojombo/jekyll/wiki/Plugins), but I always found it a pain to use. Making extensions for Middleman, on the other hand, is a cinch, and a solid collection of [user-created extensions](http://directory.middlemanapp.com/#/extensions/all) is available.
+Jekyll does have a plugin system, but I always found it a pain to use. Making extensions for Middleman, on the other hand, is a cinch, and a solid collection of [user-created extensions](http://directory.middlemanapp.com/#/extensions/all) is available.

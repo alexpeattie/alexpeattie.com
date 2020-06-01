@@ -70,7 +70,7 @@ So how does my phone learn my style, and offer predictions tailored to me? Funda
 
 My phone knows that after "birthday", I used the word "party" more frequently than any other word, so that's the predictive keyboard's #1 suggestion. "cake" and "party", my 2nd and 3rd most frequently chosen follow-on words for "birthday" are accordingly offered as the #2 and #3 suggestions.
 
-How could we build a predictive keyboard trained on the Harry Potter books? (In fact, that's exactly what [Botnik Studios did](https://nerdist.com/new-harry-potter-chapter-predictive-keyboard/), yeilding amusing results). Well, for any given word, we just need to enumerate the words that are used directly after that word, and how many times each is used. For example, consider the word "golden":
+How could we build a predictive keyboard trained on the Harry Potter books? (In fact, that's exactly what [Botnik Studios did](http://web.archive.org/web/20180616054717/https://nerdist.com/new-harry-potter-chapter-predictive-keyboard/), yeilding amusing results). Well, for any given word, we just need to enumerate the words that are used directly after that word, and how many times each is used. For example, consider the word "golden":
 
 ![Stats about the words J. K. Rowling uses after "golden"](/assets/images/talks/hp/phone-stats2.png)
 
@@ -136,7 +136,7 @@ end
 ```
 
 _Note:_ For brevity I'm not taking a purist TDD approach in this tutorial. In real life, you'd want to smaller test cases (e.g. a separate spec for special characters and case), and better coverage of edge cases (what should we get if we pass an empty string to `tokenize`?).
-{: .callout }
+{ .callout }
 
 Here's a simple implementation of `tokenize` that will pass our spec:
 
@@ -358,7 +358,7 @@ pumpkin has 10 unique continuations
 ```
 
 _Fun fact:_ Somewhat surprisingly, the phrase "magic wand" only appears 3 times in the Harry Potter books, and it doesn't appear at all in the last 5 books.
-{: .callout }
+{ .callout }
 
 ### The greedy algorithm
 
@@ -445,7 +445,7 @@ HpLanguageModel.new("The cat sat on the mat. The cat was happy.").generate_story
 ```
 
 _Notice:_ What happens if we extend the story beyond 6 words? What problem do we uncover?
-{: .callout }
+{ .callout }
 
 One nice thing about the greedy algorithm is that it's deterministic for a given choice of starting word, and if our corpus is small, we can work out by hand what it will output. Let's translate the test run above into a spec:
 

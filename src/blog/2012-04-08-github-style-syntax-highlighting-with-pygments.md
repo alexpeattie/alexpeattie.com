@@ -75,7 +75,7 @@ set :markdown, fenced_code_blocks: true
 
 ## Github highlighting color scheme
 
-Next we'll add some CSS to match Github's color scheme: <https://github.com/richleland/pygments-css/blob/master/github.css>
+Next we'll add some CSS to match Github's color scheme: <https://github.com/richleland/pygments-css/blob/146708f9003299106baf05987abf393eae4424fc/github.css>
 
 We have to make one small change, `.hll` needs to be replaced with `.highlight`
 

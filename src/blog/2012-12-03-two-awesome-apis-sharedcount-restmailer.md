@@ -45,7 +45,7 @@ SharedCount supports JSONP and has built in caching, HTTP and HTTPS endpoints an
 
 Adding a contact form to an otherwise static site is a common problem. Often sites will use a service like [Foxyform](http://www.foxyform.com/) or [JotForm](http://www.jotform.com/) to embed a 3rd-party contact form. Again we have the same problems as above: a lack of control over styling and behaviour.
 
-[RESTMailer](http://restmailer.mihirgarimella.com/) offers a much better alternative. You build your own form in vanilla HTML, and style it however you want:
+[RESTMailer](http://archive.is/R5kIE) offers a much better alternative. You build your own form in vanilla HTML, and style it however you want:
 
 ```html
 <form id="contact-form" action="">
