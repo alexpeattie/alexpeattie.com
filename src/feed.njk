@@ -1,0 +1,40 @@
+---
+permalink: feed.atom
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <subtitle>Writing about software development and startups.</subtitle>
+  <link href="{{ site.url }}/feed.atom" rel="self" type="application/atom+xml" />
+  <link href="{{ site.url }}" rel="alternate" type="text/html"/>
+  <author>
+    <name>Alex Peattie</name>
+    <email>me@alexpeattie.com</email>
+    <uri>https://alexpeattie.com</uri>
+  </author>
+  {% if collections.post %}
+    <updated>{{ collections.post | rssLastUpdatedDate }}</updated>
+  {% endif %}
+  <id>{{ site.url }}/</id>
+  {%- for post in collections.post | reverse -%}
+  {% set absolutePostUrl %}{{ post.url | absoluteUrl(site.url) }}{% endset %}
+    <entry>
+      <title>{{ post.data.title | plain }}</title>
+      <author>
+        <name>Alex Peattie</name>
+        <email>me@alexpeattie.com</email>
+        <uri>https://alexpeattie.com</uri>
+      </author>
+      <link href="{{ absolutePostUrl }}"/>
+      <updated>{{ post.date | rssDate }}</updated>
+      <id>{{ absolutePostUrl }}</id>
+      {% if post.data.excerpt %}
+        <summary>{{ post.data.excerpt | plainFromMd }}</summary>
+      {% endif %}
+      <content type="html"><![CDATA[
+        {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
+      ]]></content>
+    </entry>
+  {%- endfor -%}
+</feed>

@@ -41,7 +41,7 @@ Luckily we can use super handy function called `date_trunc` for just that (it's 
 
 <br>
 
-![What day is it?](posts/grouping-activerecord-by-day-or-week-with-datetrunc/what-day.gif)
+![What day is it?](/assets/images/posts/grouping-activerecord-by-day-or-week-with-datetrunc/what-day.gif)
 
 <br>
 

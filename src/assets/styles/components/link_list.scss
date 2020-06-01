@@ -1,0 +1,33 @@
+.link_list {
+  margin: 0 0 0.5rem;
+  line-height: 1.75;
+  font-size: 1.1rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  min-height: 2.25rem;
+
+  .icon,
+  .text-icon {
+    margin: 0 0.5rem 0 0;
+  }
+
+  .icon {
+    font-size: 1.3rem;
+  }
+
+  &__link {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+
+    &:not(:last-child)::after {
+      content: ',';
+      margin-right: 0.5rem;
+    }
+
+    a {
+      @extend .underlined_link;
+    }
+  }
+}

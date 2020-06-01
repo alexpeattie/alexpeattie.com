@@ -1,0 +1,18 @@
+.social_links {
+  &__link {
+    margin: 0 0.5rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    .icon {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    &--email .icon {
+      font-size: 1.8rem;
+    }
+  }
+}

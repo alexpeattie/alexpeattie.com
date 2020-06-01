@@ -1,0 +1,23 @@
+---
+layout: base
+title: "Blog"
+description: "I write about software development in general and various technologies, including Ruby, Rails and JavaScript. I’ve been posting here (intermitently) since 2011!"
+eleventyNavigation:
+  key: Blog
+  order: 3
+---
+
+<div class="container">
+  <p>Subscribe to the <a href='/feed.atom'>RSS feed</a> or follow me on Twitter (<a href='https://twitter.com/alexpeattie'>@alexpeattie</a>) for updates.</p>
+  <div class="post_list">
+    {%- for year, posts in (collections.post | reverse | groupByYear) -%}
+      <h2 class="post_list__year">{{ year }}</h2>
+      {%- for post in posts -%}
+        <div class="post_list__post">
+          <span class="post_list__published_at">{{ post.date | dateToFormat('dd LLLL, yyyy') }}</span>
+          <a href="{{ post.url }}" class="post_list__title">{{ post.data.title | safe }}</a>
+        </div>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>

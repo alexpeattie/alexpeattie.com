@@ -1,0 +1,57 @@
+// Main Site Layout
+
+body {
+  overflow-x: hidden;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  .header,
+  .footer {
+    flex: none;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 0px;
+      visibility: hidden;
+    }
+  }
+}
+
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $container-max-width;
+}
+
+.post {
+  img,
+  video {
+    max-width: 100%;
+  }
+}
+
+hr {
+  width: calc(100vw - 270px);
+  max-width: 500px;
+  margin: 3rem auto;
+  border: 0;
+  border-bottom: 1px solid $oc-gray-2;
+
+  @include breakpoint($mobile) {
+    margin: 2rem auto;
+  }
+}

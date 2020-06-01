@@ -1,0 +1,40 @@
+---
+layout: base
+---
+
+<article class='container post'>
+  {% if tags == 'post' %}
+    <div class='back'>
+      <a href='/blog/'>← Back to all posts</a>
+    </div>
+  {% endif %}
+
+  <h1>{{ title | safe }}</h1>
+
+  <div class='byline'>
+    <div class='byline__author'>
+      <img class='byline__headshot' src='/assets/images/author-headshot.png'>
+      <div class='byline__author_name'>Alex Peattie</div>
+      <span class='byline__separator'>/</span>
+      <div class='byline__published_at'>
+        {{ page.date | dateToFormat('dd LLL, yyyy') }}
+        {% if updated %}
+          (updated
+          {{ updated | dateToFormat('dd LLL yyyy') }})
+        {% endif %}
+      </div>
+    </div>
+
+    <div class='byline__user'>
+      {% readingTime content %}
+      <span class='byline__separator'>/</span>
+      <a class='byline__comment_count' href='#comments' data-disqus-identifier='{{ page.inputPath | humanizedStem }}'>
+        comments
+      </a>
+    </div>
+  </div>
+
+  {{ content | safe }}
+
+  {% include 'comments.njk' %}
+</article>

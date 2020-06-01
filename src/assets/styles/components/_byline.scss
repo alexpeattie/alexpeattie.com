@@ -1,0 +1,43 @@
+.byline {
+  display: flex;
+  color: #757d85;
+  line-height: 1.5;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+
+  @include breakpoint($mobile) {
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    line-height: 2;
+  }
+
+  &__author,
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__headshot {
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    margin-right: 0.5rem;
+    background: $oc-blue-2;
+    @include breakpoint($mobile) {
+      display: none;
+    }
+  }
+
+  &__separator {
+    margin: 0 0.25rem;
+    color: $oc-gray-5;
+  }
+
+  &__comment_count {
+    border-bottom: 1px solid $link-color;
+    line-height: 1.2;
+
+    &:hover {
+      border-bottom-color: $link-color-hover;
+    }
+  }
+}

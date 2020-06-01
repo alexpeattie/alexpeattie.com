@@ -1,0 +1,141 @@
+.project {
+  margin: 3rem 0;
+  display: flex;
+
+  @include breakpoint($mobile) {
+    margin-bottom: 2rem;
+  }
+
+  // fake hr
+  background-image: linear-gradient(
+    to right,
+    white 150px,
+    $oc-gray-2 150px,
+    $oc-gray-2 650px,
+    white 651px
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: top;
+
+  @include breakpoint($mobile) {
+    background-image: linear-gradient(
+      to right,
+      white calc(150px - 10vw),
+      #e9ecef calc(151px - 10vw),
+      #e9ecef calc(100vw - 150px),
+      white calc(100vw - 149px)
+    );
+  }
+  padding-top: 3em;
+
+  &--split {
+    @include breakpoint($mobile) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &--split &__body {
+    padding-right: 3rem;
+  }
+
+  &--split &__visuals {
+    padding-top: 0.5rem;
+  }
+
+  &__image--bordered {
+    border: 1px solid $oc-gray-2;
+    border-radius: 3px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+
+    @include breakpoint($mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__name {
+    margin: 0 0 0.5rem;
+  }
+
+  &__tags {
+    padding-left: 1.5rem;
+    line-height: 2.5;
+
+    @include breakpoint($mobile) {
+      padding-left: 0;
+    }
+  }
+
+  &__tag {
+    font-family: $font-family-monospace;
+    font-size: 0.85rem;
+    padding: 0.25rem;
+    margin: 0 0.25rem;
+    background: $oc-blue-0;
+    border: 1px solid $oc-blue-1;
+    border-radius: 3px;
+    line-height: 1.2;
+    position: relative;
+    top: -5px;
+    white-space: nowrap;
+  }
+
+  &__links {
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    min-height: 2.25rem;
+
+    .icon,
+    .text-icon {
+      margin: 0 0.5rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .icon {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__outlet {
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #868e96;
+    margin: 0 0 1rem;
+  }
+}
+
+.project_tag_list {
+  display: flex;
+  align-items: center;
+  html.no-js & {
+    display: none;
+  }
+
+  &__label {
+    margin: 2rem 0.5rem 0 0;
+    min-height: 26px;
+    font-size: 1.1rem;
+  }
+
+  &__inner {
+    margin: 2rem 0 0;
+  }
+
+  a {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.producthunt {
+  margin-bottom: 1.5rem;
+}

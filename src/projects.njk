@@ -1,0 +1,167 @@
+---
+layout: base
+title: "Projects I’ve built"
+description: "My collection of side-projects, tutorials and experiments. The projects are primarily built in Ruby, JS and Python and are almost all open-source."
+eleventyNavigation:
+  key: Projects
+  order: 1
+---
+
+<div class='container' data-controller='projects'>
+  <div class='project_tag_list' data-action='hashchange@window->projects#applyFilter'>
+    <span data-target='projects.displayFilter' class='project_tag_list__label'>Tags:</span>
+
+    <p class='project_tag_list__inner'>
+      <a href='#filter=active'>
+        <span class='project__tag'>active</span>
+      </a>,
+      <a href='#filter=open-source'>
+        <span class='project__tag'>open source</span>
+      </a>,
+      <a href='#filter=writing'>
+        <span class='project__tag'>writing</span>
+      </a>,
+      <a href='#filter=ruby'>
+        <span class='project__tag'>ruby</span>
+      </a>,
+      <a href='#filter=js'>
+        <span class='project__tag'>js</span>
+      </a>,
+      <a href='#filter=python'>
+        <span class='project__tag'>python</span>
+      </a>
+    </p>
+  </div>
+
+  <div class='clear_filter hidden' data-target='projects.filterInfo'>
+    <p>
+      <span class='clear_filter__count'></span>
+      <a href='/projects/'>Clear filter</a>
+    </p>
+  </div>
+
+  {% set tags = ['active'] %}
+  <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='https://investorlist.co'>InvestorList</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          <span class='text-icon'>🔗</span>
+          <a href='https://investorlist.co'>Live app</a>
+        </span>
+      </div>
+      <p>A searchable, crowdsourced list of over 1k investors. It was a hackathon project that became the #2 Product of the Day
+        <a href='https://www.producthunt.com/posts/investor-list'>on ProductHunt</a>
+        when it was launched.</p>
+      <div class='producthunt'>
+        <a href='https://www.producthunt.com/posts/investor-list?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-investor-list' target='_blank'>
+          <img src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=56107&theme=light' alt='Investor List - A searchable, crowdsourced list of over 1k investors | Product Hunt Embed' style='width: 200px; height: 43px;' width='200px' height='43px'/>
+        </a>
+      </div>
+    </div>
+
+    <div class='project__visuals'>
+      <img class='project__image project__image--bordered' src='/assets/images/projects/investorlist.gif' width='200px'>
+    </div>
+  </div>
+
+  {% set tags = ['active', 'writing', 'open-source', 'ruby'] %}
+  <div class='project' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='https://github.com/alexpeattie/letsencrypt-fromscratch'>Building a Let's Encrypt client from scratch</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          {% icon 'github' %}
+          <a href='https://github.com/alexpeattie/letsencrypt-fromscratch'>Read on GitHub</a>
+        </span>
+      </div>
+      <p>A pretty detailed (12,000 word) how-to guide on building a simple ACME client from scratch, able to issue real certificates from Let's Encrypt. The example span is written in Ruby.</p>
+    </div>
+  </div>
+
+  {% set tags = ['active', 'js', 'open-source'] %}
+  <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='https://xdog.alexpeattie.com'>XDog Sketch</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          <span class='text-icon'>🔗</span>
+          <a href='https://xdog.alexpeattie.com'>Live app</a>
+        </span>
+        <span class='link_list__link'>
+          {% icon 'github' %}
+          <a href='https://github.com/alexpeattie/xdog-sketch'>repository</a>
+        </span>
+      </div>
+      <p>Recreating the XDoG image stylization technique in the browser with React &amp; tf.js. The app lets you produce sketchy, handdrawn style photos with lots of options to customize of the aesthetics of the final image.</p>
+    </div>
+
+    <div class='project__visuals'>
+      <img class='project__image' src='https://user-images.githubusercontent.com/636814/34941979-d423738c-f9ed-11e7-9cb8-3561a88d638d.gif' width='300px'>
+    </div>
+  </div>
+
+  {% set tags = ['open-source', 'js'] %}
+  <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='https://github.com/alexpeattie/vidbot'>Vidbot</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          {% icon 'github' %}
+          <a href='https://github.com/alexpeattie/vidbot'>Repository</a>
+        </span>
+      </div>
+      <p>Vidbot connects YouTube push notifications with your Slack team. It's a mashup of Slack RTM, YouTube and Google PubSubHubbub, written in Node.js.</p>
+    </div>
+
+    <div class='project__visuals'>
+      <img class='project__image' src='/assets/images/projects/vidbot.png' width='150px'>
+    </div>
+  </div>
+
+  {% set tags = ['open-source', 'js'] %}
+  <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='https://github.com/alexpeattie/prideify'>prideify.js</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          {% icon 'github' %}
+          <a href='https://github.com/alexpeattie/prideify'>Repository</a>
+        </span>
+      </div>
+      <p>Inspired by facebook.com/celebratepride - a super-lightweight library (< 100 lines of span) to “prideify” any image using the
+        <span>&lt;canvas&gt;</span>
+        element.</p>
+    </div>
+
+    <div class='project__visuals'>
+      <img class='project__image' src='/assets/images/projects/prideify/teaser.png' width='150px'>
+    </div>
+  </div>
+
+</div>

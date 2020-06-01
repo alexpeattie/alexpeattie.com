@@ -1,0 +1,18 @@
+[build]
+  publish = "dist/"
+  command = "yarn run build"
+
+[build.environment]
+  NODE_ENV = "production"
+
+[[redirects]]
+  from = "/projects/prideify"
+  to = "https://github.com/alexpeattie/prideify"
+
+[[redirects]]
+  from = "/projects/justvector_icons"
+  to = "/projects/justvector-icons"
+
+[[redirects]]
+  from = "/projects/animate-textshadow"
+  to = "https://alexpeattie.com/blog/retiring-animate-textshadow-floating-feedback#animate-textshadowjs"

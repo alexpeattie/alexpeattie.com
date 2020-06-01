@@ -2,7 +2,7 @@
 title: 'How a seaweed expert and a screw-up helped win WWII'
 ---
 
-![Dry Storeroom No. 1](posts/how-a-seaweed-expert-helped-win-wwii/book.jpg)
+![Dry Storeroom No. 1](/assets/images/posts/how-a-seaweed-expert-helped-win-wwii/book.jpg)
 
 Earlier this year I read a surprisingly fascinating history of the Natural History Museum in London - [Dry Storeroom No. 1: The Secret Life of the Natural History Museum](http://www.amazon.co.uk/Dry-Store-Room-No-Natural/dp/0007209894). One of the best stories in the book recounts how an embarrassing mixup involving a [cryptogamist](http://en.wikipedia.org/wiki/Cryptogam) (i.e. algae expert) turned into an unexpected triumph:
 

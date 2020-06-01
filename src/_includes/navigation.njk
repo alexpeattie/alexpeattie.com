@@ -1,0 +1,9 @@
+<nav class="nav" role="navigation" tabindex="-1">
+  {%- for item in collections.all | eleventyNavigation -%}
+    {%- set isCurrent = (item.url == page.url) -%}
+    {%- set isParent = item.url != '/' and item.url in page.url -%}
+    <a class="nav__link {% if isCurrent or isParent %} nav__link--active{% endif %}" href="{{ item.url }}" {% if isCurrent %} aria-current="page" {% endif %}>
+      {{ item.title }}
+    </a>
+  {%- endfor -%}
+</nav>

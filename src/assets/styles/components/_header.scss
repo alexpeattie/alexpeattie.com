@@ -1,0 +1,58 @@
+.header {
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  font-family: $font-family-sans-serif;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #fff255;
+  display: inline-flex;
+  border-radius: 2rem;
+  letter-spacing: -1px;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 400ms ease;
+
+  @include breakpoint($mobile) {
+    font-size: 1.25rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &:hover {
+    background: #000;
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    color: #000;
+    transition: color 400ms ease;
+
+    &:hover {
+      color: #fff255;
+    }
+  }
+
+  &__initials {
+    height: 30px;
+
+    @include breakpoint($mobile) {
+      height: 26px;
+    }
+  }
+}

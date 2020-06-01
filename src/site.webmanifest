@@ -1,0 +1,23 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "alexpeattie.com",
+  "short_name": "alexpeattie.com",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#fff255",
+  "background_color": "#fff255",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "natural"
+}

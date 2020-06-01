@@ -1,0 +1,29 @@
+.icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  height: 1em;
+  width: 1em;
+  margin: 0 0.3rem;
+  vertical-align: middle;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.text-icon {
+  vertical-align: -2px;
+  margin: 0 0.3rem;
+  font-size: 1.3rem;
+  pointer-events: none;
+}
+
+// &--twitter .icon {
+//   color: #1da1f2;
+// }
+
+// &--github .icon {
+//   color: #1b1f23;
+// }
+
+// &--linkedin .icon {
+//   color: #0077b7;
+// }

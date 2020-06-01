@@ -1,0 +1,107 @@
+.intro {
+  display: flex;
+  align-items: flex-end;
+  padding-top: 1.5rem;
+
+  @include breakpoint($mobile) {
+    flex-direction: column;
+  }
+
+  &__blurb {
+    font-size: 1.25rem;
+    margin: 3rem 0 1.5rem;
+    padding-right: 3rem;
+    font-family: Gelasio;
+    font-weight: normal;
+
+    @include breakpoint($mobile) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__headshot {
+    margin-right: -1rem;
+    width: 350px;
+
+    @include breakpoint($mobile) {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include breakpoint($mobile) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__social_icons {
+    @include breakpoint($mobile) {
+      text-align: center;
+    }
+  }
+}
+
+.role {
+  font-weight: normal;
+
+  &__dates {
+    font-size: 1.5rem;
+    color: $text-color-light;
+  }
+}
+
+.role_figure_r {
+  float: right;
+  width: 24rem;
+  padding: 0 2rem 1rem;
+
+  @include breakpoint($mobile) {
+    width: 60%;
+    padding: 0 1rem;
+  }
+
+  &__image {
+    border-radius: 3px;
+    max-width: 100%;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  40% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(-20deg);
+  }
+  55% {
+    transform: rotate(20deg);
+  }
+  65% {
+    transform: rotate(-20deg);
+    animation-timing-function: cubic-bezier(0.33, 0.22, 0, 1.37);
+  }
+  85% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hand {
+  display: inline-block;
+  height: 3rem;
+  vertical-align: -5px;
+  transform-origin: 40px 50px;
+  margin-right: 0.25rem;
+  z-index: 1;
+  animation-name: wave;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}

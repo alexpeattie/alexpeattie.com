@@ -1,0 +1,164 @@
+body {
+  font-family: $font-family-base;
+  font-smoothing: antialiased;
+}
+
+::selection {
+  background: $oc-yellow-1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 1.3;
+  font-family: $font-family-sans-serif;
+  font-weight: bold;
+  color: $text-color-dark;
+
+  a:not(:hover) {
+    color: $text-color-dark;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  text-rendering: optimizeLegibility;
+  margin-bottom: 1.5rem;
+
+  @include breakpoint($mobile) {
+    font-size: 2.2rem;
+  }
+}
+
+h2,
+h3 {
+  line-height: 1.5;
+  margin: 3rem 0 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+
+  @include breakpoint($mobile) {
+    font-size: 1.9rem;
+  }
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4,
+h5 {
+  font-weight: normal;
+  margin: 3rem 0 1rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  color: $oc-gray-7;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+.underlined_link {
+  border-bottom: 1px solid $link-color;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1.1;
+
+  &:hover {
+    border-bottom-color: $link-color-hover;
+  }
+}
+
+p,
+ul,
+ol {
+  color: $text-color;
+  line-height: 1.75;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 1.5rem 0;
+
+  a {
+    @extend .underlined_link;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  strong em {
+    font-style: normal;
+    background: $oc-yellow-1;
+  }
+
+  img {
+    padding: 1rem 0;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+ul,
+ol {
+  padding-left: 2rem;
+  line-height: 2;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+li {
+  padding-left: 0.5rem;
+}
+
+blockquote {
+  border-left: 0.5rem solid rgb(202, 216, 231);
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  background: rgba(202, 216, 231, 0.1);
+
+  p {
+    margin: 0;
+    font-style: italic;
+  }
+}
+
+.footnote-ref a,
+.footnote-backref {
+  border-bottom: none;
+  margin: 0 0.1rem;
+}
+
+.footnote-ref a {
+  font-family: $font-family-sans-serif;
+}
+
+.footnotes-list {
+  font-family: $font-family-sans-serif;
+
+  p {
+    font-family: $font-family-base;
+    margin: 0;
+  }
+}

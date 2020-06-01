@@ -8,7 +8,7 @@ I wanted to highlight a couple of APIs which I've found very useful, but haven't
 
 ## ShareCount
 
-![Share buttons](posts/two-awesome-apis-sharedcount-restmailer/buttons.png)
+![Share buttons](/assets/images/posts/two-awesome-apis-sharedcount-restmailer/buttons.png)
 
 Social sharing buttons (pictured above) are all the rage these days. The problem is they're generally loaded in an `<iframe>`, which means you don't have any control over their styling or behaviour. It's possible to make custom sharing buttons (as you see on this site) - but it's tricky to recreate the official buttons' dynamic share count.
 

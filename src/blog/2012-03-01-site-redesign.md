@@ -10,7 +10,7 @@ My project for February was a redesign of the site. As well as overhauling the l
 
 Below you can see a side-by-side comparison of the new site and the old:
 
-![New site vs. old site](posts/site-redesign/before-after.png)
+![New site vs. old site](/assets/images/posts/site-redesign/before-after.png)
 
 #### Cleaner feel
 

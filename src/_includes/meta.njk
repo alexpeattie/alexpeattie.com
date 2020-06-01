@@ -1,0 +1,29 @@
+{%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(site.url) }}{%- endset -%}
+
+<meta name="description" content="{{ description or (excerpt | plainFromMd) or site.description }}">
+<link rel="canonical" href="{{ absolutePageUrl }}">
+
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ title or site.title }}">
+<meta property="og:description" content="{{ description or (excerpt | plainFromMd) or site.description }}">
+<meta property="og:url" content="{{ absolutePageUrl }}">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta name="twitter:card" content="{% if image -%}summary_large_image{% else %}summary{% endif %}">
+{%- if image -%}
+  <meta property="og:image" content="{{ image | url | absoluteUrl(site.url) }}">
+{%- else -%}
+  <meta property="og:image" content="{{ "/assets/images/meta/default-og.png" | absoluteUrl(site.url) }}">
+  <meta name="twitter:image" content="{{ "/assets/images/meta/default-twitter.png" | absoluteUrl(site.url) }}">
+{%- endif -%}
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fff255">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffc40d">
+<meta name="theme-color" content="#fff255">
+<meta name="msapplication-config" content="/browserconfig.xml">
+
+<link type="application/atom+xml" rel="alternate" href="{{ site.url }}/feed.xml" title="{{ meta.title }}">

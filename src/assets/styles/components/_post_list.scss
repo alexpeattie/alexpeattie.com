@@ -1,0 +1,36 @@
+.post_list {
+  margin-top: 2rem;
+
+  &__year {
+    color: $oc-gray-6;
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  &__post {
+    display: flex;
+    margin-bottom: 1.5rem;
+
+    @include breakpoint($mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__published_at {
+    width: 160px;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: $oc-gray-6;
+    margin-right: 2.5rem;
+    padding-top: 2px;
+    line-height: 1.75;
+  }
+
+  &__title {
+    font-family: $font-family-sans-serif;
+    line-height: 1.75;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: black;
+  }
+}

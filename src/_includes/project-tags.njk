@@ -1,0 +1,5 @@
+<div class='project__tags'>
+  {% for tag in tags %}
+    <span class='project__tag project__tag'>{{ tag | replace('-', ' ') }}</span>
+  {% endfor %}
+</div>
