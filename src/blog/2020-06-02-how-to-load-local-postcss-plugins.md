@@ -6,6 +6,8 @@ PostCSS is a great tool for enhancing CSS and it has an extensive ecosystem - [p
 
 If your plugin is particularly lightweight though, you might not want to bother with the overhead of creating a package, publishing it to NPM etc. Fortunately, it's quite easy to load a PostCSS local plugin inline.
 
+<!-- excerpt -->
+
 #### Our example plugin
 
 For illustration, let's create a tiny plugin which will replace (unsupported) `line-clamp` declarations with [`-webkit-line-clamp`]() - [`autoprefixer`]() won't do this since `-webkit-line-clamp` is a non-standard property.
