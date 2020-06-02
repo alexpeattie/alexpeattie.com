@@ -1,7 +1,6 @@
 {
-  "name": "deventy",
-  "version": "1.3.0",
-  "description": "A minimal 11ty starter with modern tools",
+  "name": "alexpeattie.com",
+  "version": "2.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://ianrose@github.com/ianrose/deventy.git"
+    "url": "git+https://alexpeattie@github.com/alexpeattie/alexpeattie.com.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ianrose/deventy/issues"
+    "url": "https://github.com/alexpeattie/alexpeattie.com/issues"
   },
-  "homepage": "https://github.com/ianrose/deventy#readme",
+  "homepage": "https://github.com/alexpeattie/alexpeattie.com#readme",
   "devDependencies": {
     "light-server": "git+https://github.com/alexpeattie/light-server.git"
   },
