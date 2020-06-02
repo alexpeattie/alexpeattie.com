@@ -31,7 +31,8 @@ module.exports = function (config) {
 
   config.setFrontMatterParsingOptions({
     excerpt: true,
-    excerpt_separator: '<!-- excerpt -->'
+    excerpt_separator: '<!-- excerpt -->',
+    excerpt_alias: 'excerpt'
   })
 
   Object.keys(filters).forEach((filterName) => {
