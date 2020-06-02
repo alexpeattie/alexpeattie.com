@@ -5,6 +5,7 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const pluginSvgContents = require('eleventy-plugin-svg-contents')
 
 const iconsprite = require('./utils/iconsprite.js')
+const observable = require('./utils/observable.js')
 
 const filters = require('./utils/filters.js')
 const shortcodes = require('./utils/shortcodes.js')
@@ -44,6 +45,7 @@ module.exports = function (config) {
   })
 
   config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
+  config.addNunjucksAsyncShortcode('observable', observable)
 
   config.addPassthroughCopy('src/robots.txt')
   config.addPassthroughCopy('src/site.webmanifest')
