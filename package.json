@@ -46,6 +46,7 @@
     "commonmark-extract-text": "^0.1.0",
     "css-loader": "^3.5.3",
     "cssnano-webpack-plugin": "^1.0.3",
+    "dotenv": "^8.2.0",
     "eleventy-plugin-svg-contents": "^0.7.0",
     "fibers": "^5.0.0",
     "file-loader": "^6.0.0",
