@@ -80,8 +80,12 @@
     "webpack-cli": "^3.3.9"
   },
   "release-it": {
-    "github": {
-      "release": true
+    "git": {
+      "requireBranch": "master",
+      "requireCommits": "master"
+    },
+    "npm": {
+      "publish": false
     }
   }
 }
