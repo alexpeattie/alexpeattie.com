@@ -5,9 +5,20 @@
 [build.environment]
   NODE_ENV = "production"
 
+[dev]
+  framework = "#custom"
+  command = "yarn run dev"
+  publish = "dist"
+  targetPort = 4000
+  port = 4001
+
 [[redirects]]
   from = "/projects/prideify"
   to = "https://github.com/alexpeattie/prideify"
+
+[[redirects]]
+  from = "/projects/windowed"
+  to = "https://github.com/alexpeattie/windowed"
 
 [[redirects]]
   from = "/projects/justvector_icons"
@@ -21,3 +32,4 @@
   from = "/*"
   to = "/404/"
   status = 404 
+  

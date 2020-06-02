@@ -1,14 +1,3 @@
-// /* height: 50px; */
-// background: rgba(255, 255, 255, 0.9);
-// width: 100%;
-// margin-bottom: 2rem;
-// text-align: center;
-// padding: 2rem;
-// font-family: Inter;
-// /* margin-top: 1px; */
-// border-top: solid 1px #d5dde1;
-// This website is open source, you can view the source code for this page. Found a mistake? Raise an issue.
-
 .footer {
   margin-top: 5rem;
   background: $text-color-light;
@@ -38,14 +27,14 @@
   }
 
   &__copyright {
-    color: #fff;
+    color: $text-color-inverted;
     text-align: center;
     margin-top: 0;
     padding: 2rem 0 0;
   }
 
   .social_links__link {
-    color: #fff;
+    color: $text-color-inverted;
 
     &:hover {
       color: $oc-blue-2;

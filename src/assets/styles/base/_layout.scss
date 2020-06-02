@@ -37,7 +37,8 @@ body {
   max-width: $container-max-width;
 }
 
-.post {
+.post,
+.page {
   img,
   video {
     max-width: 100%;

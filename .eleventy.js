@@ -1,5 +1,7 @@
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
+const pluginSvgContents = require('eleventy-plugin-svg-contents')
+
 const iconsprite = require('./utils/iconsprite.js')
 
 const filters = require('./utils/filters.js')
@@ -19,6 +21,8 @@ const shiki = require('shiki')
 module.exports = function (config) {
   config.addPlugin(pluginRss)
   config.addPlugin(pluginNavigation)
+  config.addPlugin(pluginSvgContents)
+
   config.setFrontMatterParsingOptions({
     excerpt: true,
     excerpt_separator: '<!-- excerpt -->'

@@ -6,7 +6,7 @@
     font-family: $font-family-sans-serif;
     text-decoration: none;
     margin: 0 1rem;
-    color: #757d85;
+    color: $text-color-light;
     border-bottom: 2px solid transparent;
     transition: color 250ms ease;
     line-height: 1.5;
@@ -18,7 +18,7 @@
 
     &:hover,
     &--active {
-      color: #000;
+      color: $text-color-dark;
     }
 
     &--active {

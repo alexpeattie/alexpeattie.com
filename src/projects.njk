@@ -51,7 +51,7 @@ eleventyNavigation:
       </div>
       <div class='link_list'>
         <span class='link_list__link'>
-          <span class='text-icon'>🔗</span>
+          <span class='text_icon'>🔗</span>
           <a href='https://investorlist.co'>Live app</a>
         </span>
       </div>
@@ -100,7 +100,7 @@ eleventyNavigation:
       </div>
       <div class='link_list'>
         <span class='link_list__link'>
-          <span class='text-icon'>🔗</span>
+          <span class='text_icon'>🔗</span>
           <a href='https://xdog.alexpeattie.com'>Live app</a>
         </span>
         <span class='link_list__link'>
@@ -162,6 +162,34 @@ eleventyNavigation:
     </div>
   </div>
 
+
+  {% set tags = ['open-source'] %}
+  <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
+    <div class='project__body'>
+      <div class='project__header'>
+        <h2 class='project__name'>
+          <a href='/projects/justvector-icons/'>JustVector icons</a>
+        </h2>
+        {% include 'project-tags.njk' %}
+      </div>
+      <div class='link_list'>
+        <span class='link_list__link'>
+          <span class='text_icon'>🔗</span>
+          <a href='/projects/justvector-icons/'>Project page</a>
+        </span>
+        <span class='link_list__link'>
+          <span class='text_icon'>⬇️</span>
+          <a href='/files/justvector.zip'>download (ZIP)</a>
+        </span>
+      </div>
+      <p>150 monochrome, fully scaleable, fully editable vector icons for social sites. The icons are completely free for commercial use, and are available in .AI, .EPS, .SVG and .PNG formats.</p>
+    </div>
+
+    <div class='project__visuals'>
+      <img class='project__image' src='/assets/images/projects/justvector/teaser.png' width='200px'>
+    </div>
+  </div>
+
   {% set tags = ['open-source', 'ruby'] %}
   <div class='project' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
@@ -178,7 +206,7 @@ eleventyNavigation:
         </span>
         <span class='link_list__link'>
           {% icon 'rubygems' %}
-          <a href='https://github.com/alexpeattie/vidbot'>Ruby gem</a>
+          <a href='https://rubygems.org/gems/nitlink'>Ruby gem</a>
         </span>
       </div>
       <p>A nice, modern, nitpicky Ruby gem for parsing HTTP Link headers (per RFC 5988).</p>
@@ -202,7 +230,7 @@ eleventyNavigation:
         </span>
       </div>
       <p>Inspired by facebook.com/celebratepride - a super-lightweight library (< 100 lines of span) to “prideify” any image using the
-        <span>&lt;canvas&gt;</span>
+        <code>&lt;canvas&gt;</code>
         element.</p>
     </div>
 

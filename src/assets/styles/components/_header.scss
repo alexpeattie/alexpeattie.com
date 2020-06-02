@@ -16,7 +16,8 @@
   font-size: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
-  background: #fff255;
+  background: $logo-color;
+  color: $text-color-dark;
   display: inline-flex;
   border-radius: 2rem;
   letter-spacing: -1px;
@@ -31,7 +32,7 @@
   }
 
   &:hover {
-    background: #000;
+    background: $text-color-dark;
   }
 
   &__link {
@@ -40,11 +41,11 @@
     justify-content: center;
     align-items: center;
     display: inline-flex;
-    color: #000;
+    color: $text-color-dark;
     transition: color 400ms ease;
 
     &:hover {
-      color: #fff255;
+      color: $logo-color;
     }
   }
 

@@ -9,21 +9,57 @@
   pointer-events: none;
 }
 
-.text-icon {
+.text_icon {
   vertical-align: -2px;
   margin: 0 0.3rem;
   font-size: 1.3rem;
   pointer-events: none;
 }
 
-// &--twitter .icon {
-//   color: #1da1f2;
-// }
+.color_changing_icons {
+  margin: 1em 0 2.5em -2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 
-// &--github .icon {
-//   color: #1b1f23;
-// }
+  svg {
+    fill: #1abc9c;
+    animation-name: animation--color-changer;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    width: 6%;
+    margin: 0 3%;
+    height: 10vw;
+    max-height: 100px;
 
-// &--linkedin .icon {
-//   color: #0077b7;
-// }
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation-delay: (0.2s * $i);
+      }
+    }
+  }
+}
+
+@keyframes animation--color-changer {
+  0% {
+    fill: #1abc9c;
+  }
+  15% {
+    fill: #3498db;
+  }
+  30% {
+    fill: #9b59b6;
+  }
+  45% {
+    fill: #e74c3c;
+  }
+  60% {
+    fill: #e67e22;
+  }
+  75% {
+    fill: #f1c40f;
+  }
+  90% {
+    fill: #40d47e;
+  }
+}

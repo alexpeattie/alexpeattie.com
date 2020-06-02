@@ -80,8 +80,10 @@ a {
 .underlined_link {
   border-bottom: 1px solid $link-color;
   display: inline-flex;
-  align-items: baseline;
+  white-space: nowrap;
   line-height: 1.1;
+  overflow: hidden;
+  max-width: 100%;
 
   &:hover {
     border-bottom-color: $link-color-hover;
@@ -161,4 +163,8 @@ blockquote {
     font-family: $font-family-base;
     margin: 0;
   }
+}
+
+.--center {
+  text-align: center;
 }

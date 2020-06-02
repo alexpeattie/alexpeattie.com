@@ -18,7 +18,7 @@ li code {
   font-size: 1rem;
   padding: 0.25rem;
   margin: 0 0.25rem;
-  background: #f6f8fa;
+  background: $code-bg;
   border-radius: 3px;
   line-height: 1.2;
   margin-bottom: 5px;
@@ -43,5 +43,7 @@ li code {
     font-size: 90%;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

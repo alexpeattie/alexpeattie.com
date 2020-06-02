@@ -22,8 +22,8 @@
     background-image: linear-gradient(
       to right,
       white calc(150px - 10vw),
-      #e9ecef calc(151px - 10vw),
-      #e9ecef calc(100vw - 150px),
+      $oc-gray-2 calc(151px - 10vw),
+      $oc-gray-2 calc(100vw - 150px),
       white calc(100vw - 149px)
     );
   }
@@ -85,31 +85,10 @@
     white-space: nowrap;
   }
 
-  &__links {
-    margin: 0 0 1.5rem;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    min-height: 2.25rem;
-
-    .icon,
-    .text-icon {
-      margin: 0 0.5rem;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    .icon {
-      font-size: 1.3rem;
-    }
-  }
-
   &__outlet {
     font-weight: normal;
     font-size: 1.1rem;
-    color: #868e96;
+    color: $text-color-light;
     margin: 0 0 1rem;
   }
 }
@@ -133,6 +112,7 @@
 
   a {
     margin-bottom: 0.5rem;
+    overflow: visible;
   }
 }
 
