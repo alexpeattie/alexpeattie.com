@@ -6,7 +6,7 @@
 </h1>
 
 <p align="center">
-  <a href="https://app.netlify.com/sites/alexpeattie-v2/deploys"><img src="https://api.netlify.com/api/v1/badges/f5deafa7-b7f4-41e5-b320-320bc1e17540/deploy-status" alt="Netlify Status"></a> <a href="https://opensource.org/licenses/MPL-2.0"><img src="https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg" alt="License: MPL 2.0"></a>
+  <a href="https://app.netlify.com/sites/alexpeattie/deploys"><img src="https://api.netlify.com/api/v1/badges/3eb76d3e-b429-4c25-b066-afda0bd66f72/deploy-status" alt="Netlify Status"></a> <a href="https://opensource.org/licenses/MPL-2.0"><img src="https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg" alt="License: MPL 2.0"></a>
 </p>
 
 <p align="center">
