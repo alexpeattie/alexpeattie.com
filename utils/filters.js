@@ -10,7 +10,7 @@ function plain(html) {
 
 module.exports = {
   dateToFormat: function (date, format) {
-    return DateTime.fromJSDate(date, { zone: 'utc' }).toFormat(String(format))
+    return DateTime.fromJSDate(date).toFormat(String(format))
   },
   dateToISO: function (date) {
     return DateTime.fromJSDate(date, { zone: 'utc' }).toISO({
