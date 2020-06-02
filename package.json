@@ -14,7 +14,8 @@
     "dev": "npm-run-all clean webpack:dev eleventy:default --parallel eleventy:watch serve --print-label",
     "dev:debug": "DEBUG=* npm run dev",
     "build": "run-s clean webpack:prod eleventy:default --print-label",
-    "preview": "NODE_ENV=production run-s build serve:prod --print-label"
+    "preview": "NODE_ENV=production run-s build serve:prod --print-label",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,8 @@
   "homepage": "https://github.com/alexpeattie/alexpeattie.com#readme",
   "devDependencies": {
     "light-server": "git+https://github.com/alexpeattie/light-server.git",
-    "netlify-cli": "^2.52.0"
+    "netlify-cli": "^2.52.0",
+    "release-it": "^13.6.2"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
@@ -76,5 +78,10 @@
     "vinyl": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
   }
 }
