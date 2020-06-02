@@ -5,7 +5,9 @@
   alexpeattie.com
 </h1>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f5deafa7-b7f4-41e5-b320-320bc1e17540/deploy-status)](https://app.netlify.com/sites/alexpeattie-v2/deploys) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+<p align="center">
+  <a href="https://app.netlify.com/sites/alexpeattie-v2/deploys"><img src="https://api.netlify.com/api/v1/badges/f5deafa7-b7f4-41e5-b320-320bc1e17540/deploy-status" alt="Netlify Status"></a> <a href="https://opensource.org/licenses/MPL-2.0"><img src="https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg" alt="License: MPL 2.0"></a>
+</p>
 
 <p align="center">
   <img src='https://user-images.githubusercontent.com/636814/83511974-62210600-a4c7-11ea-8972-a77654efd4bc.png' width="600" alt='Site preview'>

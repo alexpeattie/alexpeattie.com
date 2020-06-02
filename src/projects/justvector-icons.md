@@ -9,7 +9,7 @@ title: 'JustVector Social Icons 1.5'
   {% endfor %}
 </div>
 
-**[⬇️ Download icons (.zip)](/files/justvector.zip)**
+**[⬇ Download icons (.zip)](/files/justvector.zip)**
 { .--center }
 
 These 150 monochrome social icons are designed with simplicity in mind. Provided in vector format, they are fully editable and scale to any size smoothly. They are completely **free**, even for commercial use, redistribution or remixing (see [License](#license-info)).
@@ -28,7 +28,7 @@ The icons are distributed under the [Free Art License](http://artlibre.org/licen
 
 ## Web Font
 
-Thanks to some great work by [Sergio Díaz](http://martianwabbit.com/) the set is now available as a web font. With a little @font-face magic, you can have social icons to resize, recolour and [generally abuse](http://mothereffingtextshadow.com/). Go grab the kit here: http://martianwabbit.com/2014/09/15/just-vector-social-font-1-5.html or see the demo [here](https://martianwabbit.com/files/2014-09-15-just-vector-social-font/index.html).
+Thanks to some great work by [Sergio Díaz](http://martianwabbit.com/) the set is now available as a web font. With a little @font-face magic, you can have social icons to resize, recolour and generally abuse. Go grab the kit here: http://martianwabbit.com/2014/09/15/just-vector-social-font-1-5.html or see the demo [here](https://martianwabbit.com/files/2014-09-15-just-vector-social-font/index.html).
 
 ## Version History
 

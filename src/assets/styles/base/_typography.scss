@@ -82,7 +82,7 @@ a {
   display: inline-flex;
   white-space: nowrap;
   line-height: 1.1;
-  overflow: hidden;
+  overflow-x: hidden;
   max-width: 100%;
 
   &:hover {

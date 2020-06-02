@@ -95,7 +95,7 @@
 
 .project_tag_list {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   html.no-js & {
     display: none;
   }
