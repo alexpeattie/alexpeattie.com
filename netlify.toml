@@ -7,7 +7,7 @@
 
 [dev]
   framework = "#custom"
-  command = "yarn run dev"
+  command = "yarn run preview"
   publish = "dist"
   targetPort = 4000
   port = 4001

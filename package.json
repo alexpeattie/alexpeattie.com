@@ -10,9 +10,11 @@
     "webpack:prod": "webpack --mode=production",
     "webpack:dev": "webpack --mode=development",
     "serve": "light-server -c .lightserverrc",
+    "serve:prod": "light-server -c .lightserverrc.prod",
     "dev": "npm-run-all clean webpack:dev eleventy:default --parallel eleventy:watch serve --print-label",
     "dev:debug": "DEBUG=* npm run dev",
-    "build": "run-s clean webpack:prod eleventy:default --print-label"
+    "build": "run-s clean webpack:prod eleventy:default --print-label",
+    "preview": "NODE_ENV=production run-s build serve:prod --print-label"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,8 @@
   },
   "homepage": "https://github.com/alexpeattie/alexpeattie.com#readme",
   "devDependencies": {
-    "light-server": "git+https://github.com/alexpeattie/light-server.git"
+    "light-server": "git+https://github.com/alexpeattie/light-server.git",
+    "netlify-cli": "^2.52.0"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
@@ -47,6 +50,7 @@
     "github-emoji": "^1.1.1",
     "github-textmate-theme": "git+https://github.com/primer/github-textmate-theme.git",
     "global": "^4.4.0",
+    "html-minifier": "^4.0.0",
     "html2plaintext": "^2.1.2",
     "inflected": "^2.0.4",
     "katex": "^0.11.1",
@@ -58,7 +62,6 @@
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-footnote": "^3.0.2",
     "mini-css-extract-plugin": "^0.9.0",
-    "netlify-cli": "^2.52.0",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "open-color": "^1.7.0",

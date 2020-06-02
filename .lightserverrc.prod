@@ -1,0 +1,7 @@
+{
+ "port": 4000,
+ "serve": "dist",
+ "bind": "localhost",
+ "http2": false,
+ "redirect": true
+}

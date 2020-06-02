@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const pluginSvgContents = require('eleventy-plugin-svg-contents')
@@ -17,6 +19,10 @@ const markdownItFootnote = require('markdown-it-footnote')
 const emoji = require('./utils/emoji')
 
 const shiki = require('shiki')
+
+const htmlmin = require('html-minifier')
+
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = function (config) {
   config.addPlugin(pluginRss)
@@ -86,6 +92,20 @@ module.exports = function (config) {
   md.linkify.set({ fuzzyLink: false })
 
   config.setLibrary('md', md)
+
+  if (!isDev) {
+    config.addTransform('htmlmin', (content, outputPath) => {
+      if (outputPath.endsWith('.html')) {
+        let minified = htmlmin.minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true
+        })
+        return minified
+      }
+      return content
+    })
+  }
 
   return {
     dir: {
