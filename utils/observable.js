@@ -20,7 +20,7 @@ module.exports = async (id, cell) => {
     const page = await browser.newPage()
     html = `<html><body>${embedCode(id, cell)}</body></html>`
 
-    await page.setContent(html, { waitUntil: 'networkidle0' })
+    await page.setContent(html)
     await page.waitForSelector('canvas')
 
     const imageData = await page.evaluate(() =>
