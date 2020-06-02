@@ -8,7 +8,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f5deafa7-b7f4-41e5-b320-320bc1e17540/deploy-status)](https://app.netlify.com/sites/alexpeattie-v2/deploys) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
 <p align="center">
-  <img src='https://user-images.githubusercontent.com/636814/83511974-62210600-a4c7-11ea-8972-a77654efd4bc.png' width=300 alt='Site preview'>
+  <img src='https://user-images.githubusercontent.com/636814/83511974-62210600-a4c7-11ea-8972-a77654efd4bc.png' width="600" alt='Site preview'>
 </p>
 
 This is the code for my personal site - [alexpeattie.com](https://alexpeattie.com) - it's a static site built with [Eleventy](https://github.com/11ty/eleventy) and hosted on [Netlify](http://netlify.com/).
