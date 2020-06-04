@@ -26,6 +26,4 @@ The console should really just be used for development purposes - but if you don
 <% end %>
 ```
 
-## Footnotes
-
 [^1]: Another good solution is Paul Irish's [log() wrapper](http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/).
