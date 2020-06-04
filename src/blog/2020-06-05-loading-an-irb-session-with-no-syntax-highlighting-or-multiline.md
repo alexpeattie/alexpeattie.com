@@ -3,7 +3,7 @@ title: 'Quick tip: Loading a plain IRB session with no syntax highlighting or mu
 image: /assets/images/meta/posts/loading-an-irb-session-with-no-syntax-highlighting-or-multiline.png
 ---
 
-One of the nice additions in Ruby 2.7 is that IRB by default gets [pry]-inspired syntax highlighting and multiline editing by default.
+One of the nice additions in Ruby 2.7 is that IRB by default gets [pry](https://github.com/pry/pry)-inspired syntax highlighting and multiline editing by default.
 
 I've found sometimes though that this can cause IRB to run slower, especially when performing operations like pasting a large amount of data from the clipboard.
 

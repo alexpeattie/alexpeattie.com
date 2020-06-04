@@ -13,7 +13,7 @@ module.exports = {
     if (estimate > 20) {
       rounded = Math.round(estimate / 5) * 5
     } else {
-      rounded = estimate
+      rounded = Math.max(estimate, 1)
     }
 
     return `${rounded} minute read`
