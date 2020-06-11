@@ -11,6 +11,16 @@ $link-color-hover: #0056b3;
 
 $code-bg: #f6f8fa;
 
+$blockquote: #acc3dd;
+$admonitions: (
+  'note': $oc-blue-3,
+  'warning': $oc-orange-3,
+  'failure': $oc-red-4,
+  'success': $oc-green-4,
+  'tip': $oc-grape-3,
+  'update': $oc-cyan-4
+);
+
 $font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
   'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',

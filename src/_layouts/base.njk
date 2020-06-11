@@ -8,9 +8,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>{{ title + " – Alex Peattie" if title else site.title }}</title>
 
-    <link href='https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Gelasio:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;700&display=swap' rel='stylesheet'>
-    <link rel='stylesheet' href='/assets/styles/index.css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Gelasio:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Gelasio:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;700&display=swap" media="print" onload="this.media='all'"/>
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Gelasio:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;700&display=swap"/>
+    </noscript>
 
+    <link rel='stylesheet' href='/assets/styles/index.css'>
     <script src='/assets/scripts/index.js' defer></script>
 
     {% include 'meta.njk' %}
@@ -20,7 +25,7 @@
 
     <div class='layout' role='document'>
       {% include 'header.njk' %}
-      <main id='main' class='main' tabindex='-1'>
+      <main id='main' class='main' tabindex='-1' {% include 'observable.njk' %}>
         {{ content | safe }}
       </main>
       {% include 'footer.njk' %}

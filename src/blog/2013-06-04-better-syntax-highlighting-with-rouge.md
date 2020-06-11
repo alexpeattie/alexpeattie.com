@@ -2,7 +2,9 @@
 title: 'Better GitHub-style syntax highlighting with Rouge'
 ---
 
-<div class='Callout'><p><strong><em>Update 2016</em></strong>: This tutorial is out-of-date. See the <a href='https://github.com/alexpeattie/alexpeattie.com'>repository for  alexpeattie.com</a> and the <a href='https://github.com/alexpeattie/alexpeattie.com#syntax-highlighting'>associated README</a> to see how I do it now.</p></div>
+!!! update Update 2020
+This tutorial is out-of-date. See the repository for [alexpeattie.com](https://github.com/alexpeattie/alexpeattie.com) to see how I do it now.
+!!!
 
 <!-- excerpt -->
 

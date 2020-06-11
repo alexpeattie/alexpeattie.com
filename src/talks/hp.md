@@ -56,11 +56,9 @@ There's an old army proverb: "How do you eat an elephant? One bite at a time." I
 
 Thinking in these terms, it turns out we have an amazing source of inspiration closer than we think (there's a good chance it's sitting in your pocket right now) - our smartphones. All modern smartphones come equipped with a [predictive keyboard](https://en.wikipedia.org/wiki/Predictive_text). Although we generally treat predictive keyboard as a typing aid, they can also be a surprisingly effective way to generate language. In the recording I took from my phone below, I repeatedly hammer the middle prediction button - have a look at the output it generates:
 
-<p class='u-centerText'>
-  <video class='PredictiveVideo' controls autoplay loop>
-    <source src="/assets/images/talks/hp/predictive.mp4" type="video/mp4">
-  </video>
-</p>
+<video width="400" controls autoplay loop>
+  <source src="/assets/images/talks/hp/predictive.mp4" type="video/mp4">
+</video>
 
 My predictive keyboard, (ab)used in such a way, becomes a surprisingly good language generator - that sentence could easily have been written by a human. What's more, my predictive keyboard, through years of me using my phone, has _learnt my style of writing_; the words it suggests are based on my patterns of language use, so the generated sentence, in some ways, "sounds like me". This is why predictive keyboards are of such interest to us: if we can understand how my phone is able to imitate my style of writing, we can apply the same principles to write a Ruby program to imitate the style of J. K. Rowling/the Harry Potter books.
 

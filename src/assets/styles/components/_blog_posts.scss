@@ -1,0 +1,27 @@
+.quality-comparison {
+  display: flex;
+  justify-content: space-between;
+
+  @include breakpoint($mobile) {
+    flex-direction: column;
+  }
+
+  &__example {
+    width: calc(50% - 1rem);
+
+    @include breakpoint($mobile) {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__slider {
+    max-width: 90%;
+
+    @include breakpoint($mobile) {
+      max-width: 100%;
+    }
+  }
+}

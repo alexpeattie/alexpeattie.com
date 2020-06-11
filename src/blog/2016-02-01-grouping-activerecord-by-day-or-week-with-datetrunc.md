@@ -41,7 +41,9 @@ Luckily we can use super handy function called `date_trunc` for just that (it's 
 
 <br>
 
-![What day is it?](/assets/images/posts/grouping-activerecord-by-day-or-week-with-datetrunc/what-day.gif)
+<video autoplay loop muted playsinline aria-hidden='true'>
+  <source src='/assets/images/posts/grouping-activerecord-by-day-or-week-with-datetrunc/what-day.mp4' type='video/mp4'>
+</video>
 
 <br>
 

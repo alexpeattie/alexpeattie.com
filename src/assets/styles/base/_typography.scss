@@ -41,7 +41,7 @@ h3 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
 
   @include breakpoint($mobile) {
     font-size: 1.9rem;
@@ -50,21 +50,32 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
+
+  @include breakpoint($mobile) {
+    font-size: 1.5rem;
+  }
 }
 
 h4,
 h5 {
-  font-weight: normal;
   margin: 3rem 0 1rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+
+  @include breakpoint($mobile) {
+    font-size: 1.9rem;
+  }
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: $oc-gray-7;
+
+  @include breakpoint($mobile) {
+    font-size: 1rem;
+  }
 }
 
 a {
@@ -78,16 +89,14 @@ a {
 }
 
 .underlined_link {
-  border-bottom: 1px solid $link-color;
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
+  box-shadow: 0 1px $link-color;
   line-height: 1.1;
+  display: inline;
   overflow-x: hidden;
   max-width: 100%;
 
   &:hover {
-    border-bottom-color: $link-color-hover;
+    box-shadow: 0 1px $link-color-hover;
   }
 }
 
@@ -135,15 +144,45 @@ li {
   padding-left: 0.5rem;
 }
 
-blockquote {
-  border-left: 0.5rem solid rgb(202, 216, 231);
+blockquote,
+.admonition {
+  border-radius: 3px;
   margin: 2rem 0;
   padding: 1.5rem 2rem;
-  background: rgba(202, 216, 231, 0.1);
+  border-left: 0.3rem solid transparent;
 
   p {
     margin: 0;
     font-style: italic;
+
+    code {
+      font-style: normal;
+    }
+  }
+}
+
+blockquote {
+  border-left-color: $blockquote;
+  background: rgba($blockquote, 0.1);
+}
+
+.admonition .admonition-title {
+  font-style: normal;
+  font-family: Inter;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+@each $type, $color in $admonitions {
+  .admonition.#{$type} {
+    border-left-color: $color;
+    background: rgba($color, 0.1);
+
+    .admonition-title {
+      color: $color;
+    }
   }
 }
 
@@ -160,7 +199,8 @@ blockquote {
 .footnotes-list {
   font-family: $font-family-sans-serif;
 
-  p {
+  p,
+  .footnote-backref {
     font-family: $font-family-base;
     margin: 0;
   }

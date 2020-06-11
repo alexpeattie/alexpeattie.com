@@ -1,12 +1,8 @@
 const { DateTime } = require('luxon')
 const { humanize } = require('inflected')
 const Vinyl = require('vinyl')
-const h2p = require('html2plaintext')
+const strip = require('strip')
 const { fromText } = require('commonmark-extract-text')
-
-function plain(html) {
-  return h2p(html).replace(/\s\s+/g, ' ').trim()
-}
 
 module.exports = {
   dateToFormat: function (date, format) {
@@ -31,7 +27,9 @@ module.exports = {
     const file = new Vinyl({ path: string })
     return humanize(file.stem.replace(/-/g, ' '))
   },
-  plain: plain,
+  plain: function (html) {
+    return strip(html)
+  },
   plainFromMd: function (md) {
     if (!md) return md
     return fromText(md).trim()

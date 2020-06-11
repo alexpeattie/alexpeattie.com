@@ -1,5 +1,22 @@
 ---
 title: 'Signing a CSR with an ECDSA key in Ruby'
+updated: 2020-06-10
+---
+
+!!! update Update 2020
+As of Ruby 2.2, signing certificates with an EC key is almost identical to a signing with an RSA key:
+
+```ruby
+domain_key = OpenSSL::PKey::EC.new('secp384r1').generate_key
+csr = OpenSSL::X509::Request.new
+
+csr.public_key = domain_key
+csr.sign domain_key, OpenSSL::Digest::SHA256.new
+```
+
+The only difference is that you need to set `csr.public_key` to `domain_key` rather than `domain_key.public_key` (as you'd do with an RSA key).
+!!!
+
 ---
 
 Let's Encrypt just [rolled out support](https://community.letsencrypt.org/t/ecdsa-testing-on-staging/8809) for ECDSA certificates in staging - a move that I think will nudge ECDSA signing more into the mainstream. ECDSA offers higher levels of security at much lower key sizes; <!-- excerpt --> as Ivan Ristić explains in [Bulletproof SSL and TLS](https://www.feistyduck.com/books/bulletproof-ssl-and-tls/):

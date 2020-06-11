@@ -1,19 +1,18 @@
-const { plain } = require('./filters')
+const readTimeEstimate = require('read-time-estimate').default
 
 module.exports = {
   readingTime: function (content) {
-    // See https://help.medium.com/hc/en-us/articles/214991667-Read-time
-    const wordsPerMin = 265
+    const { duration } = readTimeEstimate(content, 275, 12, 500, [
+      'img',
+      'Image',
+      'video',
+      `div class=['"]observable-embed`
+    ])
 
-    const estimate = Math.round(
-      plain(content).split(/\s+/).length / wordsPerMin
-    )
-    let rounded
-
-    if (estimate > 20) {
-      rounded = Math.round(estimate / 5) * 5
+    if (duration > 20) {
+      rounded = Math.round(duration / 5) * 5
     } else {
-      rounded = Math.max(estimate, 1)
+      rounded = Math.max(Math.round(duration), 1)
     }
 
     return `${rounded} minute read`

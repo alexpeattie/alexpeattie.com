@@ -57,3 +57,12 @@ hr {
     margin: 2rem auto;
   }
 }
+
+.observable-embed {
+  margin: 2rem 0;
+  max-width: 100%;
+
+  .vega-embed-wrapper {
+    overflow: visible;
+  }
+}

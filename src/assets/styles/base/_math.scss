@@ -5,3 +5,16 @@
 .katex-display > .katex {
   text-align: left;
 }
+
+.katex-html {
+  overflow-x: scroll;
+}
+
+.katex > .katex-html {
+  white-space: normal;
+}
+
+.katex .base {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}

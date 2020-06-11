@@ -5,6 +5,7 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const pluginSvgContents = require('eleventy-plugin-svg-contents')
 
 const iconsprite = require('./utils/iconsprite.js')
+const { observableCell } = require('./utils/observable.js')
 
 const filters = require('./utils/filters.js')
 const shortcodes = require('./utils/shortcodes.js')
@@ -15,6 +16,7 @@ const markdownItAttrs = require('markdown-it-attrs')
 const markdownItEmoji = require('markdown-it-emoji')
 const markdownItDiv = require('markdown-it-div')
 const markdownItFootnote = require('markdown-it-footnote')
+const markdownItAdmonition = require('markdown-it-admonition')
 
 const emoji = require('./utils/emoji')
 
@@ -44,6 +46,7 @@ module.exports = function (config) {
   })
 
   config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
+  config.addNunjucksAsyncShortcode('observableCell', observableCell)
 
   config.addPassthroughCopy('src/robots.txt')
   config.addPassthroughCopy('src/site.webmanifest')
@@ -79,6 +82,10 @@ module.exports = function (config) {
     .use(markdownItDiv)
     .use(markdownItFootnote)
     .use(markdownItEmoji, { defs: emoji })
+    .use(markdownItAdmonition, {
+      html: true,
+      types: ['note', 'warning', 'failure', 'success', 'tip', 'update']
+    })
 
   md.renderer.rules.footnote_block_open = () => `
     <hr class="footnotes-sep">

@@ -1,6 +1,6 @@
 import Turbolinks from 'turbolinks'
 import { Application } from 'stimulus'
-import projectsController from './controllers/projectsController'
+import StimulusControllerResolver from 'stimulus-controller-resolver'
 
 Turbolinks.start()
 
@@ -16,4 +16,11 @@ document.addEventListener('turbolinks:click', function (event) {
 })
 
 const application = Application.start()
-application.register('projects', projectsController)
+
+StimulusControllerResolver.install(application, async (controllerName) => {
+  return (
+    await import(
+      /* webpackChunkName: "[request]" */ `./controllers/${controllerName}-controller`
+    )
+  ).default
+})

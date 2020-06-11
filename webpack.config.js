@@ -2,15 +2,19 @@ require('dotenv').config()
 
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const CssnanoPlugin = require('cssnano-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-  entry: ['./src/assets/scripts/index.js', './src/assets/styles/index.scss'],
+  entry: {
+    index: ['./src/assets/scripts/index.js', './src/assets/styles/index.scss']
+  },
   output: {
-    path: path.resolve(__dirname, 'dist/assets/scripts'),
-    filename: 'index.js'
+    path: path.resolve(__dirname, 'dist/assets/'),
+    publicPath: '/assets/',
+    filename: 'scripts/[name].js'
   },
   module: {
     rules: [
@@ -27,15 +31,15 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: isDev,
-              url: false
+              sourceMap: true,
+              url: true
             }
           },
           {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              sourceMap: isDev,
+              sourceMap: true,
               plugins: () => [
                 require('autoprefixer')({ preset: 'default' }),
                 require('./utils/postcss-font-smoothing')()
@@ -46,7 +50,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDev,
+              sourceMap: true,
               sassOptions: {
                 url: true
               }
@@ -58,18 +62,19 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
         loader: 'file-loader',
         options: {
-          outputPath: '../fonts'
+          outputPath: 'fonts'
         }
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: isDev ? 'source-map' : 'none',
   optimization: {
     minimizer: [
+      new TerserPlugin(),
       new CssnanoPlugin({
         sourceMap: true
       })
     ]
   },
-  plugins: [new MiniCssExtractPlugin({ filename: `../styles/index.css` })]
+  plugins: [new MiniCssExtractPlugin({ filename: `styles/index.css` })]
 }

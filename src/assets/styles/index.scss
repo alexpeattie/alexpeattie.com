@@ -1,5 +1,9 @@
 @import '~normalize.css';
 @import '~breakpoint-sass';
+@import '~open-color/open-color';
+@import '~katex/dist/katex';
+@import 'variables';
+
 *,
 *:after,
 *:before {
@@ -10,10 +14,14 @@
   outline: none !important;
 }
 
-@import '~open-color/open-color';
-@import '~katex/dist/katex';
-
-@import 'variables';
+:root {
+  --spectrum-slider-handle-background-color: #fff;
+  --spectrum-slider-handle-background-color-down: #fff;
+  --spectrum-slider-handle-border-color: #{$text-color-light};
+  --spectrum-slider-handle-border-color-hover: #{$oc-blue-4};
+  --spectrum-slider-handle-border-color-down: #{$oc-blue-4};
+  --spectrum-label-text-line-height: 200%;
+}
 
 @import 'base/animation';
 @import 'base/code';
@@ -23,6 +31,7 @@
 @import 'base/utilities';
 @import 'base/video';
 
+@import 'components/blog_posts';
 @import 'components/byline';
 @import 'components/footer';
 @import 'components/header';
