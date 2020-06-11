@@ -74,8 +74,9 @@
   dependencies:
     "@analytics/cookie-utils" "^0.2.3"
 
-"@ap-spectrum-web-components/slider@file:local_modules/slider":
+"@ap-spectrum-web-components/slider@https://gitpkg.now.sh/alexpeattie/alexpeattie.com/local_modules/slider?deno-post":
   version "0.4.8"
+  resolved "https://gitpkg.now.sh/alexpeattie/alexpeattie.com/local_modules/slider?deno-post#ef3a0373eacef22fa430589b388284343964dc5c"
   dependencies:
     "@spectrum-web-components/shared" "^0.4.6"
     lit-element "^2.3.1"
@@ -1494,12 +1495,12 @@
   integrity sha512-/aPsuoj/1Dw/kzhkgz+ES6TxG0zfTMGLwuK2ZG00k/iJzYHTLCE8mVU8EPqEOp/lmxPoq1C1C9RYToRKb2KEfg==
 
 "@spectrum-web-components/shared@^0.4.6":
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/shared/-/shared-0.4.6.tgz#34a31ac8cbdf573900edb444d8a9106bf32e645a"
-  integrity sha512-SqWeupdyTwjeP5AZln4zlY+cq+nsUMjAp6U7JSMn/iSyAzozZXICd0BQ1DT+PwXm47ohA8HqKjTIvjLV55wPGg==
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/shared/-/shared-0.4.7.tgz#0ca0affeb9daf89ce2f42b80a3e61d3ff72dd2af"
+  integrity sha512-mO3bh4CiWH7nKytpjsOYstk1Dw/ECTVkbFEA2VouQLW3agSGkA/hoo4DOACjIfrnqLnNuSr+vjcc5GvoPkP6Mg==
   dependencies:
     focus-visible "^5.0.2"
-    tslib "^1.10.0"
+    tslib "^2.0.0"
 
 "@spectrum-web-components/styles@^0.5.2":
   version "0.5.2"
