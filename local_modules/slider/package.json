@@ -1,16 +1,5 @@
 {
-  "name": "@ap-spectrum-web-components/slider",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/adobe/spectrum-web-components.git",
-    "directory": "packages/slider"
-  },
-  "bugs": {
-    "url": "https://github.com/adobe/spectrum-web-components/issues"
-  },
+  "name": "ap-spectrum-web-components-slider",
   "homepage": "https://adobe.github.io/spectrum-web-components/components/slider",
   "keywords": [
     "spectrum css",
