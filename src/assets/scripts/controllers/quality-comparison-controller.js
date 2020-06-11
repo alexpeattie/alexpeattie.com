@@ -1,8 +1,8 @@
 import { Controller } from 'stimulus'
-import '@ap-spectrum-web-components/slider'
-import '@spectrum-web-components/theme/lib/theme-lightest'
-import '@spectrum-web-components/theme/lib/scale-large'
-import '@spectrum-web-components/theme/lib/theme'
+// import '@ap-spectrum-web-components/slider'
+// import '@spectrum-web-components/theme/lib/theme-lightest'
+// import '@spectrum-web-components/theme/lib/scale-large'
+// import '@spectrum-web-components/theme/lib/theme'
 
 export default class extends Controller {
   static targets = ['image']
