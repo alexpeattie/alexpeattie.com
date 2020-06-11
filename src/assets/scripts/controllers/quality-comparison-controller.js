@@ -1,5 +1,6 @@
 import { Controller } from 'stimulus'
-import 'ap-spectrum-web-components-slider'
+import 'debounce'
+// import 'ap-spectrum-web-components-slider'
 import '@spectrum-web-components/theme/lib/theme-lightest'
 import '@spectrum-web-components/theme/lib/scale-large'
 import '@spectrum-web-components/theme/lib/theme'

@@ -2167,7 +2167,7 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-"ap-spectrum-web-components-slider@file:local_modules/slider/":
+"ap-spectrum-web-components-slider@file:local_modules/slider":
   version "0.4.8"
   dependencies:
     "@spectrum-web-components/shared" "^0.4.6"
@@ -4522,6 +4522,10 @@ dateformat@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
+
+"debounce@https://github.com/component/debounce":
+  version "1.2.0"
+  resolved "https://github.com/component/debounce#133fffd56187d56782ae4c898bc13aa75a18716c"
 
 debug@2.6.9, debug@^2.0.0, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   version "2.6.9"
