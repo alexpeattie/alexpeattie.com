@@ -1,5 +1,6 @@
 ---
 title: Making HTTP requests with Deno
+image: /assets/images/meta/posts/making-http-requests-deno.png
 ---
 
 Deno makes it easy to make client HTTP requests, using the web standard Fetch API. <!-- excerpt --> You can make a `GET` request in Deno like so:
