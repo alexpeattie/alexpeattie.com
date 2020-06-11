@@ -74,6 +74,14 @@
   dependencies:
     "@analytics/cookie-utils" "^0.2.3"
 
+"@ap-spectrum-web-components/slider@https://github.com/alexpeattie/spectrum-slider-test":
+  version "0.4.8"
+  resolved "https://github.com/alexpeattie/spectrum-slider-test#28dddb26a5c8bfe163d0d9b1efcb74361d9eb4be"
+  dependencies:
+    "@spectrum-web-components/shared" "^0.4.6"
+    lit-element "^2.3.1"
+    tslib "^2.0.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.1":
   version "7.10.1"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.1.tgz#d5481c5095daa1c57e16e54c6f9198443afb49ff"
@@ -4522,10 +4530,6 @@ dateformat@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
-
-"debounce@https://github.com/component/debounce":
-  version "1.2.0"
-  resolved "https://github.com/component/debounce#133fffd56187d56782ae4c898bc13aa75a18716c"
 
 debug@2.6.9, debug@^2.0.0, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   version "2.6.9"
