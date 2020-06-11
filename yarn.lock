@@ -74,9 +74,9 @@
   dependencies:
     "@analytics/cookie-utils" "^0.2.3"
 
-"@ap-spectrum-web-components/slider@https://gitpkg.now.sh/alexpeattie/alexpeattie.com/local_modules/slider?deno-post":
+"@ap-spectrum-web-components/slider@https://gitpkg.now.sh/alexpeattie/alexpeattie.com/local_modules/slider?bc1e23c":
   version "0.4.8"
-  resolved "https://gitpkg.now.sh/alexpeattie/alexpeattie.com/local_modules/slider?deno-post#ef3a0373eacef22fa430589b388284343964dc5c"
+  resolved "https://gitpkg.now.sh/alexpeattie/alexpeattie.com/local_modules/slider?bc1e23c#ef3a0373eacef22fa430589b388284343964dc5c"
   dependencies:
     "@spectrum-web-components/shared" "^0.4.6"
     lit-element "^2.3.1"
