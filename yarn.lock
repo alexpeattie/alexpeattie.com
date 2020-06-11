@@ -74,9 +74,8 @@
   dependencies:
     "@analytics/cookie-utils" "^0.2.3"
 
-"@ap-spectrum-web-components/slider@https://github.com/alexpeattie/spectrum-slider-test":
+"@ap-spectrum-web-components/slider@file:local_modules/slider/":
   version "0.4.8"
-  resolved "https://github.com/alexpeattie/spectrum-slider-test#6db5016a8e7d88d26ee4972177f05125f0788fd3"
   dependencies:
     "@spectrum-web-components/shared" "^0.4.6"
     lit-element "^2.3.1"
