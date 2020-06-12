@@ -91,7 +91,6 @@ a {
 .underlined_link {
   box-shadow: 0 1px $link-color;
   line-height: 1.1;
-  display: inline;
   overflow-x: hidden;
   max-width: 100%;
 
@@ -114,11 +113,6 @@ ol {
     @extend .underlined_link;
   }
 
-  a:has(> code) {
-    display: inline-flex;
-    align-items: baseline;
-  }
-
   strong {
     font-weight: 600;
   }
@@ -133,6 +127,11 @@ ol {
     margin: 0 auto;
     display: block;
   }
+}
+
+a:has(> code) {
+  display: inline-flex;
+  align-items: baseline;
 }
 
 ul,
