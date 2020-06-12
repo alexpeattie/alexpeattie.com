@@ -7,7 +7,8 @@ export default class extends Controller {
       window.commento.main()
     }
 
-    if (!existingScript) {
+    if (!existingScript || !window.commento.main) {
+      if (existingScript) existingScript.parentNode.removeChild(existingScript)
       const script = document.createElement('script')
       script.src = 'https://cdn.commento.io/js/commento.js'
       script.id = 'commento-script'
