@@ -74,7 +74,7 @@
   dependencies:
     "@analytics/cookie-utils" "^0.2.3"
 
-"@ap-spectrum-web-components/slider@file:local_modules/slider/":
+"@ap-spectrum-web-components/slider@file:local_modules/slider":
   version "0.4.8"
   dependencies:
     "@spectrum-web-components/shared" "^0.4.6"
@@ -4297,6 +4297,14 @@ css-declaration-sorter@^4.0.1:
   dependencies:
     postcss "^7.0.1"
     timsort "^0.3.0"
+
+css-has-pseudo@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/css-has-pseudo/-/css-has-pseudo-1.0.0.tgz#6a58e09e36851ab3891cfa7196d27455423c584d"
+  integrity sha512-iiduxhZno9fUUuw5IdWlbcB7AjSjP3aPunwJ8oNiF+G/Bt9LbErg0cOLoo5XMq6sXemYWtmNSrEhRFDTYKW7Bg==
+  dependencies:
+    postcss "^7.0.17"
+    postcss-selector-parser "^6.0.2"
 
 css-loader@^3.5.3:
   version "3.5.3"
@@ -11620,7 +11628,7 @@ postcss@7.0.21:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2, postcss@^7.0.27, postcss@^7.0.30, postcss@^7.0.5, postcss@^7.0.6:
+postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.27, postcss@^7.0.30, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.32"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.32.tgz#4310d6ee347053da3433db2be492883d62cec59d"
   integrity sha512-03eXong5NLnNCD05xscnGKGDZ98CyzoqPSMjOe6SuoQY7Z2hIj0Ld1g/O/UQRuOle2aRtiIRDg9tDcTGAkLfKw==

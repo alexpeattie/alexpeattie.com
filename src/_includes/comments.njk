@@ -1,43 +1,8 @@
 {%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(site.url) }}{%- endset -%}
 
-<div id='comments'>
+<div class='comments' data-controller='comments'>
   <hr>
-  <div id='disqus_thread'></div>
-  <script>
-    if (typeof DISQUS === 'undefined') {
-      const disqus_shortname = 'alexpeattie'
-
-      var disqus_config = function () {
-        this.page.url = '{{ absolutePageUrl }}'
-        this.page.identifier = '{{ page.inputPath | humanizedStem }}'
-        this.page.title = '{{ (title or meta.title) | plain }}'
-        this.callbacks.onIdentify.push(() => loadDisqusScript('count.js', 'dsq-count-scr'))
-      }
-
-      var loadDisqusScript = function (script, id) {
-        var dsq = document.createElement('script')
-        dsq.type = 'text/javascript'
-        dsq.async = true
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + script;
-        if (id) {
-          dsq.id = id
-        }
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
-      }
-
-      loadDisqusScript('embed.js')
-    } else {
-      document.addEventListener('turbolinks:load', function () {
-        DISQUS.reset({
-          reload: true,
-          config: function () {
-            this.page.url = '{{ absolutePageUrl }}'
-            this.page.identifier = '{{ page.inputPath | humanizedStem }}'
-            this.page.title = '{{ (title or meta.title) | plain }}'
-          }
-        })
-        DISQUSWIDGETS.getCount({reset: true})
-      }, {once: true})
-    }
-  </script>
+  <div id='commento'>
+    <p class='loading'>Loading comments...</p>
+  </div>
 </div>

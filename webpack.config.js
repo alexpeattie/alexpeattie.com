@@ -42,7 +42,8 @@ module.exports = {
               sourceMap: true,
               plugins: () => [
                 require('autoprefixer')({ preset: 'default' }),
-                require('./utils/postcss-font-smoothing')()
+                require('./utils/postcss-font-smoothing')(),
+                require('css-has-pseudo/postcss')
               ]
             }
           },

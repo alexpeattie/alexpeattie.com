@@ -1,0 +1,76 @@
+#commento {
+  .loading {
+    font-size: 1rem;
+    text-align: center;
+    color: $text-color-light;
+    font-family: $font-family-sans-serif;
+  }
+
+  &:has(> #commento-footer) .loading {
+    display: none;
+  }
+}
+
+.comments .commento-root {
+  font-family: $font-family-sans-serif;
+  margin-top: -1rem;
+
+  textarea,
+  .commento-card .commento-body p {
+    font-family: $font-family-serif;
+  }
+
+  .commento-anonymous-checkbox-container input[type='checkbox'] + label {
+    font-weight: normal;
+    text-transform: none;
+    font-size: 14px;
+
+    &::before {
+      margin-top: 4px;
+    }
+
+    &::after {
+      margin-top: 2px;
+    }
+  }
+
+  a {
+    color: $link-color;
+    transition: color 150ms ease;
+
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
+
+  .commento-submit-button {
+    background-color: $link-color;
+    transition: background-color 150ms ease;
+    box-shadow: none;
+    margin-right: 0;
+
+    &:hover {
+      background-color: $link-color-hover;
+    }
+  }
+
+  .commento-markdown-button {
+    margin-left: 2px;
+  }
+
+  .commento-login .commento-login-text {
+    margin-right: 2px;
+    font-weight: normal;
+  }
+
+  textarea {
+    padding: 1rem;
+    &::placeholder {
+      font-size: 1rem;
+    }
+  }
+
+  .commento-footer {
+    display: none;
+  }
+}

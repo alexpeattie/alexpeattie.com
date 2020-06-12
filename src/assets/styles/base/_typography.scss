@@ -114,6 +114,11 @@ ol {
     @extend .underlined_link;
   }
 
+  a:has(> code) {
+    display: inline-flex;
+    align-items: baseline;
+  }
+
   strong {
     font-weight: 600;
   }
