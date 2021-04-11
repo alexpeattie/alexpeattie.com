@@ -7131,14 +7131,6 @@ html-minifier@^4.0.0:
     relateurl "^0.2.7"
     uglify-js "^3.5.1"
 
-html-parse-stringify@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/html-parse-stringify/-/html-parse-stringify-1.0.3.tgz#517d3c6818635781e544e83ed9245237601ea7c7"
-  integrity sha512-4zl0XSaJ+PZfTRWM2T3kRB/46iU/TqA/qj5ZZRfS6bea9cbri44M8GvDHscjPT2MKTXgzvE9zHIXatyX/LNMrw==
-  dependencies:
-    phantomjs-prebuilt "^2.1.16"
-    void-elements "^1.0.0"
-
 htmlparser2@^3.9.1, htmlparser2@^3.9.2:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
@@ -15120,11 +15112,6 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
-
-void-elements@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-1.0.0.tgz#6e5db1e35d591f5ac690ce1a340f793a817b2c2a"
-  integrity sha1-bl2x411ZH1rGkM4aNA95OoF7LCo=
 
 void-elements@^2.0.1:
   version "2.0.1"
