@@ -60,7 +60,7 @@
     "github-textmate-theme": "git+https://github.com/primer/github-textmate-theme.git",
     "global": "^4.4.0",
     "html-minifier": "^4.0.0",
-    "html-parse-stringify": "^1.0.3",
+    "html-parse-stringify": "^2.0.1",
     "imagemin-pngquant": "^9.0.0",
     "import-http": "^0.3.1",
     "inflected": "^2.0.4",
