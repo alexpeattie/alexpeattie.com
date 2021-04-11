@@ -33,7 +33,7 @@
     "release-it": "^13.6.2"
   },
   "dependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.5",
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@ap-spectrum-web-components/slider": "file:local_modules/slider/",
