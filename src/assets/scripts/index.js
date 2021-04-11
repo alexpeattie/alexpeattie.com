@@ -3,8 +3,8 @@ import { Application } from 'stimulus'
 import StimulusControllerResolver from 'stimulus-controller-resolver'
 import cssHasPseudo from 'css-has-pseudo'
 
-Turbolinks.start()
 cssHasPseudo(document)
+Turbolinks.start()
 
 document.addEventListener('turbolinks:click', function (event) {
   if (event.target.getAttribute('href').charAt(0) === '#') {

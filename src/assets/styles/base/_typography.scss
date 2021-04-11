@@ -91,7 +91,7 @@ a {
 .underlined_link {
   box-shadow: 0 1px $link-color;
   line-height: 1.1;
-  overflow-x: hidden;
+  overflow: hidden;
   max-width: 100%;
 
   &:hover {
