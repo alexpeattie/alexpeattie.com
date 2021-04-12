@@ -92,4 +92,4 @@ Of course, feel free to fork this repo if you want to use it as the base for you
 
 ## License
 
-Copyright © 2020 Alex Peattie. MPLv2 Licensed, see [LICENSE](https://github.com/alexpeattie/alexpeattie.com/blob/master/LICENSE.md) for details.
+Copyright © 2021 Alex Peattie. MPLv2 Licensed, see [LICENSE](https://github.com/alexpeattie/alexpeattie.com/blob/master/LICENSE.md) for details.

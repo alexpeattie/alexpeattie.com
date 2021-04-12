@@ -10,6 +10,8 @@ const { observableCell } = require('./utils/observable.js')
 const filters = require('./utils/filters.js')
 const shortcodes = require('./utils/shortcodes.js')
 
+const link = require('linkinator');
+
 const markdownIt = require('markdown-it')
 const markdownItKatex = require('@iktakahiro/markdown-it-katex')
 const markdownItAttrs = require('markdown-it-attrs')
@@ -25,6 +27,10 @@ const shiki = require('shiki')
 const htmlmin = require('html-minifier')
 
 const isDev = process.env.NODE_ENV === 'development'
+const isFullBuild = () => {
+  const nodeARGV = process.env.npm_config_argv ? JSON.parse(process.env.npm_config_argv) : { cooked: [] }
+  return nodeARGV.cooked.pop() === 'build'
+}
 
 module.exports = function (config) {
   config.addPlugin(pluginRss)
@@ -53,6 +59,33 @@ module.exports = function (config) {
   config.addPassthroughCopy('src/assets/images')
   config.addPassthroughCopy('src/files')
   config.addPassthroughCopy({ 'src/assets/favicons': '/' })
+
+  config.on('afterBuild', async () => {
+    if(isFullBuild()) {
+      console.log('Checking links...')
+      const checker = new link.LinkChecker()
+
+      checker.on('pagestart', url => {
+        console.log(`Scanning ${url}`)
+      });
+
+      const results = await checker.check({
+        path: './dist',
+        recurse: true,
+        retry: false,
+        timeout: 5000,
+        linksToSkip: [
+          '.+archive\.is.+'
+        ]
+      })
+
+      const brokenLinks = results.links.filter(l => l.status >= 400 && l.status <= 599)
+
+      console.log(`${brokenLinks.length}/${results.links.length} links are broken.`)
+      if(brokenLinks.length) console.log(brokenLinks.map(l => [l.url, l.status]))
+    }
+
+  })
 
   let highlighter
   const ghTheme = shiki.loadTheme(
@@ -102,6 +135,9 @@ module.exports = function (config) {
   config.setLibrary('md', md)
 
   if (!isDev) {
+    const isBuild = () => {
+      npm_config_argv
+    }
     config.addTransform('htmlmin', (content, outputPath) => {
       if (outputPath.endsWith('.html')) {
         let minified = htmlmin.minify(content, {

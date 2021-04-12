@@ -36,7 +36,7 @@ render action: :new
 
 Of course _better_ is a very fuzzy term - but some advantages over the previous approach:
 
-- [Rouge](https://github.com/jayferd/rouge) is 100% Ruby-based. So no more having to rely on the (albeit excellent) python-based [Pygments](https://bitbucket.org/birkenfeld/pygments-main) - which always felt like a bit of a hack
+- [Rouge](https://github.com/jayferd/rouge) is 100% Ruby-based. So no more having to rely on the (albeit excellent) python-based [Pygments](https://pygments.org/) - which always felt like a bit of a hack
 - Easier line numbers, without any extra CSS. Has the added advantage of universal browser support.
 - [middleman-syntax](https://github.com/middleman/middleman-syntax) uses Rouge by default in version 1.2+
 

@@ -34,4 +34,4 @@ from your `application.js`, and in your layout add:
 = jquery_include_tag :google
 ```
 
-I'd recommend sticking with Google's CDN, but there are other options to choose from. Pingdom has a [very thorough rundown](http://royal.pingdom.com/2012/07/24/best-cdn-for-jquery-in-2012/) of the pros/cons of the various CDNs out there.
+I'd recommend sticking with Google's CDN, but there are other options to choose from. Pingdom has a [very thorough rundown](https://web.archive.org/web/20180120034020/http://royal.pingdom.com/2012/07/24/best-cdn-for-jquery-in-2012/) of the pros/cons of the various CDNs out there.
