@@ -6,7 +6,7 @@
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'has-js ';
     </script>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>{{ title + " – Alex Peattie" if title else site.title }}</title>
+    <title>{{ (title + " – Alex Peattie" if title else site.title) | striptags }}</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Gelasio:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;700&display=swap"/>
