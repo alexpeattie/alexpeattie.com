@@ -210,6 +210,14 @@ blockquote {
   }
 }
 
+figcaption p {
+  color: $text-color-light;
+  font-size: 0.95rem;
+  font-family: Inter;
+  margin: 1rem 0 2rem;
+  text-align: center;
+}
+
 .--center {
   text-align: center;
 }

@@ -9320,6 +9320,11 @@ markdown-it-emoji@^1.4.0:
   resolved "https://registry.yarnpkg.com/markdown-it-emoji/-/markdown-it-emoji-1.4.0.tgz#9bee0e9a990a963ba96df6980c4fddb05dfb4dcc"
   integrity sha1-m+4OmpkKljupbfaYDE/dsF37Tcw=
 
+markdown-it-figure@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-figure/-/markdown-it-figure-0.2.0.tgz#3f1fb31229187f07ee0ec3a5f45a0e00bd8fba9c"
+  integrity sha512-9xyzwyPGmLeedQqsU+sTDg2PqZoE8IXBqsM6sFR7AH099hkhXifBaRXnt79jCsD+ue9s1MaQXMxQX0u4prelag==
+
 markdown-it-footnote@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/markdown-it-footnote/-/markdown-it-footnote-3.0.2.tgz#1575ee7a093648d4e096aa33386b058d92ac8bc1"

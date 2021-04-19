@@ -19,6 +19,7 @@ const markdownItEmoji = require('markdown-it-emoji')
 const markdownItDiv = require('markdown-it-div')
 const markdownItFootnote = require('markdown-it-footnote')
 const markdownItAdmonition = require('markdown-it-admonition')
+const markdownItFigure = require('markdown-it-figure')
 
 const emoji = require('./utils/emoji')
 
@@ -119,6 +120,7 @@ module.exports = function (config) {
       html: true,
       types: ['note', 'warning', 'failure', 'success', 'tip', 'update']
     })
+    .use(markdownItFigure)
 
   md.renderer.rules.footnote_block_open = () => `
     <hr class="footnotes-sep">
