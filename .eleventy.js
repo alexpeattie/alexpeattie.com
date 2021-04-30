@@ -1,6 +1,8 @@
 require('dotenv').config()
 
 const fs = require('fs')
+const sp = require('synchronized-promise')
+
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const pluginSvgContents = require('eleventy-plugin-svg-contents')
@@ -89,16 +91,8 @@ module.exports = function (config) {
 
   })
 
-  let highlighter
-  const githubPlus = JSON.parse(fs.readFileSync('./utils/github-plus.json', 'utf-8'))
-
-  shiki
-    .getHighlighter({
-      theme: githubPlus
-    })
-    .then((hl) => {
-      highlighter = hl
-    })
+  const githubLight = JSON.parse(fs.readFileSync('./utils/github-plus.json', 'utf-8'))
+  const highlighter = sp(() => shiki.getHighlighter({ theme: githubLight }))()
 
   const md = markdownIt({
     html: true,
@@ -106,7 +100,7 @@ module.exports = function (config) {
     linkify: true,
     typographer: true,
     highlight: (code, lang) => {
-      if (!highlighter || !lang) return ''
+      if (!lang) return ''
       return highlighter.codeToHtml(code.trim(), lang)
     }
   })
