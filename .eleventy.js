@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const fs = require('fs')
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const pluginSvgContents = require('eleventy-plugin-svg-contents')
@@ -89,13 +90,11 @@ module.exports = function (config) {
   })
 
   let highlighter
-  const ghTheme = shiki.loadTheme(
-    require.resolve('github-textmate-theme/GitHub Light.tmTheme')
-  )
+  const githubPlus = JSON.parse(fs.readFileSync('./utils/github-plus.json', 'utf-8'))
 
   shiki
     .getHighlighter({
-      theme: { ...ghTheme, bg: '#f6f8fa' }
+      theme: githubPlus
     })
     .then((hl) => {
       highlighter = hl
@@ -108,7 +107,7 @@ module.exports = function (config) {
     typographer: true,
     highlight: (code, lang) => {
       if (!highlighter || !lang) return ''
-      return highlighter.codeToHtml(code, lang)
+      return highlighter.codeToHtml(code.trim(), lang)
     }
   })
     .use(markdownItKatex)

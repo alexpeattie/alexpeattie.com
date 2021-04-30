@@ -5,6 +5,7 @@ pre {
   border-radius: 3px;
   margin: 1.5rem 0 2.5rem;
   font-size: 90%;
+  background-color: $code-bg;
 }
 
 pre,
@@ -23,6 +24,25 @@ li code {
   line-height: 1.2;
   margin-bottom: 5px;
   white-space: nowrap;
+}
+
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba($text-color-light, 40%);
+}
+
+code .line:only-child::before {
+  content: none;
 }
 
 [data-filename]:not([data-filename='']) {
