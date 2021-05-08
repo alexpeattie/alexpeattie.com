@@ -1,9 +1,7 @@
 import Turbolinks from 'turbolinks'
 import { Application } from 'stimulus'
 import StimulusControllerResolver from 'stimulus-controller-resolver'
-import cssHasPseudo from 'css-has-pseudo'
 
-cssHasPseudo(document)
 Turbolinks.start()
 
 document.addEventListener('turbolinks:click', function (event) {

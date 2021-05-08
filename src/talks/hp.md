@@ -76,7 +76,7 @@ The word "golden" is followed most frequently by "egg" in the series (the phrase
 
 Some terminology that will be useful going forward: I'll refer to the word which is used as the basis to generate our suggestions as the **head** or head word, while the suggestions we offer up I'll refer to as the **continuations** (since they continue the sentence).
 
-![We'll keep referring to heads and continuations](/assets/images/talks/hp/phone-terminology.png){width=400px}
+<p><img src="/assets/images/talks/hp/phone-terminology.png" alt="We'll keep referring to heads and continuations" width="400"></p>
 
 In summary, we need to collect stats for every unique word which appears in the Harry Potter series (by my count, that's 21,814 words in all), noting each word's continuations and how frequently they occur. Here's a snippet of what our final stats data will look like:
 
@@ -86,7 +86,7 @@ Once we've collected these stats, and built our imaginary predictive keyboard, w
 
 ### RSpecto patronum
 
-Now we have a , we're ready to start writing some Ruby (yay 🎉). We're building what's known as a [language model](https://en.wikipedia.org/wiki/Language_model), specifically a bigram model - the significance of that name will become clear soon.
+Now we have a , we're ready to start writing some Ruby (yay :tada:). We're building what's known as a [language model](https://en.wikipedia.org/wiki/Language_model), specifically a bigram model - the significance of that name will become clear soon.
 
 Tests are going to be invaluable as we're building our language model, so let's set up a boilerplate project with RSpec. I personally find Bundler's `bundle gem` command very handy for setting up a quick Ruby project, even if I don't intend for it to be released as a gem.
 
@@ -133,8 +133,9 @@ RSpec.describe HpLanguageModel do
 end
 ```
 
-_Note:_ For brevity I'm not taking a purist TDD approach in this tutorial. In real life, you'd want to smaller test cases (e.g. a separate spec for special characters and case), and better coverage of edge cases (what should we get if we pass an empty string to `tokenize`?).
-{ .callout }
+:::admonition[Caution]{kind="warning"}
+For brevity I'm not taking a purist TDD approach in this tutorial. In real life, you'd want to smaller test cases (e.g. a separate spec for special characters and case), and better coverage of edge cases (what should we get if we pass an empty string to `tokenize`?).
+:::
 
 Here's a simple implementation of `tokenize` that will pass our spec:
 
@@ -355,8 +356,9 @@ pumpkin appears 47 times in the HP series
 pumpkin has 10 unique continuations
 ```
 
-_Fun fact:_ Somewhat surprisingly, the phrase "magic wand" only appears 3 times in the Harry Potter books, and it doesn't appear at all in the last 5 books.
-{ .callout }
+:::admonition[Fun fact]{kind="tip"}
+Somewhat surprisingly, the phrase "magic wand" only appears 3 times in the Harry Potter books, and it doesn't appear at all in the last 5 books.
+:::
 
 ### The greedy algorithm
 
@@ -442,8 +444,9 @@ HpLanguageModel.new("The cat sat on the mat. The cat was happy.").generate_story
 #=> "the cat sat on the cat"
 ```
 
-_Notice:_ What happens if we extend the story beyond 6 words? What problem do we uncover?
-{ .callout }
+:::admonition[Question]{kind="warning"}
+What happens if we extend the story beyond 6 words? What problem do we uncover?
+:::
 
 One nice thing about the greedy algorithm is that it's deterministic for a given choice of starting word, and if our corpus is small, we can work out by hand what it will output. Let's translate the test run above into a spec:
 
@@ -474,7 +477,7 @@ However, maybe we should give our script another chance. After all, we begin our
 
 Oh no, it's even worse. Well, at least we know what title we should give our new Harry Potter epic...
 
-![Cover for Harry Potter and the door and the door and the door and the door](/assets/images/talks/hp/cover.jpg){width="350px"}
+<p><img src="/assets/images/talks/hp/cover.jpg" alt="Cover for Harry Potter and the door and the door and the door and the door" width="350px"></p>
 
 Why is the greedy algorithm failing so spectacularly? Let's add tweak our script to add some debug info. In `hp_language_model.rb` I'll add a `puts` statement to and set a fixed starting word for our story in `generate_story`:
 
@@ -617,11 +620,11 @@ The punchline is that the weighted random approach yields out best output so far
 
 There's one last idea that can significantly improve our model's output. When we examined our smartphones' predictive keyboards, we noted that they suggest reasonable continuations for the word we just typed. However, if you play around with your keyboard on a modern phone, you'll find that the story is a little more complicated. For example, if I type the word "and", on its own, I'm offered these (fairly generic) suggestions:
 
-![Generic suggestions follow the word "and"](/assets/images/talks/hp/and-suggestions.png){width=400px}
+<p><img src="/assets/images/talks/hp/and-suggestions.png" alt='Generic suggestions follow the word "and"' width="400px"></p>
 
 However, if (as I'm, say, giving my friend some Brighton food recommendations) I type "fish and", I'm offered a whole other set of suggestions:
 
-![A whole different set of suggestions follow the words "fish and"](/assets/images/talks/hp/fish-and-suggestions.png){width=400px}
+<p><img src="/assets/images/talks/hp/fish-and-suggestions.png" alt='A whole different set of suggestions follow the words "fish and"' width="400px"></p>
 
 Clearly, our phone isn't just looking at the previous word, but is in fact looking deeper into the sentence. This is the final key idea which will help us significantly improve our model.
 

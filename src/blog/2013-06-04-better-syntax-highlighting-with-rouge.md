@@ -2,9 +2,9 @@
 title: 'Better GitHub-style syntax highlighting with Rouge'
 ---
 
-!!! update Update 2020
+:::admonition[Update 2020]{kind="update"}
 This tutorial is out-of-date. See the repository for [alexpeattie.com](https://github.com/alexpeattie/alexpeattie.com) to see how I do it now.
-!!!
+:::
 
 <!-- excerpt -->
 

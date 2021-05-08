@@ -1,5 +1,6 @@
 .byline {
   display: flex;
+  font-family: $font-family-sans-serif;
   color: $text-color-light;
   line-height: 1.5;
   justify-content: space-between;
@@ -21,7 +22,12 @@
   }
 
   &__user {
-    align-items: baseline;
+    align-items: center;
+
+    &__text {
+      display: flex;
+      align-items: baseline;
+    }
   }
 
   &__headshot {
@@ -46,5 +52,9 @@
     &:hover {
       border-bottom-color: $link-color-hover;
     }
+  }
+
+  .icon--clock {
+    height: 1rem;
   }
 }

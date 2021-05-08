@@ -26,11 +26,14 @@ layout: base
     </div>
 
     <div class='byline__user'>
+      {% icon 'clock' %}
       {% readingTime content %}
-      <span class='byline__separator'>/</span>
-      <a class='byline__comment_count' href='#commento'>
-        comments
-      </a>
+      <div class='byline__user__text'>
+        <span class='byline__separator'>/</span>
+        <a class='byline__comment_count' href='#commento'>
+          comments
+        </a>
+      </div>
     </div>
   </div>
 

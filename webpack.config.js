@@ -43,7 +43,6 @@ module.exports = {
               plugins: () => [
                 require('autoprefixer')({ preset: 'default' }),
                 require('./utils/postcss-font-smoothing')(),
-                require('css-has-pseudo/postcss')
               ]
             }
           },

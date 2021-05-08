@@ -8,7 +8,7 @@ If you're a developer using macOS you've probably had the experience of double c
 - In the *Info* window, click the arrow  next to *“Open with.”*
 - Click the pop-up menu, then choose the app. To open all files of this type with this app, click *Change All*.
 
-#[Choosing the application associated with a file extension using Finder is simple, but slow.](/assets/images/posts/associate-source-code-files-with-editor-in-macos-using-duti/finder.png)
+::figure[Choosing the application associated with a file extension using Finder is simple, but slow.]{url="/assets/images/posts/associate-source-code-files-with-editor-in-macos-using-duti/finder.png"}
 
 However, if we want to associate all source code files with our editor, this becomes tedious. Even for a single language we might have many file extensions to go through (a file in a JavaScript project could have the extension `.js`, `.es`, `.es6`, `.cjs`, `.mjs`, `.jsx`, `.jsm` etc.). When setting up my macOS environment I wondered if there was a way to do this via the CLI, and via Nick Ficano's blog[^nick] I came across [`duti`](https://github.com/moretension/duti/)
 

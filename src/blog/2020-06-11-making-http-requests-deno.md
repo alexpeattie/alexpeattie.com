@@ -5,9 +5,10 @@ image: /assets/images/meta/posts/making-http-requests-deno.png
 
 Deno makes it easy to make client HTTP requests, using the web standard Fetch API. <!-- excerpt --> You can make a `GET` request in Deno like so:
 
-::: get-my-ip.ts
-
 ```ts
+---
+filename: get-my-ip.ts
+---
 type IpifyResponse = {
   ip: String
 }
@@ -17,8 +18,6 @@ const ipData: IpifyResponse = await response.json()
 
 console.log(`My IP is ${ipData.ip}`)
 ```
-
-:::
 
 Since Deno is sandboxed by default, we'll need to explicitly allow HTTP requests by running our script with the `--allow-net` flag:
 

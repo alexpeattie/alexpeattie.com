@@ -129,7 +129,7 @@ ol {
   }
 }
 
-a:has(> code) {
+a.has-code {
   display: inline-flex;
   align-items: baseline;
 }
@@ -177,6 +177,7 @@ blockquote {
   font-weight: bold;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+  display: block;
 }
 
 @each $type, $color in $admonitions {
@@ -190,7 +191,25 @@ blockquote {
   }
 }
 
-.footnote-ref a,
+a.footnote-ref {
+  padding: 0 4px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: none;
+  background: $oc-blue-0;
+  border: 1px solid $oc-blue-1;
+  font-family: $font-family-sans-serif;
+  margin: 8px 3px 0;
+  border-radius: 3px;
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+
+  &:hover {
+    background: $oc-blue-1;
+    color: $link-color-hover;
+    box-shadow: none;
+  }
+}
+
 .footnote-backref {
   border-bottom: none;
   margin: 0 0.1rem;
@@ -210,7 +229,7 @@ blockquote {
   }
 }
 
-figcaption p {
+figcaption {
   color: $text-color-light;
   font-size: 0.95rem;
   font-family: Inter;

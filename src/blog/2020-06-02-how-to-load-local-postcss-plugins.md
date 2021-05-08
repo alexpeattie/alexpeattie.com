@@ -12,9 +12,10 @@ If your plugin is particularly lightweight though, you might not want to bother 
 
 For illustration, let's create a tiny plugin which will replace (unsupported) `line-clamp` declarations with [`-webkit-line-clamp`]() - [`autoprefixer`]() won't do this since `-webkit-line-clamp` is a non-standard property.
 
-::: data-filename=src/postcss-line-clamp.js
-
 ```js
+---
+filename: src/postcss-line-clamp.js
+---
 module.exports = postcss.plugin('postcss-line-clamp', function () {
   return function (root) {
     root.walkDecls(function (decl) {
@@ -23,8 +24,6 @@ module.exports = postcss.plugin('postcss-line-clamp', function () {
   }
 }
 ```
-
-:::
 
 #### Loading a local plugin
 
@@ -47,9 +46,10 @@ const processedCSS = postcss(
 
 However, things a slightly more complicated if we are using Webpack & `postcss-loader`. I didn't figure out how to get local plugins working with `postcss.config.js`, so instead we'll load our PostCSS plugins in `webpack.config.js` (see the [Plugins section](https://github.com/postcss/postcss-loader#plugins) of the `postcss-loader' README). Assuming our initial setup looks like:
 
-::: data-filename=webpack.config.js
-
 ```js
+---
+filename: webpack.config.js
+---
 module: {
   rules: [
     {
@@ -60,11 +60,10 @@ module: {
 }
 ```
 
-:::
-
-::: data-filename=postcss.config.js
-
 ```js
+---
+filename: postcss.config.js
+---
 module.exports = {
   plugins: {
     'postcss-import': {},
@@ -74,13 +73,12 @@ module.exports = {
 }
 ```
 
-:::
-
 We can delete our `postcss.config.js`, and load our plugins manually like so:
 
-::: data-filename=webpack.config.js
-
 ```js
+---
+filename: webpack.config.js
+---
 module.exports = {
   module: {
     rules: [
@@ -107,14 +105,13 @@ module.exports = {
 }
 ```
 
-:::
-
 Now we just have to extend our `plugins` array to include our `line-clamp` plugin:
-
-::: data-filename=webpack.config.js
 
 <!-- prettier-ignore-start -->
 ```js
+---
+filename: webpack.config.js
+---
 module.exports = {
   // ...
               plugins: (loader) => [
@@ -127,5 +124,3 @@ module.exports = {
 }
 ```
 <!-- prettier-ignore-end -->
-
-:::

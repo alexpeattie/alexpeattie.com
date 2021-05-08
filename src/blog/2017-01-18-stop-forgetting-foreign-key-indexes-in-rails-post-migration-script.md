@@ -32,9 +32,10 @@ The index will be automatically created. Note, that everything else works if you
 
 Prevention is better than a cure, so I whipped up a quick script to keep an eye on missing foreing key indexes going forward. Rake offers a very handy `enhance` method which lets you add behavior that runs after an existing task. In our case, we extended the `db:migrate` task to **check for any unindexed foreign keys and promptly warn the developer**:
 
-::: data-filename=lib/tasks/post_migration_index_checker.rake
-
 ```ruby
+---
+filename: lib/tasks/post_migration_index_checker.rake
+---
 Rake::Task['db:migrate'].enhance do
   tables = ActiveRecord::Base.connection.tables
   all_foreign_keys = tables.flat_map do |table_name|
@@ -54,8 +55,6 @@ Rake::Task['db:migrate'].enhance do
   end
 end
 ```
-
-:::
 
 The code is quite straightforward: we iterate through every column of every table, and select those that end in `_id`; this is quite a naive way to identify foreign keys, but worked AOK for us. Then we loop through our indexes, and names of the columns they're indexing. If there are any foreign keys which aren't in the list of indexed columns, we output a warning. To install, just save the script as, say, `post_migration_index_checker.rake` and put it in your `libs/tasks` directory. Here's the script in action:
 

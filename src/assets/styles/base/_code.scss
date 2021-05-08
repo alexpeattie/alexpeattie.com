@@ -45,25 +45,22 @@ code .line:only-child::before {
   content: none;
 }
 
-[data-filename]:not([data-filename='']) {
-  pre {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-  }
+.code-filename {
+  display: block;
+  font-family: $font-family-monospace;
+  margin-bottom: -1.5rem;
+  padding: 0.75rem 1rem;
+  background: $oc-gray-2;
+  margin-top: 1.5rem;
+  color: $oc-gray-7;
+  font-size: 90%;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  &::before {
-    content: attr(data-filename);
-    display: block;
-    font-family: $font-family-monospace;
-    margin-bottom: -1.5rem;
-    padding: 0.75rem 1rem;
-    background: $oc-gray-2;
-    margin-top: 1.5rem;
-    color: $oc-gray-7;
-    font-size: 90%;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.code-filename ~ .shiki {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }

@@ -3,6 +3,7 @@ layout: page
 title: 'JustVector Social Icons 1.5'
 ---
 
+
 <div class='color_changing_icons'>
   {% for item in ['dropbox', 'facebook', 'github', 'quora', 'reddit', 'skype', 'soundcloud', 'spotify', 'tumblr', 'twitter', 'yelp', 'youtube', 'vimeo', 'yahoo!', 'rss', 'whatsapp'] %}
   {{ ('/src/assets/images/projects/justvector/' + item + '.svg') | svgContents | safe }}
@@ -10,7 +11,6 @@ title: 'JustVector Social Icons 1.5'
 </div>
 
 **[⬇ Download icons (.zip)](/files/justvector.zip)**
-{ .--center }
 
 These 150 monochrome social icons are designed with simplicity in mind. Provided in vector format, they are fully editable and scale to any size smoothly. They are completely **free**, even for commercial use, redistribution or remixing (see [License](#license-info)).
 
