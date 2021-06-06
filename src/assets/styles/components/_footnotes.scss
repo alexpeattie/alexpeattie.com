@@ -1,0 +1,43 @@
+a.footnote-ref {
+  padding: 0 4px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: none;
+  background: $oc-blue-0;
+  border: 1px solid $oc-blue-1;
+  font-family: $font-family-sans-serif;
+  margin: 8px 3px 0;
+  border-radius: 3px;
+  transition: color 150ms ease, background-color 150ms ease,
+    border-color 150ms ease;
+
+  &:hover {
+    background: $oc-blue-1;
+    color: $link-color-hover;
+    box-shadow: none;
+  }
+}
+
+.footnote-backref {
+  border-bottom: none;
+  margin: 0 0.1rem;
+}
+
+.footnote-ref a {
+  font-family: $font-family-sans-serif;
+}
+
+.footnotes > ol {
+  li::marker {
+    font-family: $font-family-sans-serif;
+  }
+
+  li {
+    margin: 1rem 0;
+    transition: background-color 250ms ease;
+  }
+}
+
+.footnote--highlight {
+  background-color: $oc-yellow-1;
+}
