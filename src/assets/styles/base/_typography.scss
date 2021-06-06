@@ -7,6 +7,55 @@ body {
   background: $oc-yellow-1;
 }
 
+// full size, mobile size, icon size (ratio)
+$header-sizes: (
+  'h1': (
+    3rem,
+    2.2rem,
+    0.9
+  ),
+  'h2': (
+    2.2rem,
+    1.9rem,
+    0.9
+  ),
+  'h3': (
+    1.75rem,
+    1.5rem,
+    0.9
+  ),
+  'h4': (
+    1.2rem,
+    1.1rem,
+    1.1
+  ),
+  'h5': (
+    1.1rem,
+    1rem,
+    1.1
+  )
+);
+
+@each $type, $size in $header-sizes {
+  #{$type} {
+    font-size: nth($size, 1);
+
+    @include breakpoint($mobile) {
+      font-size: nth($size, 2);
+    }
+
+    .header-link .icon {
+      width: nth($size, 1) * nth($size, 3);
+      height: nth($size, 1) * nth($size, 3);
+
+      @include breakpoint($mobile) {
+        width: nth($size, 2) * nth($size, 3);
+        height: nth($size, 2) * nth($size, 3);
+      }
+    }
+  }
+}
+
 h1,
 h2,
 h3,
@@ -22,16 +71,35 @@ h6 {
   a:not(:hover) {
     color: $text-color-dark;
   }
+
+  a.header-link {
+    color: $link-color;
+  }
+
+  &:hover .header-link {
+    visibility: visible;
+  }
+}
+
+.header-link {
+  color: $link-color;
+  visibility: hidden;
+
+  margin: 0 0.5rem;
+  &:hover {
+    color: $link-color-hover;
+  }
+
+  .icon {
+    margin: 0;
+    border-bottom: 2px solid;
+    padding-bottom: 2px;
+  }
 }
 
 h1 {
-  font-size: 3rem;
   text-rendering: optimizeLegibility;
   margin-bottom: 1.5rem;
-
-  @include breakpoint($mobile) {
-    font-size: 2.2rem;
-  }
 }
 
 h2,
@@ -40,42 +108,13 @@ h3 {
   margin: 3rem 0 1.5rem;
 }
 
-h2 {
-  font-size: 2.2rem;
-
-  @include breakpoint($mobile) {
-    font-size: 1.9rem;
-  }
-}
-
-h3 {
-  font-size: 1.75rem;
-
-  @include breakpoint($mobile) {
-    font-size: 1.5rem;
-  }
-}
-
 h4,
 h5 {
   margin: 3rem 0 1rem;
 }
 
-h4 {
-  font-size: 1.2rem;
-
-  @include breakpoint($mobile) {
-    font-size: 1.9rem;
-  }
-}
-
 h5 {
-  font-size: 1.1rem;
   color: $oc-gray-7;
-
-  @include breakpoint($mobile) {
-    font-size: 1rem;
-  }
 }
 
 a {
@@ -93,6 +132,7 @@ a {
   line-height: 1.1;
   overflow: hidden;
   max-width: 100%;
+  word-wrap: break-word;
 
   &:hover {
     box-shadow: 0 1px $link-color-hover;
@@ -101,13 +141,13 @@ a {
 
 p,
 ul,
-ol {
+ol,
+td {
   color: $text-color;
-  line-height: 1.75;
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0;
-  margin: 1.5rem 0;
+  margin: 1.75rem 0;
 
   a {
     @extend .underlined_link;
@@ -127,6 +167,12 @@ ol {
     margin: 0 auto;
     display: block;
   }
+}
+
+p,
+ul,
+ol {
+  line-height: 2;
 }
 
 a.has-code {
@@ -188,44 +234,6 @@ blockquote {
     .admonition-title {
       color: $color;
     }
-  }
-}
-
-a.footnote-ref {
-  padding: 0 4px;
-  display: inline-block;
-  text-align: center;
-  box-shadow: none;
-  background: $oc-blue-0;
-  border: 1px solid $oc-blue-1;
-  font-family: $font-family-sans-serif;
-  margin: 8px 3px 0;
-  border-radius: 3px;
-  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
-
-  &:hover {
-    background: $oc-blue-1;
-    color: $link-color-hover;
-    box-shadow: none;
-  }
-}
-
-.footnote-backref {
-  border-bottom: none;
-  margin: 0 0.1rem;
-}
-
-.footnote-ref a {
-  font-family: $font-family-sans-serif;
-}
-
-.footnotes-list {
-  font-family: $font-family-sans-serif;
-
-  p,
-  .footnote-backref {
-    font-family: $font-family-base;
-    margin: 0;
   }
 }
 

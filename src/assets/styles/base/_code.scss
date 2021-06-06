@@ -14,16 +14,17 @@ code {
   font-smoothing: auto;
 }
 
-p code,
-li code {
-  font-size: 1rem;
-  padding: 0.25rem;
-  margin: 0 0.25rem;
-  background: $code-bg;
-  border-radius: 3px;
-  line-height: 1.2;
-  margin-bottom: 5px;
-  white-space: nowrap;
+p, li, figcaption {
+  code {
+    font-size: 1rem;
+    padding: 0.25rem;
+    margin: 0 0.25rem;
+    background: $code-bg;
+    border-radius: 3px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    white-space: nowrap;
+  }
 }
 
 code {
