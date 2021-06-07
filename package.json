@@ -116,6 +116,11 @@
     }
   },
   "marp": {
-    "html": true
+    "html": true,
+    "options": {
+      "markdown": {
+        "typographer": true
+      }
+    }
   }
 }
