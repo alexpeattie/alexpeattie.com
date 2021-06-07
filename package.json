@@ -108,8 +108,8 @@
   },
   "release-it": {
     "git": {
-      "requireBranch": "master",
-      "requireCommits": "master"
+      "requireBranch": "main",
+      "requireCommits": "main"
     },
     "npm": {
       "publish": false
