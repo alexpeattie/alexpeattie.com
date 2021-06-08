@@ -68,7 +68,7 @@ _Slides online at alexpeattie.com/talks/tts_
 ## Agenda
 
 <!-- prettier-ignore -->
-* Intro & why
+* Intro & why deep learning
 * Breaking down the problem (seq2seq & audio synthesis)
 * Solution (acoustic model & vocoder)
   * Step-by-step guide to getting started
@@ -531,7 +531,7 @@ E Note: ~1320Hz (1320 repetitions per second)<br><audio controls src='/assets/au
 
 ---
 
-At this stage you hopefully understand what a waveform is (amplitude changing over time), and how it can be digitize (by taking thousands of discretes samples per second of the changing amplitude).
+At this stage you hopefully understand what a waveform is (amplitude changing over time), and how it can be digitized (by taking thousands of discretes samples per second of the changing amplitude).
 
 <div data-marpit-fragment>
 However, in practice we <strong>rarely generate raw waveforms directly</strong> with deep learning-based TTS approaches. Why not?
@@ -805,7 +805,7 @@ Some worth checking out include FastSpeech 2, Transformer Network, AdaSpeech 2, 
 
 Text: "<mark>H</mark>ello world"
 
-Predicting `r` frames. (We call `r` the "reduction factor". Typically `r` = 2)
+For each example in our training set we try to predict the spectrogram as accurately as possible, given the transcript. We make our prediction `r` frames at a time. (We call `r` the "reduction factor". Typically `r` = 2)
 
 <div data-marpit-fragment>
   <img alt='center' height='300' src='/assets/images/talks/tts/tacotron-prediction1.png'>
@@ -817,7 +817,7 @@ Predicting `r` frames. (We call `r` the "reduction factor". Typically `r` = 2)
 
 Text: "H<mark>e</mark>llo world"
 
-We predict the next R frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
+We predict the next `r` frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
 
 ![h:300 center](/assets/images/talks/tts/tacotron-prediction1.png)
 
@@ -827,7 +827,7 @@ We predict the next R frames. But for the purposes of our prediction, our previo
 
 Text: "H<mark>e</mark>llo world"
 
-We predict the next R frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
+We predict the next `r` frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
 
 ![h:300 center](/assets/images/talks/tts/tacotron-prediction2.png)
 
@@ -847,7 +847,7 @@ We predict the next R frames. But for the purposes of our prediction, our previo
 
 Text: "He<mark>l</mark>lo world"
 
-We predict the next R frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
+We predict the next `r` frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
 
 ![h:300 center](/assets/images/talks/tts/tacotron-prediction4.png)
 
