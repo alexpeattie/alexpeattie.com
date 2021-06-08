@@ -837,7 +837,7 @@ We predict the next `r` frames. But for the purposes of our prediction, our prev
 
 Text: "H<mark>e</mark>llo world"
 
-We predict the next R frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
+We predict the next `r` frames. But for the purposes of our prediction, our previously predicted frames are replaced by the frames from the spectrogram in the training data (teacher forcing)
 
 ![h:300 center](/assets/images/talks/tts/tacotron-prediction3.png)
 
