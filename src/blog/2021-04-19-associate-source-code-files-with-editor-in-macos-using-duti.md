@@ -4,9 +4,9 @@ title: Quickly associate all source code files with your editor in macOS using <
 
 If you're a developer using macOS you've probably had the experience of double clicking, say, a `.js` file in Finder only to inadvertantly launch the wrong application, rather than your editor of choice. <!-- excerpt --> It's of course easy enough to change the association for a given file extension; per the Apple docs[^apple]:
 
-- Control-click the file, then choose *Get Info*.
-- In the *Info* window, click the arrow  next to *“Open with.”*
-- Click the pop-up menu, then choose the app. To open all files of this type with this app, click *Change All*.
+- Control-click the file, then choose _Get Info_.
+- In the _Info_ window, click the arrow next to _“Open with.”_
+- Click the pop-up menu, then choose the app. To open all files of this type with this app, click _Change All_.
 
 ::figure[Choosing the application associated with a file extension using Finder is simple, but slow.]{url="/assets/images/posts/associate-source-code-files-with-editor-in-macos-using-duti/finder.png" width="500"}
 
@@ -51,6 +51,7 @@ Equipped with `duti`, we just need an exhaustive list of file extensions - acros
 
 `languages.yml` looks like this:
 
+<!-- prettier-ignore -->
 ```yaml
 # ...
 Erlang:
@@ -102,19 +103,10 @@ yq "to_entries | map(.value.extensions)" languages.yml
 ```json
 [
   // ...
-  [
-    ".rst",
-    ".rest",
-    ".rest.txt",
-    ".rst.txt"
-  ],
+  [".rst", ".rest", ".rest.txt", ".rst.txt"],
   null,
-  [
-    ".sed"
-  ],
-  [
-    ".wdl"
-  ],
+  [".sed"],
+  [".wdl"]
   // ...
 ]
 ```
@@ -125,6 +117,7 @@ Next we'll flatten this (`flatten`), remove `null` values (`- [null]`), and remo
 yq "to_entries | (map(.value.extensions) | flatten) - [null] | unique" languages.yml
 ```
 
+<!-- prettier-ignore -->
 ```json
 [
   // ...
@@ -187,6 +180,9 @@ As well as being a big timesaver, I think the script above is a nice example of 
 - `xargs` to run a command for each data point
 - `duti` to set the file extension association
 
+:::admonition[Update 2022]{kind="update"}
+I've since come across (but not personally used) [`openwith`](https://github.com/jdek/openwith) which seems to have a simpler API than `duti` - h/t to Dennis Felsing's [blog post](https://hookrace.net/blog/macos-setup/) on his macOS setup.
+:::
 
 [^apple]: Source: [Apple: Choose an app to open a file on Mac](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac#mchlp0fea282)
 [^nick]: Source: [Change Mac OS default file associations from the command line with duti](https://nickficano.com/blog/change-macos-default-file-associations-command-line-duti)
