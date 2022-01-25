@@ -26,9 +26,11 @@ const remarkCodeFrontmatter = require('remark-code-frontmatter')
 const remarkGfm = require('remark-gfm')
 const remarkSmartypants = require('@silvenon/remark-smartypants')
 const remarkDirective = require('remark-directive')
+const remarkMath = require('remark-math')
 const remarkSlug = require('remark-slug')
 const remarkAutolinkHeadings = require('remark-autolink-headings')
 const remarkRehype = require('remark-rehype')
+const rehypeKatex = require('rehype-katex')
 const rehypeStringify = require('rehype-stringify')
 const rehypeRaw = require('rehype-raw')
 const h = require('hastscript')
@@ -119,6 +121,7 @@ module.exports = function (config) {
       remarkFootnotes,
       remarkRenumberFootnotes,
       remarkGfm,
+      remarkMath,
       remarkSmartypants,
       remarkSlug,
       {
@@ -217,6 +220,7 @@ module.exports = function (config) {
         plugin: remarkRehype,
         options: { allowDangerousHtml: true }
       },
+      rehypeKatex,
       rehypeRaw,
       function inlineCodeFix() {
         return transformer

@@ -1,15 +1,16 @@
 {
- "port": 4000,
- "serve": "dist",
- "bind": "localhost",
- "delay": 100,
- "quiet": true,
- "watchexps": [
+  "port": 4000,
+  "serve": "dist",
+  "bind": "localhost",
+  "delay": 100,
+  "quiet": true,
+  "watchexps": [
     "src/assets/scripts/**/*.js # npm run webpack:dev",
+    "src/assets/scripts/**/*.vue # npm run webpack:dev",
     "src/assets/styles/**/*.scss # npm run webpack:dev # reloadcss",
     "dist/**/*.html",
     "src/images/"
- ],
- "http2": false,
- "redirect": true
+  ],
+  "http2": false,
+  "redirect": true
 }

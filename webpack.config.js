@@ -4,6 +4,8 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssnanoPlugin = require('cssnano-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
+const { DefinePlugin } = require('webpack')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -24,6 +26,23 @@ module.exports = {
         use: 'babel-loader'
       },
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          reactivityTransform: true
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { hmr: isDev }
+          },
+          'css-loader'
+        ]
+      },
+      {
         test: /\.s[ac]ss$/i,
         exclude: /(node_modules|bower_components)/,
         use: [
@@ -42,7 +61,7 @@ module.exports = {
               sourceMap: true,
               plugins: () => [
                 require('autoprefixer')({ preset: 'default' }),
-                require('./utils/postcss-font-smoothing')(),
+                require('./utils/postcss-font-smoothing')()
               ]
             }
           },
@@ -76,5 +95,12 @@ module.exports = {
       })
     ]
   },
-  plugins: [new MiniCssExtractPlugin({ filename: `styles/index.css` })]
+  plugins: [
+    new VueLoaderPlugin(),
+    new DefinePlugin({
+      __VUE_OPTIONS_API__: false,
+      __VUE_PROD_DEVTOOLS__: true
+    }),
+    new MiniCssExtractPlugin({ filename: `styles/index.css` })
+  ]
 }
