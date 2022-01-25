@@ -5,6 +5,7 @@ export default class extends Controller {
     const existingScript = document.getElementById('commento-script')
     const loadComments = () => {
       window.commento.main()
+      document.querySelector('#commento .loading').remove()
     }
 
     if (!existingScript || !window.commento.main) {

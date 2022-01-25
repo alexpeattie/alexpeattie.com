@@ -5,10 +5,6 @@
     color: $text-color-light;
     font-family: $font-family-sans-serif;
   }
-
-  &:has(> #commento-footer) .loading {
-    display: none;
-  }
 }
 
 .comments .commento-root {
