@@ -170,6 +170,10 @@ So where does that leave us? I think most of the big questions regarding Wordle 
 
 It could still be interesting for someone to crunch through all the depth 5 trees to find the one which minimizes the average number of guesses[^minavg] (I believe at the point Wordle could be declared well and truly solved :grin:!).
 
+:::admonition[Update]{kind="update"}
+Thanks (again) to Laurent Poirrier for checking this proof. He also independently verified it with an MIP formulation (in [LP format](https://www.gurobi.com/documentation/9.5/refman/lp_format.html)) which is available [here](https://www.poirrier.ca/notes/wordle/problem.lp.gz).
+:::
+
 [^laurent]: Laurent's work already establishes that we can't guarantee a solution in 4 or fewer guesses, leaving 5 or 6 as possibilities for the minimum number of guesses needed.
 [^vvordle]: The widget is largely based on [Evan You's implementation](https://github.com/yyx990803/vue-wordle) 💚
 [^nphard]: It turns out to be the [set cover problem](https://en.wikipedia.org/wiki/Set_cover_problem) in disguise, which is NP-hard.
