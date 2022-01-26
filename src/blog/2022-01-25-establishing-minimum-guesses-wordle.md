@@ -7,7 +7,7 @@ image: /assets/images/meta/posts/establishing-minimum-guesses-wordle.png
 
 A few weeks ago, I became interested in whether there was a strategy to always "win" Wordle (i.e. to find the secret word in 6 guesses or fewer). This is exactly the problem that Laurent Poirrier examines in his [excellent writeup](https://www.poirrier.ca/notes/wordle/) on applying mathematical optimization techniques to Wordle:
 
-> Is there a strategy that guarantees to find any one of the 12972 possible words within the 6 allowed guesses? Without resorting to luck, that is.
+> Is there a strategy that guarantees to find any one of the 12972 possible words[^wordcount] within the 6 allowed guesses? Without resorting to luck, that is.
 
 Laurent proved the answer is yes! With careful thought, some clever optimization techniques and over a thousand hours of CPU time, he found a [decision tree](https://en.wikipedia.org/wiki/Decision_tree) of depth 5 -- yielding a strategy to solve Wordle puzzles in $\leq$ 6 guesses. (Before reading the rest of this article, I'd recommend going through Laurent's post -- it's quite accessible even if you don't have a background in optimization).
 
@@ -174,6 +174,7 @@ It could still be interesting for someone to crunch through all the depth 5 tree
 Thanks (again) to Laurent Poirrier for checking this proof. He also independently verified it with an MIP formulation (in [LP format](https://www.gurobi.com/documentation/9.5/refman/lp_format.html)) which is available [here](https://www.poirrier.ca/notes/wordle/problem.lp.gz).
 :::
 
+[^wordcount]: In both this article & Laurent's we assume that the secret word can be any of the 12,972 words which are accepted as guesses. This list seems to be the 5 letter words from the [2019 Collins Scrabble Words list](https://boardgames.stackexchange.com/questions/38366/latest-collins-scrabble-words-list-in-text-file). Wordle actually chooses its word of the day from a smaller subset of these words -- around 2,500 words from the list which the partner of Wordle's creator recognized ([source](https://www.nytimes.com/2022/01/03/technology/wordle-word-game-creator.html)). This is presumably to prevent outrage from players having to guess words like "[yrapt](https://en.wiktionary.org/wiki/yrapt)".
 [^laurent]: Laurent's work already establishes that we can't guarantee a solution in 4 or fewer guesses, leaving 5 or 6 as possibilities for the minimum number of guesses needed.
 [^vvordle]: The widget is largely based on [Evan You's implementation](https://github.com/yyx990803/vue-wordle) 💚
 [^nphard]: It turns out to be the [set cover problem](https://en.wikipedia.org/wiki/Set_cover_problem) in disguise, which is NP-hard.
