@@ -137,6 +137,10 @@ No solutions found
 
 Therefore, there isn't a length-4 subset of $\mathit{W}$ which eliminates 18 of 19 letters in $\mathit{L}$. Thus, ill Wordle can't always be solved in $\leq 5$ guesses, and the same must be true of regular Wordle. **Wordle cannot be always solved in 5 guesses or fewer.**
 
+:::admonition[Update]{kind="update"}
+Isaac Grosof astutely points out in the comments that "kynds" and "gymps" don't actually eliminate 5 possibilities. We can't eliminate "sills", since both words will just give us a green tile on the last letter "s" (which will be the case for all -ills words). So the proof can be even simpler: no pair of words eliminates 10 possibilities, thus a guaranteed win in 5 guesses is impossible. Thanks Isaac!
+:::
+
 #### Checking our conclusion with OR-Tools
 
 We can also frame the problem of finding the minimum number of guesses needed to eliminate 18 of 19 letters in $\mathit{L}$ as a constraint programming (CP) problem, which then allows us to use sophisticated [SAT solvers](https://en.wikipedia.org/wiki/SAT_solver) like those provided by Google's [OR-Tools](https://developers.google.com/optimization). The details are beyond the scope of this article, but you can check out [this Colab](https://colab.research.google.com/gist/alexpeattie/be59dcf01fd18ee16a3f437467b191b8/wordle_min_guesses_or_tools.ipynb) if you're interested. At a high level, we're telling the solver to minimize the number of words chosen, while ensuring we eliminate enough letters:
@@ -171,7 +175,7 @@ So where does that leave us? I think most of the big questions regarding Wordle 
 It could still be interesting for someone to crunch through all the depth 5 trees to find the one which minimizes the average number of guesses[^minavg] (I believe at the point Wordle could be declared well and truly solved :grin:!).
 
 :::admonition[Update]{kind="update"}
-Thanks (again) to Laurent Poirrier for checking this proof. He also independently verified it with an MIP formulation (in [LP format](https://www.gurobi.com/documentation/9.5/refman/lp_format.html)) which is available [here](https://www.poirrier.ca/notes/wordle/problem.lp.gz).
+Thanks (again) to Laurent Poirrier for checking this proof. He also independently verified it with an MIP formulation (in [LP format](https://www.gurobi.com/documentation/9.5/refman/lp_format.html)) which is available [here](https://www.poirrier.ca/notes/wordle/problem.lp.gz). He's also written a great round-up post on the [state of the art in Wordle-solving](https://www.poirrier.ca/notes/wordle-optimal/).
 :::
 
 [^wordcount]: In both this article & Laurent's we assume that the secret word can be any of the 12,972 words which are accepted as guesses. This list seems to be the 5 letter words from the [2019 Collins Scrabble Words list](https://boardgames.stackexchange.com/questions/38366/latest-collins-scrabble-words-list-in-text-file). Wordle actually chooses its word of the day from a smaller subset of these words -- around 2,500 words from the list which the partner of Wordle's creator recognized ([source](https://www.nytimes.com/2022/01/03/technology/wordle-word-game-creator.html)). This is presumably to prevent outrage from players having to guess words like "[yrapt](https://en.wiktionary.org/wiki/yrapt)".
