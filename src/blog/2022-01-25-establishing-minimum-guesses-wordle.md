@@ -54,7 +54,7 @@ If I'm shooting for victory in 6 turns, I need to choose my first 5 guesses care
 
 Note that the order of the guesses doesn't really matter -- we're principally interested in how many letters we've eliminated by our penultimate guess.
 
-Can we find 5 guesses which contain 18 of the letters in $\mathit{L}$? The problem is actually quite subtle[^nphard] (and worth going into in another post) but the short answer is that plenty of solutions exist. One solution would be: khoja, caved, fritz, blawn, gymps. We can get another by running Laurent's solver against ill Wordle:
+Can we find 5 guesses which contain 18 of the letters in $\mathit{L}$? The problem is actually quite subtle[^nphard] (and worth going into in another post) but the short answer is that plenty of solutions exist. One solution would be: bhang, fjord, limbo, spitz, wicky. We can get another by running Laurent's solver against ill Wordle:
 
 <video autoplay loop muted playsinline>
   <source src="/assets/images/posts/establishing-minimum-guesses-wordle/ill-example-2.mp4" type="video/mp4">
@@ -143,7 +143,7 @@ Isaac Grosof astutely points out in the comments that "kynds" and "gymps" don't 
 
 #### Checking our conclusion with OR-Tools
 
-We can also frame the problem of finding the minimum number of guesses needed to eliminate 18 of 19 letters in $\mathit{L}$ as a constraint programming (CP) problem, which then allows us to use sophisticated [SAT solvers](https://en.wikipedia.org/wiki/SAT_solver) like those provided by Google's [OR-Tools](https://developers.google.com/optimization). The details are beyond the scope of this article, but you can check out [this Colab](https://colab.research.google.com/gist/alexpeattie/be59dcf01fd18ee16a3f437467b191b8/wordle_min_guesses_or_tools.ipynb) if you're interested. At a high level, we're telling the solver to minimize the number of words chosen, while ensuring we eliminate enough letters:
+We can also frame the problem of finding the minimum number of guesses needed to eliminate 18 of 19 letters in $\mathit{L}$ as a constraint programming (CP) problem, which then allows us to use sophisticated [SAT solvers](https://en.wikipedia.org/wiki/SAT_solver) like those provided by Google's [OR-Tools](https://developers.google.com/optimization). The details are beyond the scope of this article, but you can check out [this Colab](https://colab.research.google.com/gist/alexpeattie/3a8037bb0f95dba24609a2e659c6576b/wordle_min_guesses_or_tools.ipynb) if you're interested. At a high level, we're telling the solver to minimize the number of words chosen, while ensuring we eliminate enough letters:
 
 ```python
 word_chosen = [model.NewIntVar(0, 1, "word_chosen[%i]" % i) for i in range(num_words)]
@@ -154,21 +154,25 @@ model.Add(num_words_chosen == sum(word_chosen))
 
 # ...
 
+# Check at least one word starts with 'l' or 's'
+model.Add(sum([word_chosen[j] * starting_l[j] for j in range(num_words)]) > 0)
+model.Add(sum([word_chosen[j] * starting_s[j] for j in range(num_words)]) > 0)
+
 # The crucial constraint: we must cover at least 18 of the 19 letters we're concerned with.
-model.Add(sum([word_chosen[j] * letter_present[i][j] for i in range(num_letters) for j in range(num_words)]) >= 18)
+model.Add(sum([letter_counts[i] for i in range(num_letters)]) >= 18)
 
 model.Minimize(num_words_chosen)
 ```
 
 ```
 Minimum number of words needed: 5
-Example words: khoja, caved, fritz, blawn, gymps
-Solved in: 0.83 seconds
+Example words: bhang, fjord, limbo, spitz, wicky
+Solved in: 4.36 seconds
 ```
 
-OR-Tools (very quickly) confirms the minimum number of guesses needed is 5.
+OR-Tools quickly confirms the minimum number of guesses needed is 5[^ortools].
 
-### Conclusion
+### The future of Wordle solving
 
 So where does that leave us? I think most of the big questions regarding Wordle have been answered, at least in its classic form (using 5 letter English words from the current allowlist). A depth 5 decision tree has been found already by Laurent, and it seems a depth 4 tree cannot exist. It's nice that the number of guesses Wordle gives you is the smallest "fair" number (where fair means that victory is guaranteed with optimal play).
 
@@ -182,4 +186,5 @@ Thanks (again) to Laurent Poirrier for checking this proof. He also independentl
 [^laurent]: Laurent's work already establishes that we can't guarantee a solution in 4 or fewer guesses, leaving 5 or 6 as possibilities for the minimum number of guesses needed.
 [^vvordle]: The widget is largely based on [Evan You's implementation](https://github.com/yyx990803/vue-wordle) 💚
 [^nphard]: It turns out to be the [set cover problem](https://en.wikipedia.org/wiki/Set_cover_problem) in disguise, which is NP-hard.
+[^ortools]: OR-Tools also tells us the maximum number of letters in $\mathit{L}$ we can get with 4 guesses: 16 with judgy, lymph, scarf and twank.
 [^minavg]: I haven't thought much about this, but I suspect doing this would be similarly expensive to an exhaustive search for a depth 4 tree -- i.e. the $80k cost Laurent ballparks.
