@@ -1,11 +1,11 @@
 ---
-title: 'Teaching Machines to Talk: Modern Speech Synthesis with Deep Learning'
+title: 'Hearing is Believing: Generating Realistic Speech with Deep Learning'
 ---
 
 <!-- Generate slides with `npx @marp-team/marp-cli src/talks/_tts.md -o src/talks/tts.html` -->
 
 <style>
-img[alt~="center"] {
+img[alt~="center"], video {
   display: block;
   margin: 0 auto;
 }
@@ -43,7 +43,7 @@ em a {
 }
 </style>
 
-# Teaching Machines to Talk: Modern Speech Synthesis with Deep Learning
+# Hearing is Believing: Generating Realistic Speech with Deep Learning
 
 Alex Peattie (alexpeattie.com / [@alexpeattie](https://twitter.com/alexpeattie))
 
@@ -62,6 +62,12 @@ _Slides online at alexpeattie.com/talks/tts_
 > "Over the past few years, speech synthesis systems have seen rapid advances thanks to deep learning. As anyone who owns a voice assistant knows, artificial voices are becoming more and more natural and convincing. The good news is you can recreate this impressive technology yourself, using high quality open-source tools."
 
 <audio controls src='/assets/audio/talks/tts/odsc1.wav'></audio>
+
+---
+
+## With video
+
+<video controls src='/assets/audio/talks/tts/obama.mp4' width=500></video>
 
 ---
 
@@ -97,7 +103,7 @@ em {
 }
 </style>
 
-## Teaching Machines to Talk: Modern Speech Synthesis _with Deep Learning_
+## Hearing is Believing: Generating Realistic Speech _with Deep Learning_
 
 ---
 
@@ -428,7 +434,7 @@ Could be translated as:
 
 ---
 
-If a model "looks back" at the output sequence (more formally, if it generates each output item by conditioning on previously generated items) we say it is **"autoregressive"**.
+If a model "looks back" at the output sequence (more formally, if it generates each output item by conditioning on previously generated items) we say it is **"autoregressive"** or **"recurrent"**.
 
 Autoregressive models typically give a more fluent output, but they pose performance challenges (as we'll see).
 
@@ -782,7 +788,7 @@ However, as we'll see in the next section, we'll be able to recover the phase in
 ## Tacotron 2 🌮 - How does it stack up?
 
 - Broadly speaking, we typically compare models in terms of quality/MOS, robustness, training efficiency, inference efficiency
-- Tacotron 2 provides: 💪 SOTA quality, ✅ good robustness; but relatively low training & inference efficiency 🐌
+- Tacotron 2 provides: 💪 near SOTA quality, ✅ good robustness; but relatively low training & inference efficiency 🐌
 - Partly Tacotron 2 remains SOTA because the paper's original model is solid, but also because it's been improved further thanks to, for example, alternative attention mechanisms
 
 ---
@@ -791,7 +797,7 @@ However, as we'll see in the next section, we'll be able to recover the phase in
 
 There are many other models out there (beyond the scope of this talk)! Many focus on improved training and/or inference efficiency vs. Tacotron 2.
 
-Some worth checking out include FastSpeech 2, Transformer Network, AdaSpeech 2, GlowTTS, FastPitch, Flowtron, TalkNet, Grad-TTS.
+Some worth checking out include VITS, FastSpeech 2, Transformer Network, AdaSpeech 2, GlowTTS, FastPitch, Flowtron, TalkNet, Grad-TTS.
 
 ---
 
@@ -1073,7 +1079,7 @@ a recurrent sequence-to-sequence feature prediction network with attention which
 
 ---
 
-# Teaching Machines to Talk: Modern Speech Synthesis with Deep Learning
+# Hearing is Believing: Generating Realistic Speech with Deep Learning
 
 ![bg left:30%](/assets/images/talks/tts/obama4.jpg)
 
