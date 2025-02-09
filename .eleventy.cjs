@@ -112,7 +112,7 @@ module.exports = function (config) {
   const githubLight = JSON.parse(
     fs.readFileSync('./utils/github-plus.json', 'utf-8')
   )
-  const highlighter = sp(() => shiki.getHighlighter({ theme: githubLight }))()
+  // const highlighter = sp(() => shiki.getHighlighter({ theme: githubLight }))()
 
   config.addPlugin(eleventyRemark, {
     enableRehype: false,
@@ -197,25 +197,25 @@ module.exports = function (config) {
         }
       },
       remarkCodeFrontmatter,
-      function highlightCode() {
-        return transformer
+      // function highlightCode() {
+      //   return transformer
 
-        function transformer(tree) {
-          visit(tree, 'code', visitor)
+      //   function transformer(tree) {
+      //     visit(tree, 'code', visitor)
 
-          function visitor(node, i, parent) {
-            const highlighted = highlighter.codeToHtml(node.value, node.lang)
-            node.type = 'html'
-            node.value = highlighted
+      //     function visitor(node, i, parent) {
+      //       const highlighted = highlighter.codeToHtml(node.value, node.lang)
+      //       node.type = 'html'
+      //       node.value = highlighted
 
-            if (node.frontmatter.filename)
-              parent.children.splice(i, 0, {
-                type: 'html',
-                value: `<div class='code-filename'>${node.frontmatter.filename}</div>`
-              })
-          }
-        }
-      },
+      //       if (node.frontmatter.filename)
+      //         parent.children.splice(i, 0, {
+      //           type: 'html',
+      //           value: `<div class='code-filename'>${node.frontmatter.filename}</div>`
+      //         })
+      //     }
+      //   }
+      // },
       {
         plugin: remarkRehype,
         options: { allowDangerousHtml: true }
