@@ -1,8 +1,12 @@
+@use "../variables";
+@use "~open-color/open-color" as oc;
+@use "~breakpoint-sass" as bp;
+
 .post_list {
   margin-top: 2rem;
 
   &__year {
-    color: $oc-gray-6;
+    color: oc.$oc-gray-6;
     font-size: 1.5rem;
     font-weight: 700;
   }
@@ -11,28 +15,28 @@
     display: flex;
     margin-bottom: 1.5rem;
 
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       flex-direction: column;
     }
   }
 
   &__published_at {
-    font-family: $font-family-sans-serif;
+    font-family: variables.$font-family-sans-serif;
     width: 160px;
     flex-shrink: 0;
     font-size: 1rem;
-    color: $oc-gray-6;
+    color: oc.$oc-gray-6;
     margin-right: 2.5rem;
     padding-top: 2px;
     line-height: 1.75;
   }
 
   &__title {
-    font-family: $font-family-sans-serif;
+    font-family: variables.$font-family-sans-serif;
     line-height: 1.75;
     font-size: 1.25rem;
     font-weight: 700;
-    color: $text-color-dark;
+    color: variables.$text-color-dark;
     display: inline !important;
   }
 }

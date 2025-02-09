@@ -1,3 +1,5 @@
+@use "../base/typography" as *;
+
 .link_list {
   margin: 0 0 0.5rem;
   line-height: 1.75;
@@ -27,7 +29,7 @@
     }
 
     a {
-      @extend .underlined_link;
+      @include underlined_link;
     }
   }
 }

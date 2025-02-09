@@ -1,12 +1,16 @@
+@use "../variables";
+@use "~breakpoint-sass" as bp;
+@use "~open-color/open-color" as oc;
+
 .byline {
   display: flex;
-  font-family: $font-family-sans-serif;
-  color: $text-color-light;
+  font-family: variables.$font-family-sans-serif;
+  color: variables.$text-color-light;
   line-height: 1.5;
   justify-content: space-between;
   margin-bottom: 3rem;
 
-  @include breakpoint($mobile) {
+  @include bp.breakpoint(variables.$mobile) {
     flex-direction: column;
     margin-bottom: 1.5rem;
     line-height: 2;
@@ -34,23 +38,23 @@
     height: 1.5rem;
     border-radius: 1.5rem;
     margin-right: 0.5rem;
-    background: $oc-blue-2;
-    @include breakpoint($mobile) {
+    background: oc.$oc-blue-2;
+    @include bp.breakpoint(variables.$mobile) {
       display: none;
     }
   }
 
   &__separator {
     margin: 0 0.25rem;
-    color: $oc-gray-5;
+    color: oc.$oc-gray-5;
   }
 
   &__comment_count {
-    border-bottom: 1px solid $link-color;
+    border-bottom: 1px solid variables.$link-color;
     line-height: 1.2;
 
     &:hover {
-      border-bottom-color: $link-color-hover;
+      border-bottom-color: variables.$link-color-hover;
     }
   }
 

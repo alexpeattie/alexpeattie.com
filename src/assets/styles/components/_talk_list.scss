@@ -1,8 +1,12 @@
+@use "../variables";
+@use "~breakpoint-sass" as bp;
+@use "~open-color/open-color" as oc;
+
 .talk {
   margin: 1rem 0 3rem;
   display: flex;
   flex-direction: column;
-  @include breakpoint($mobile) {
+  @include bp.breakpoint(variables.$mobile) {
     margin-bottom: 1rem;
   }
 
@@ -15,20 +19,20 @@
   }
 
   &__image--bordered {
-    border: 3px solid $oc-gray-2;
+    border: 3px solid oc.$oc-gray-2;
     border-radius: 3px;
   }
 
   &__header {
     display: flex;
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       flex-direction: column;
       align-items: center;
     }
   }
 
   &__visuals {
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       margin-top: 1rem;
     }
   }
@@ -38,10 +42,10 @@
   }
 
   &__outlet {
-    font-family: $font-family-sans-serif;
+    font-family: variables.$font-family-sans-serif;
     font-weight: normal;
     font-size: 1.1rem;
-    color: $text-color-light;
+    color: variables.$text-color-light;
     margin: 0 0 1rem;
   }
 

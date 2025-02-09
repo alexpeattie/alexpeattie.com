@@ -1,3 +1,6 @@
+@use "../variables";
+@use "~open-color/open-color" as oc;
+
 table {
   border-spacing: 0;
   margin: 2rem 0;
@@ -9,10 +12,10 @@ td, th {
 }
 
 th {
-  font-family: $font-family-sans-serif;
+  font-family: variables.$font-family-sans-serif;
 }
 
 td {
-  border-top: 1px solid $oc-gray-3;
+  border-top: 1px solid oc.$oc-gray-3;
   line-height: 1.75;
 }
