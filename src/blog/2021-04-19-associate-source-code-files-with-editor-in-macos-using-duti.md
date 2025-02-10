@@ -53,6 +53,9 @@ Equipped with `duti`, we just need an exhaustive list of file extensions - acros
 
 <!-- prettier-ignore -->
 ```yaml
+---
+filename: languages.yml
+---
 # ...
 Erlang:
   type: programming

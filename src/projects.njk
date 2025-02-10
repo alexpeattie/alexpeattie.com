@@ -12,9 +12,6 @@ eleventyNavigation:
     <span data-target='projects.displayFilter' class='project_tag_list__label'>Tags:</span>
 
     <p class='project_tag_list__inner'>
-      <a href='#filter=active'>
-        <span class='project__tag'>active</span>
-      </a>,
       <a href='#filter=open-source'>
         <span class='project__tag'>open source</span>
       </a>,
@@ -40,7 +37,7 @@ eleventyNavigation:
     </p>
   </div>
 
-  {% set tags = ['active'] %}
+  {% set tags = [] %}
   <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>
@@ -70,7 +67,7 @@ eleventyNavigation:
     </div>
   </div>
 
-  {% set tags = ['active', 'open-source', 'ruby', 'writing'] %}
+  {% set tags = ['open-source', 'ruby', 'writing'] %}
   <div class='project' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>
@@ -89,7 +86,7 @@ eleventyNavigation:
     </div>
   </div>
 
-  {% set tags = ['active', 'js', 'open-source'] %}
+  {% set tags = ['js', 'open-source'] %}
   <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>

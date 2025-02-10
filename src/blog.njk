@@ -8,7 +8,7 @@ eleventyNavigation:
 ---
 
 <div class="container">
-  <p>Subscribe to the <a href='/feed.atom'>RSS feed</a> or follow me on Twitter (<a href='https://twitter.com/alexpeattie'>@alexpeattie</a>) for updates.</p>
+  <p>Subscribe to the <a href='/feed.atom'>RSS feed</a> for updates.</p>
   <div class="post_list">
     {%- for year, posts in (collections.post | reverse | groupByYear) -%}
       <h2 class="post_list__year">{{ year }}</h2>
