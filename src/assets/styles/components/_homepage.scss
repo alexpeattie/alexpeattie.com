@@ -8,7 +8,8 @@
   padding-top: 1.5rem;
 
   @include bp.breakpoint(variables.$mobile) {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    padding-top: 0;
   }
 
   &__blurb {
@@ -19,7 +20,8 @@
     font-weight: normal;
 
     @include bp.breakpoint(variables.$mobile) {
-      margin-top: 1rem;
+      margin-top: 2rem;
+      padding-right: 0;
     }
   }
 
@@ -27,7 +29,7 @@
     width: 350px;
 
     @include bp.breakpoint(variables.$mobile) {
-      display: none;
+      margin-bottom: 1rem;
     }
   }
 

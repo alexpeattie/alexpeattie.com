@@ -35,9 +35,9 @@
   }
 
   &__headshot {
-    height: 1.5rem;
-    border-radius: 1.5rem;
-    margin-right: 0.5rem;
+    height: 2.5rem;
+    border-radius: 2.5rem;
+    margin-right: 1rem;
     background: oc.$oc-blue-2;
     @include bp.breakpoint(variables.$mobile) {
       display: none;

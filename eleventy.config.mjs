@@ -11,8 +11,6 @@ import { observableCell } from './utils/observable.js'
 import shortcodes from './utils/shortcodes.js'
 import filters from './utils/filters.js'
 
-import link from 'linkinator'
-
 import eleventyRemark from '@fec/eleventy-plugin-remark'
 import { visit } from 'unist-util-visit'
 import remarkEmoji from 'remark-emoji'
@@ -41,12 +39,6 @@ import { transformerNotationDiff } from '@shikijs/transformers'
 import htmlmin from 'html-minifier'
 
 const isDev = process.env.NODE_ENV === 'development'
-const isFullBuild = () => {
-  const nodeARGV = process.env.npm_config_argv
-    ? JSON.parse(process.env.npm_config_argv)
-    : { cooked: [] }
-  return nodeARGV.cooked.pop() === 'build'
-}
 
 export default async function (config) {
   let highlighter;
@@ -78,35 +70,6 @@ export default async function (config) {
   config.addPassthroughCopy('src/assets/audio')
   config.addPassthroughCopy('src/files')
   config.addPassthroughCopy({ 'src/assets/favicons': '/' })
-
-  config.on('afterBuild', async () => {
-    if (isFullBuild()) {
-      console.log('Checking links...')
-      const checker = new link.LinkChecker()
-
-      checker.on('pagestart', (url) => {
-        console.log(`Scanning ${url}`)
-      })
-
-      const results = await checker.check({
-        path: './dist',
-        recurse: true,
-        retry: false,
-        timeout: 5000,
-        linksToSkip: ['.+archive.is.+']
-      })
-
-      const brokenLinks = results.links.filter(
-        (l) => l.status >= 400 && l.status <= 599
-      )
-
-      console.log(
-        `${brokenLinks.length}/${results.links.length} links are broken.`
-      )
-      if (brokenLinks.length)
-        console.log(brokenLinks.map((l) => [l.url, l.status]))
-    }
-  })
 
   const githubLight = JSON.parse(
     fs.readFileSync('./utils/github-plus.json', 'utf-8')

@@ -72,7 +72,7 @@ module Mygem
 end
 ```
 
-Some gems (including [Rails](https://github.com/rails/rails/blob/master/version.rb)) break down the version number into `MAJOR`, `MINOR` and `TINY` (or `PATCH`) releases:
+Some gems (including [Rails](https://github.com/rails/rails/blob/v7.2.0/version.rb)) break down the version number into `MAJOR`, `MINOR` and `TINY` (or `PATCH`) releases:
 
 ```ruby
 module Mygem
