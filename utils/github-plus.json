@@ -1,4 +1,5 @@
 {
+  "name": "github-light",
   "type": "light",
   "colors": {
     "focusBorder": "#fafbfc",

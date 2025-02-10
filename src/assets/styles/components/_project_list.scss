@@ -1,36 +1,40 @@
+@use "../variables";
+@use "~breakpoint-sass" as bp;
+@use "~open-color/open-color" as oc;
+
 .project {
   margin: 3rem 0;
   display: flex;
-
-  @include breakpoint($mobile) {
-    margin-bottom: 2rem;
-  }
 
   // fake hr
   background-image: linear-gradient(
     to right,
     white 150px,
-    $oc-gray-2 150px,
-    $oc-gray-2 650px,
+    oc.$oc-gray-2 150px,
+    oc.$oc-gray-2 650px,
     white 651px
   );
   background-repeat: no-repeat;
   background-size: 100% 1px;
   background-position: top;
+  padding-top: 3em;
 
-  @include breakpoint($mobile) {
+  @include bp.breakpoint(variables.$mobile) {
+    margin-bottom: 2rem;
+  }
+
+  @include bp.breakpoint(variables.$mobile) {
     background-image: linear-gradient(
       to right,
       white calc(150px - 10vw),
-      $oc-gray-2 calc(151px - 10vw),
-      $oc-gray-2 calc(100vw - 150px),
+      oc.$oc-gray-2 calc(151px - 10vw),
+      oc.$oc-gray-2 calc(100vw - 150px),
       white calc(100vw - 149px)
     );
   }
-  padding-top: 3em;
 
   &--split {
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       flex-direction: column;
       align-items: center;
     }
@@ -45,7 +49,7 @@
   }
 
   &__image--bordered {
-    border: 1px solid $oc-gray-2;
+    border: 1px solid oc.$oc-gray-2;
     border-radius: 3px;
   }
 
@@ -53,7 +57,7 @@
     display: flex;
     align-items: baseline;
 
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       flex-direction: column;
     }
   }
@@ -66,18 +70,18 @@
     padding-left: 1.5rem;
     line-height: 2.5;
 
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       padding-left: 0;
     }
   }
 
   &__tag {
-    font-family: $font-family-monospace;
+    font-family: variables.$font-family-monospace;
     font-size: 0.85rem;
     padding: 0.25rem;
     margin: 0 0.25rem;
-    background: $oc-blue-0;
-    border: 1px solid $oc-blue-1;
+    background: oc.$oc-blue-0;
+    border: 1px solid oc.$oc-blue-1;
     border-radius: 3px;
     line-height: 1.2;
     position: relative;
@@ -88,7 +92,7 @@
   &__outlet {
     font-weight: normal;
     font-size: 1.1rem;
-    color: $text-color-light;
+    color: variables.$text-color-light;
     margin: 0 0 1rem;
   }
 }
@@ -119,4 +123,7 @@
 
 .producthunt {
   margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }

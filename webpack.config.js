@@ -71,7 +71,8 @@ module.exports = {
             options: {
               sourceMap: true,
               sassOptions: {
-                url: true
+                url: true,
+                quietDeps: true
               }
             }
           }

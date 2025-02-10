@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src='https://user-images.githubusercontent.com/636814/83511974-62210600-a4c7-11ea-8972-a77654efd4bc.png' width="600" alt='Site preview'>
+  <img src='https://github.com/user-attachments/assets/c0670fc7-7b7a-40e5-a9dd-44deefadfdd9' width="600" alt='Site preview'>
 </p>
 
 This is the code for my personal site - [alexpeattie.com](https://alexpeattie.com) - it's a static site built with [Eleventy](https://github.com/11ty/eleventy) and hosted on [Netlify](http://netlify.com/).
@@ -69,21 +69,6 @@ yarn run netlify dev
 
 The production site can be previewed on <http://localhost:4001> ✅.
 
-## 🎨 Color Reference
-
-| Color      | Hex                                                                |
-| ---------- | ------------------------------------------------------------------ |
-| Text       | ![#212529](https://via.placeholder.com/10/212529?text=+) `#212529` |
-| Headings   | ![#000000](https://via.placeholder.com/10/000000?text=+) `#000000` |
-| Light text | ![#738a94](https://via.placeholder.com/10/738a94?text=+) `#738a94` |
-| Logo       | ![#fff255](https://via.placeholder.com/10/fff255?text=+) `#fff255` |
-| Code BG    | ![#f6f8fa](https://via.placeholder.com/10/f6f8fa?text=+) `#f6f8fa` |
-| Separators | ![#e9ecef](https://via.placeholder.com/10/e9ecef?text=+) `#e9ecef` |
-| Link       | ![#007bff](https://via.placeholder.com/10/007bff?text=+) `#007bff` |
-| Link hover | ![#0056b3](https://via.placeholder.com/10/0056b3?text=+) `#0056b3` |
-
-(The colors used across the site are stored as SASS variables in [`_variables.scss`](/blob/master/source/assets/css/_variables.scss))
-
 ## Contributing
 
 As you might imagine, I'm only after contributions for actual bugs or typos (maybe refactoring) - please don't open an issue because you think the site's content is rubbish :sweat_smile:!
@@ -92,4 +77,4 @@ Of course, feel free to fork this repo if you want to use it as the base for you
 
 ## License
 
-Copyright © 2021 Alex Peattie. MPLv2 Licensed, see [LICENSE](https://github.com/alexpeattie/alexpeattie.com/blob/master/LICENSE.md) for details.
+Copyright © 2025 Alex Peattie. MPLv2 Licensed, see [LICENSE](https://github.com/alexpeattie/alexpeattie.com/blob/master/LICENSE.md) for details.

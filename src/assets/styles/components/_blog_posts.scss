@@ -1,15 +1,18 @@
+@use "../variables";
+@use "~breakpoint-sass" as bp;
+
 .quality-comparison {
   display: flex;
   justify-content: space-between;
 
-  @include breakpoint($mobile) {
+  @include bp.breakpoint(variables.$mobile) {
     flex-direction: column;
   }
 
   &__example {
     width: calc(50% - 1rem);
 
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       width: 100%;
       &:not(:last-child) {
         margin-bottom: 2rem;
@@ -20,7 +23,7 @@
   &__slider {
     max-width: 90%;
 
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       max-width: 100%;
     }
   }

@@ -1,3 +1,6 @@
+@use "../variables";
+@use "~open-color/open-color" as oc;
+
 pre {
   padding: 1rem;
   overflow: auto;
@@ -5,7 +8,7 @@ pre {
   border-radius: 3px;
   margin: 1.5rem 0 2.5rem;
   font-size: 90%;
-  background-color: $code-bg;
+  background-color: variables.$code-bg;
 }
 
 pre,
@@ -19,7 +22,7 @@ p, li, figcaption {
     font-size: 1rem;
     padding: 0.25rem;
     margin: 0 0.25rem;
-    background: $code-bg;
+    background: variables.$code-bg;
     border-radius: 3px;
     line-height: 1.2;
     margin-bottom: 5px;
@@ -39,7 +42,7 @@ code .line::before {
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: rgba($text-color-light, 40%);
+  color: rgba(variables.$text-color-light, 40%);
 }
 
 code .line:only-child::before {
@@ -48,12 +51,12 @@ code .line:only-child::before {
 
 .code-filename {
   display: block;
-  font-family: $font-family-monospace;
+  font-family: variables.$font-family-monospace;
   margin-bottom: -1.5rem;
   padding: 0.75rem 1rem;
-  background: $oc-gray-2;
+  background: oc.$oc-gray-2;
   margin-top: 1.5rem;
-  color: $oc-gray-7;
+  color: oc.$oc-gray-7;
   font-size: 90%;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
@@ -64,4 +67,35 @@ code .line:only-child::before {
 .code-filename ~ .shiki {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+}
+
+.has-diff code .diff {
+  transition: background-color .5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  min-width: calc(100% + 40px);
+  display: inline-block;
+  // set to width of parent
+}
+
+.has-diff code .diff.add {
+  // Github diff color
+  background-color: #dafbe1;
+}
+
+.has-diff code .diff.add.line::before {
+  color: oc.$oc-green-7;
+}
+
+.has-diff code .diff.remove {
+  background-color: #ffebe9;
+
+  span {
+    opacity: 0.5;
+  }
+}
+
+.has-diff code .diff.remove.line::before {
+  color: oc.$oc-red-3;
+  text-decoration: line-through;
 }

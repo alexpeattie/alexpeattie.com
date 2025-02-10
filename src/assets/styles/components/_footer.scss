@@ -1,14 +1,19 @@
+@use "../variables";
+@use "../base/typography" as *;
+@use "~breakpoint-sass" as bp;
+@use "~open-color/open-color" as oc;
+
 .footer {
   margin-top: 5rem;
-  background: $text-color-light;
-  font-family: $font-family-sans-serif;
+  background: variables.$text-color-light;
+  font-family: variables.$font-family-sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 3rem;
 
-  @include breakpoint($mobile) {
+  @include bp.breakpoint(variables.$mobile) {
     margin-top: 3rem;
     min-height: 100px;
   }
@@ -18,26 +23,26 @@
     width: 100%;
     text-align: center;
     padding: 1.5rem 2rem;
-    border-top: 1px solid $oc-gray-2;
+    border-top: 1px solid oc.$oc-gray-2;
     line-height: 1.75;
 
     a {
-      @extend .underlined_link;
+      @include underlined_link;
     }
   }
 
   &__copyright {
-    color: $text-color-inverted;
+    color: variables.$text-color-inverted;
     text-align: center;
     margin-top: 0;
     padding: 2rem 0 0;
   }
 
   .social_links__link {
-    color: $text-color-inverted;
+    color: variables.$text-color-inverted;
 
     &:hover {
-      color: $oc-blue-2;
+      color: oc.$oc-blue-2;
     }
   }
 }

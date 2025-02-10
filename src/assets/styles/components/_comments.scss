@@ -1,19 +1,21 @@
+@use "../variables";
+
 #commento {
   .loading {
     font-size: 1rem;
     text-align: center;
-    color: $text-color-light;
-    font-family: $font-family-sans-serif;
+    color: variables.$text-color-light;
+    font-family: variables.$font-family-sans-serif;
   }
 }
 
 .comments .commento-root {
-  font-family: $font-family-sans-serif;
+  font-family: variables.$font-family-sans-serif;
   margin-top: -1rem;
 
   textarea,
   .commento-card .commento-body p {
-    font-family: $font-family-serif;
+    font-family: variables.$font-family-serif;
   }
 
   .commento-anonymous-checkbox-container input[type='checkbox'] + label {
@@ -31,22 +33,22 @@
   }
 
   a {
-    color: $link-color;
+    color: variables.$link-color;
     transition: color 150ms ease;
 
     &:hover {
-      color: $link-color-hover;
+      color: variables.$link-color-hover;
     }
   }
 
   .commento-submit-button {
-    background-color: $link-color;
+    background-color: variables.$link-color;
     transition: background-color 150ms ease;
     box-shadow: none;
     margin-right: 0;
 
     &:hover {
-      background-color: $link-color-hover;
+      background-color: variables.$link-color-hover;
     }
   }
 

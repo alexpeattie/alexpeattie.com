@@ -1,28 +1,31 @@
+@use "../variables";
+@use "~breakpoint-sass" as bp;
+
 .nav {
   display: flex;
   align-items: center;
 
   &__link {
-    font-family: $font-family-sans-serif;
+    font-family: variables.$font-family-sans-serif;
     text-decoration: none;
     margin: 0 1rem;
-    color: $text-color-light;
+    color: variables.$text-color-light;
     border-bottom: 2px solid transparent;
     transition: color 250ms ease;
     line-height: 1.5;
 
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       margin: 0 0.75em;
       font-size: 90%;
     }
 
     &:hover,
     &--active {
-      color: $text-color-dark;
+      color: variables.$text-color-dark;
     }
 
     &--active {
-      border-bottom: 2px solid $link-color;
+      border-bottom: 2px solid variables.$link-color;
     }
 
     &:last-child {
@@ -32,7 +35,7 @@
 }
 
 .back-all-posts {
-  font-family: $font-family-sans-serif;
+  font-family: variables.$font-family-sans-serif;
   margin: 2rem 0 1rem;
   font-size: 0.9rem;
 }

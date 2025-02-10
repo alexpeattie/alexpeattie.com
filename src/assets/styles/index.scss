@@ -1,8 +1,10 @@
+@use '~open-color/open-color' as oc;
+@use "sass:meta";
+@use 'variables';
+
+// TODO: fix these imports
 @import '~normalize.css';
-@import '~breakpoint-sass';
-@import '~open-color/open-color';
 @import '~katex/dist/katex';
-@import 'variables';
 
 *,
 *:after,
@@ -17,33 +19,33 @@
 :root {
   --spectrum-slider-handle-background-color: #fff;
   --spectrum-slider-handle-background-color-down: #fff;
-  --spectrum-slider-handle-border-color: #{$text-color-light};
-  --spectrum-slider-handle-border-color-hover: #{$oc-blue-4};
-  --spectrum-slider-handle-border-color-down: #{$oc-blue-4};
+  --spectrum-slider-handle-border-color: #{variables.$text-color-light};
+  --spectrum-slider-handle-border-color-hover: #{oc.$oc-blue-4};
+  --spectrum-slider-handle-border-color-down: #{oc.$oc-blue-4};
   --spectrum-label-text-line-height: 200%;
 }
 
-@import 'base/animation';
-@import 'base/code';
-@import 'base/figure';
-@import 'base/layout';
-@import 'base/math';
-@import 'base/tables';
-@import 'base/typography';
-@import 'base/utilities';
-@import 'base/video';
+@include meta.load-css('base/animation');
+@include meta.load-css('base/code');
+@include meta.load-css('base/figure');
+@include meta.load-css('base/layout');
+@include meta.load-css('base/math');
+@include meta.load-css('base/tables');
+@include meta.load-css('base/typography');
+@include meta.load-css('base/utilities');
+@include meta.load-css('base/video');
 
-@import 'components/blog_posts';
-@import 'components/byline';
-@import 'components/comments';
-@import 'components/footer';
-@import 'components/footnotes';
-@import 'components/header';
-@import 'components/homepage';
-@import 'components/icon';
-@import 'components/link_list';
-@import 'components/nav';
-@import 'components/post_list';
-@import 'components/project_list';
-@import 'components/social_links';
-@import 'components/talk_list';
+@include meta.load-css('components/blog_posts');
+@include meta.load-css('components/byline');
+@include meta.load-css('components/comments');
+@include meta.load-css('components/footer');
+@include meta.load-css('components/footnotes');
+@include meta.load-css('components/header');
+@include meta.load-css('components/homepage');
+@include meta.load-css('components/icon');
+@include meta.load-css('components/link_list');
+@include meta.load-css('components/nav');
+@include meta.load-css('components/post_list');
+@include meta.load-css('components/project_list');
+@include meta.load-css('components/social_links');
+@include meta.load-css('components/talk_list');

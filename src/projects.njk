@@ -12,9 +12,6 @@ eleventyNavigation:
     <span data-target='projects.displayFilter' class='project_tag_list__label'>Tags:</span>
 
     <p class='project_tag_list__inner'>
-      <a href='#filter=active'>
-        <span class='project__tag'>active</span>
-      </a>,
       <a href='#filter=open-source'>
         <span class='project__tag'>open source</span>
       </a>,
@@ -40,7 +37,7 @@ eleventyNavigation:
     </p>
   </div>
 
-  {% set tags = ['active'] %}
+  {% set tags = [] %}
   <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>
@@ -62,6 +59,7 @@ eleventyNavigation:
         <a href='https://www.producthunt.com/posts/investor-list?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-investor-list' target='_blank'>
           <img src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=56107&theme=light' alt='Investor List - A searchable, crowdsourced list of over 1k investors | Product Hunt Embed' style='width: 200px; height: 43px;' width='200px' height='43px'/>
         </a>
+        <img src='/assets/images/projects/producthunt-potd.png' width='200px'>
       </div>
     </div>
 
@@ -70,7 +68,7 @@ eleventyNavigation:
     </div>
   </div>
 
-  {% set tags = ['active', 'open-source', 'ruby', 'writing'] %}
+  {% set tags = ['open-source', 'ruby', 'writing'] %}
   <div class='project' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>
@@ -89,7 +87,7 @@ eleventyNavigation:
     </div>
   </div>
 
-  {% set tags = ['active', 'js', 'open-source'] %}
+  {% set tags = ['js', 'open-source'] %}
   <div class='project project--split' data-target='projects.filterable' data-tags='{{ tags | join(',') }}'>
     <div class='project__body'>
       <div class='project__header'>

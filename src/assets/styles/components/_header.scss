@@ -1,3 +1,6 @@
+@use "../variables";
+@use "~breakpoint-sass" as bp;
+
 .header {
   margin-top: 1.5rem;
   margin-bottom: 3rem;
@@ -10,14 +13,14 @@
 }
 
 .logo {
-  font-family: $font-family-sans-serif;
+  font-family: variables.$font-family-sans-serif;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
-  background: $logo-color;
-  color: $text-color-dark;
+  background: variables.$logo-color;
+  color: variables.$text-color-dark;
   display: inline-flex;
   border-radius: 2rem;
   letter-spacing: -1px;
@@ -25,14 +28,14 @@
   align-items: center;
   transition: background-color 400ms ease;
 
-  @include breakpoint($mobile) {
+  @include bp.breakpoint(variables.$mobile) {
     font-size: 1.25rem;
     width: 2rem;
     height: 2rem;
   }
 
   &:hover {
-    background: $text-color-dark;
+    background: variables.$text-color-dark;
   }
 
   &__link {
@@ -41,18 +44,18 @@
     justify-content: center;
     align-items: center;
     display: inline-flex;
-    color: $text-color-dark;
+    color: variables.$text-color-dark;
     transition: color 400ms ease;
 
     &:hover {
-      color: $logo-color;
+      color: variables.$logo-color;
     }
   }
 
   &__initials {
     height: 30px;
 
-    @include breakpoint($mobile) {
+    @include bp.breakpoint(variables.$mobile) {
       height: 26px;
     }
   }
