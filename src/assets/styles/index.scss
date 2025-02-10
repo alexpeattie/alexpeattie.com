@@ -16,15 +16,6 @@
   outline: none !important;
 }
 
-:root {
-  --spectrum-slider-handle-background-color: #fff;
-  --spectrum-slider-handle-background-color-down: #fff;
-  --spectrum-slider-handle-border-color: #{variables.$text-color-light};
-  --spectrum-slider-handle-border-color-hover: #{oc.$oc-blue-4};
-  --spectrum-slider-handle-border-color-down: #{oc.$oc-blue-4};
-  --spectrum-label-text-line-height: 200%;
-}
-
 @include meta.load-css('base/animation');
 @include meta.load-css('base/code');
 @include meta.load-css('base/figure');
