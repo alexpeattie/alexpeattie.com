@@ -1,47 +1,44 @@
-require('dotenv').config()
+import 'dotenv/config'
 
-const fs = require('fs')
-const sp = require('synchronized-promise')
+import fs from 'fs'
+import pluginRss from '@11ty/eleventy-plugin-rss'
+import pluginNavigation from '@11ty/eleventy-navigation'
+import pluginSvgContents from 'eleventy-plugin-svg-contents'
 
-const pluginRss = require('@11ty/eleventy-plugin-rss')
-const pluginNavigation = require('@11ty/eleventy-navigation')
-const pluginSvgContents = require('eleventy-plugin-svg-contents')
+import iconsprite from './utils/iconsprite.js'
+import { observableCell } from './utils/observable.js'
 
-const iconsprite = require('./utils/iconsprite.js')
-const { observableCell } = require('./utils/observable.js')
+import shortcodes from './utils/shortcodes.js'
+import filters from './utils/filters.js'
 
-const filters = require('./utils/filters.js')
-const shortcodes = require('./utils/shortcodes.js')
+import link from 'linkinator'
 
-const link = require('linkinator')
+import eleventyRemark from '@fec/eleventy-plugin-remark'
+import { visit } from 'unist-util-visit'
+import remarkEmoji from 'remark-emoji'
+import remarkFootnotes from 'remark-footnotes'
+import { renumberFootnotes as remarkRenumberFootnotes } from '@amanda-mitchell/remark-renumber-footnotes'
+import remarkCodeFrontmatter from 'remark-code-frontmatter'
+import remarkGfm from 'remark-gfm'
+import remarkSmartypants from '@silvenon/remark-smartypants'
+import remarkDirective from 'remark-directive'
+import remarkMath from 'remark-math'
+import remarkSlug from 'remark-slug'
+import remarkAutolinkHeadings from 'remark-autolink-headings'
+import remarkRehype from 'remark-rehype'
+import rehypeKatex from 'rehype-katex'
+import rehypeStringify from 'rehype-stringify'
+import rehypeRaw from 'rehype-raw'
+import h from 'hastscript'
+import s from 'hastscript/svg.js'
+import u from 'unist-builder'
+import find from 'unist-util-find'
+import { select, matches } from 'hast-util-select'
+import _ from 'lodash'
 
-const eleventyRemark = require('@fec/eleventy-plugin-remark')
-const visit = require('unist-util-visit')
-const remarkEmoji = require('remark-emoji')
-const remarkFootnotes = require('remark-footnotes')
-const {
-  renumberFootnotes: remarkRenumberFootnotes
-} = require('@amanda-mitchell/remark-renumber-footnotes')
-const remarkCodeFrontmatter = require('remark-code-frontmatter')
-const remarkGfm = require('remark-gfm')
-const remarkSmartypants = require('@silvenon/remark-smartypants')
-const remarkDirective = require('remark-directive')
-const remarkMath = require('remark-math')
-const remarkSlug = require('remark-slug')
-const remarkAutolinkHeadings = require('remark-autolink-headings')
-const remarkRehype = require('remark-rehype')
-const rehypeKatex = require('rehype-katex')
-const rehypeStringify = require('rehype-stringify')
-const rehypeRaw = require('rehype-raw')
-const h = require('hastscript')
-const s = require('hastscript/svg')
-const u = require('unist-builder')
-const find = require('unist-util-find')
-const { select, matches } = require('hast-util-select')
-const sortBy = require('lodash/sortBy')
-
-const shiki = require('shiki')
-const htmlmin = require('html-minifier')
+import { createHighlighter } from 'shiki'
+import { transformerNotationDiff } from '@shikijs/transformers'
+import htmlmin from 'html-minifier'
 
 const isDev = process.env.NODE_ENV === 'development'
 const isFullBuild = () => {
@@ -51,7 +48,9 @@ const isFullBuild = () => {
   return nodeARGV.cooked.pop() === 'build'
 }
 
-module.exports = function (config) {
+export default async function (config) {
+  let highlighter;
+
   config.addPlugin(pluginRss)
   config.addPlugin(pluginNavigation)
   config.addPlugin(pluginSvgContents)
@@ -112,7 +111,11 @@ module.exports = function (config) {
   const githubLight = JSON.parse(
     fs.readFileSync('./utils/github-plus.json', 'utf-8')
   )
-  // const highlighter = sp(() => shiki.getHighlighter({ theme: githubLight }))()
+
+  config.on('eleventy.before', async () => {
+    highlighter = await createHighlighter({ themes: [], langs: ['bash', 'javascript', 'json', 'python', 'ruby', 'yaml'] })
+    await highlighter.loadTheme(githubLight)
+  })
 
   config.addPlugin(eleventyRemark, {
     enableRehype: false,
@@ -197,25 +200,40 @@ module.exports = function (config) {
         }
       },
       remarkCodeFrontmatter,
-      // function highlightCode() {
-      //   return transformer
+      function highlightCode() {
+        return transformer
 
-      //   function transformer(tree) {
-      //     visit(tree, 'code', visitor)
+        function transformer(tree) {
+          visit(tree, 'code', visitor)
 
-      //     function visitor(node, i, parent) {
-      //       const highlighted = highlighter.codeToHtml(node.value, node.lang)
-      //       node.type = 'html'
-      //       node.value = highlighted
+          function visitor(node, i, parent) {
+            const highlighted = highlighter.codeToHtml(node.value, {
+              lang: node.lang,
+              theme: 'github-light',
+              transformers: [
+                transformerNotationDiff({
+                  matchAlgorithm: 'v3',
+                }),
+                // {
+                // line(node, line) {
+                //   node.properties['data-line'] = line
+                //   if ([1, 3, 4].includes(line))
+                //     this.addClassToHast(node, 'highlight')
+                // },
+              // }
+              ]
+            })
+            node.type = 'html'
+            node.value = highlighted
 
-      //       if (node.frontmatter.filename)
-      //         parent.children.splice(i, 0, {
-      //           type: 'html',
-      //           value: `<div class='code-filename'>${node.frontmatter.filename}</div>`
-      //         })
-      //     }
-      //   }
-      // },
+            if (node.frontmatter.filename)
+              parent.children.splice(i, 0, {
+                type: 'html',
+                value: `<div class='code-filename'>${node.frontmatter.filename}</div>`
+              })
+          }
+        }
+      },
       {
         plugin: remarkRehype,
         options: { allowDangerousHtml: true }
@@ -251,7 +269,7 @@ module.exports = function (config) {
 
             // Fix for out of order footnotes from tables
             const ol = select('ol', footnotesDiv)
-            ol.children = sortBy(
+            ol.children = _.sortBy(
               ol.children.filter((el) => el.tagName === 'li'),
               (li) => parseInt(li.properties.id.split('-')[1], 10)
             )
