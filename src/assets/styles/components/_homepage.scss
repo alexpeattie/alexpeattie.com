@@ -1,9 +1,10 @@
 @use "../variables";
 @use "~breakpoint-sass" as bp;
+@use "sass:color";
 
 .intro {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding-top: 1.5rem;
 
   @include bp.breakpoint(variables.$mobile) {
@@ -12,8 +13,8 @@
 
   &__blurb {
     font-size: 1.25rem;
-    margin: 3rem 0 1.5rem;
-    padding-right: 3rem;
+    margin: 2rem 0 1.5rem;
+    padding-right: 4rem;
     font-family: Gelasio;
     font-weight: normal;
 
@@ -23,7 +24,6 @@
   }
 
   &__headshot {
-    margin-right: -1rem;
     width: 350px;
 
     @include bp.breakpoint(variables.$mobile) {
@@ -44,12 +44,27 @@
   }
 }
 
+.with-flag {
+  // avoid line breaks
+  white-space: nowrap;
+}
+
 .role {
   font-weight: normal;
+  font-size: 2.25rem;
 
   &__dates {
     font-size: 1.5rem;
     color: variables.$text-color-light;
+  }
+
+  &__name {
+    display: block;
+    font-size: 1.25rem;
+    font-family: variables.$font-family-serif;
+    margin-top: 1.25rem;
+    // color: variables.$text-color-light;
+    font-weight: 600;
   }
 }
 
