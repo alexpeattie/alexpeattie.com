@@ -3,21 +3,21 @@ title: Testing Kamal Locally with Multipass
 image: /assets/images/meta/posts/establishing-minimum-guesses-wordle.png
 ---
 
-From Rails 7.1 onwards, [Kamal 2](https://github.com/basecamp/kamal) is included as a first-class tool for container-based deployments in Rails. Kamal aims to make shipping Rails apps to production as painless as possible using Docker. However, before you set things loose on your production servers, it’s often helpful to test your entire deployment flow in a local virtual machine (VM). Unfortunately, I couldn't find any good documentation on how to do this, even though it turns out to be quite straightforward.
+From Rails 7.1 onwards, [Kamal 2](https://github.com/basecamp/kamal) is included as a first-class tool for container-based deployments. Kamal aims to make shipping Rails apps to production as painless as possible using Docker. However, before you set things loose on your production servers, it’s often helpful to test your entire deployment flow locally, but deployed to a virtual machine (VM). Unfortunately, I couldn't find any good documentation on how to do this, even though it turns out to be quite straightforward.
 
-In this post, we’ll walk through setting up a fresh Rails application and deploying it locally using Kamal and [Multipass](https://multipass.run/). I'm a fan of validating the Kamal deploy setup locally first, before deploying straight to a paid VM (a Hetzner VM, Digital Ocean droplet, etc.). "Deploying" locally we get the benefit of:
+In this post, we’ll walk through setting up a fresh Rails application and deploying it locally using Kamal and [Multipass](https://multipass.run/). I'm a fan of validating the Kamal deploy setup locally first, before deploying to a paid VM (a Hetzner VM, Digital Ocean droplet, etc.). Testing our deployment locally we get the benefit of:
 
 - **Fast iteration cycles** - (almost) everything is happening locally, no need to wait for repositories to push, remote VMs to boot, etc.
 - **Easier debugging** - Multipass makes it very easy to shell into the VM and inspect the state of the containers, logs, and so on.
-- **Create a known-working configuration** - knowing that your Kamal setup works locally, you know any issues you encounter when deploying to a remote VM are specific to that environment.
+- **Create a known-working configuration** - knowing that your Kamal setup works locally, you know any issues you encounter when deploying to a remote machine are specific to that remote environment.
 
 #### What is Multipass?
 
-[Multipass](https://multipass.run/) is a lightweight VM manager for running Ubuntu instances on macOS, Windows, and Linux. It integrates nicely with macOS via Homebrew, making it simple to create and destroy local Ubuntu VMs in seconds. We'll use a single Multipass Ubuntu instance to mimic a production-like environment.
+[Multipass](https://multipass.run/) is a lightweight VM manager for running Ubuntu instances on macOS, Windows, and Linux. We'll use a single Multipass Ubuntu instance to mimic a production-like environment.
 
 #### Setting Up a Fresh Rails Project
 
-We’ll start by creating a new Rails project with a PostgreSQL database:
+We'll start by creating a new Rails project with a PostgreSQL database:
 
 ```bash
 rails new kamal-example -d postgresql --skip-solid --skip-action-cable
@@ -27,8 +27,6 @@ cd kamal-example
 :::admonition[Note]{kind="note"}
 If you don't skip Solid Queue and Action Cable, you'll need to do some extra configuration with your production environment before deploying, see [here](https://community.render.com/t/the-cable-database-is-not-configured-for-the-production-environment/26726/4).
 :::
-
-From here, you can configure your database credentials and run migrations as you normally would, but for now we’ll focus on the deployment setup.
 
 ## Bootstrapping the Multipass VM
 
@@ -50,7 +48,7 @@ We'll create a new VM with 10GB of disk space and 4GB of memory. (You can be les
 multipass launch --name kamal-vm --disk 10G --memory 4G
 ```
 
-In can take a while for this command to complete the first time you run it, as Multipass needs to download the relevant Ubuntu image. Subsequent runs will be much faster. Once the VM is ready, confirm it's running, with `multipass ls` or `multipass info kamal-vm`:
+In can take a while for this command to complete the first time you run it, as Multipass needs to download the relevant Ubuntu image. Subsequent runs will be much faster. Once the VM is ready, confirm it's up and running, with `multipass ls` or `multipass info kamal-vm`:
 
 ```bash
 > multipass ls
@@ -112,7 +110,7 @@ multipass exec kamal-vm -- sh -c "mkdir -p /home/ubuntu/.ssh && echo '$(ssh-add 
 
 #### Bootstrap Kamal manually
 
-The setup above allows us to SSH into the VM as the default `ubuntu` user. Kamal expects to use the `root` user by default, so we'll just need to bootstrap your servers manually per the [Kamal docs](https://kamal-deploy.org/docs/configuration/ssh/):
+The setup above allows us to SSH into the VM as the default `ubuntu` user. Kamal expects to connect as the `root` user by default, so we'll just need to bootstrap your servers manually per the [Kamal docs](https://kamal-deploy.org/docs/configuration/ssh/):
 
 ```bash
 multipass exec kamal-vm -- sh -c "sudo apt update && sudo apt upgrade -y && sudo apt install -y docker.io curl git && sudo usermod -a -G docker ubuntu"
@@ -135,6 +133,7 @@ Docker version 26.1.3, build 26.1.3-0ubuntu1~24.04.1
 If you generated a new Rails app as above (`rails new kamal-example`...) with the latest version of Rails, you should already have a `config/deploy.yml` file - otherwise install the Kamal gem and run `kamal init` to generate one.
 
 ```bash
+# (if Kamal isn't already installed)
 bundle add kamal
 kamal init
 ```
@@ -284,7 +283,13 @@ builder:
   arch: arm64 # [!code ++]
 ```
 
-Because I'm using an M-series Mac (specifically an M3 Macbook Air), I also need to set my `arch` to `arm64`. You can leave this as `amd64` if you're using an Intel-based Mac or AMD-based Linux or Windows machine. Let's also add an [accessory](https://kamal-deploy.org/docs/commands/accessory/) for our PostgreSQL database:
+Because I'm using an M-series Mac (specifically an M3 Macbook Air), I also need to set my `arch` to `arm64`. You can leave this as `amd64` if you're using an Intel-based Mac or AMD-based Linux or Windows machine.
+
+:::admonition[Note]{kind="note"}
+In this guide we directly modify our `config/deploy.yml` file, but you may prefer to instead create a separate namespaced file like `config/deploy.local.yml`. In this case, just append `--destination=local` to all Kamal commands (e.g. `kamal deploy -v --destination=local`).
+:::
+
+Next, let's add an [accessory](https://kamal-deploy.org/docs/commands/accessory/) for our PostgreSQL database:
 
 ```yaml
 ---
@@ -342,6 +347,12 @@ production:
   password: <%= ENV["KAMAL_EXAMPLE_DATABASE_PASSWORD"] %> # [!code --]
   password: <%= Rails.application.credentials.kamal_example_database_password %> # [!code ++]
 ```
+
+:::admonition[Note]{kind="note"}
+In this instance we're mimicking a production environment where everything (server, database) is running on a single machine. If you're deploying to a multi-server setup (i.e. with a dedicated database server), you might instead want to launch a separate Multipass VM for your database.
+
+In this case, your `host` value in `config/database.yml` and `config/deploy.yml` should point to the IP address of this second VM.
+:::
 
 ## Deploying to the VM
 
