@@ -210,13 +210,17 @@ blockquote,
   padding: 1.5rem 2rem;
   border-left: 0.3rem solid transparent;
 
-  p {
+  p:last-of-type {
     margin: 0;
     font-style: italic;
 
     code {
       font-style: normal;
     }
+  }
+
+  p {
+    margin: 1.5rem 0;
   }
 
   ul {

@@ -13467,6 +13467,15 @@ remark-stringify@^9.0.0:
   dependencies:
     mdast-util-to-markdown "^0.6.0"
 
+remark-textr@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/remark-textr/-/remark-textr-6.1.0.tgz#be202f24b0cfbe88ed864a32dd2e9f0f78c6dece"
+  integrity sha512-3A61/6Dn8x5wS7f9BubnIjwZfttEw9+PWVFtwOvRzKXLmZDV1mgi9MJeaQ9BNzWhojsSRHWLNa2JHKCOOI5DfA==
+  dependencies:
+    "@types/mdast" "^4.0.0"
+    textr "^0.3.0"
+    unist-util-visit "^5.0.0"
+
 remark@^13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/remark/-/remark-13.0.0.tgz#d15d9bf71a402f40287ebe36067b66d54868e425"
@@ -15122,6 +15131,11 @@ text-hex@1.0.x:
   resolved "https://registry.yarnpkg.com/text-hex/-/text-hex-1.0.0.tgz#69dc9c1b17446ee79a92bf5b884bb4b9127506f5"
   integrity sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==
 
+textr@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/textr/-/textr-0.3.0.tgz#717361286962ac8df36b7a2619fb773a15b9b7f7"
+  integrity sha512-yQrF3w9ThyNvyJjkpFTwBpsVxRQ4870xHg2fue1xeK1J1EZIx5cV7XPW6Fwi/XNC0du/3t9CNWZvlHUfCxPpPg==
+
 throttleit@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/throttleit/-/throttleit-1.0.1.tgz#304ec51631c3b770c65c6c6f76938b384000f4d5"
@@ -15462,6 +15476,11 @@ typescript@^4.1.5, typescript@^4.4.3:
   version "4.9.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
+
+typographic-arrows@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/typographic-arrows/-/typographic-arrows-1.0.3.tgz#fdd4692ce660024b42fd1605100c34337380c925"
+  integrity sha512-RlmhHjxOSQ9QjWQbdHFPb+B54hVQLxwWvbO+liqy5NN0naLUzqnZumYH3V/RrR9Xf6cpAZvxKdmwYzpozlx2Ug==
 
 uberproto@^1.1.0:
   version "1.2.0"

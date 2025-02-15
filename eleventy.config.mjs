@@ -24,6 +24,8 @@ import remarkMath from 'remark-math'
 import remarkSlug from 'remark-slug'
 import remarkAutolinkHeadings from 'remark-autolink-headings'
 import remarkRehype from 'remark-rehype'
+import remarkTextr from 'remark-textr'
+import typographicArrows from 'typographic-arrows'
 import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
 import rehypeRaw from 'rehype-raw'
@@ -90,6 +92,12 @@ export default async function (config) {
       remarkMath,
       remarkSmartypants,
       remarkSlug,
+      {
+        plugin: remarkTextr,
+        options: {
+          plugins: [typographicArrows]
+        }
+      },
       {
         plugin: remarkAutolinkHeadings,
         options: {
