@@ -150,7 +150,7 @@ Repositories on Docker Hub are public by default. If your project is intended to
 Add your token to your `credentials.yml.enc` file using `bin/rails credentials:edit` (substituting `dckr_pat_k-ABC...` with your actual token):
 
 ```bash
-> VISUAL="code --wait" bin/rails credentials:edit
+> bin/rails credentials:edit
 # add:
 docker_hub_access_token: "dckr_pat_k-ABC..."
 ```
@@ -320,7 +320,7 @@ Let's generate a strong password for our database, and add it to our credentials
 > openssl rand -base64 32
 1v+L3lxSRTT5PQkDgygaXmTQ+9Otd2R16by6cJiVPYU=
 
-> VISUAL="code --wait" bin/rails credentials:edit
+> bin/rails credentials:edit
 # add:
 kamal_example_database_password: "1v+L3lxSRTT5PQkDgygaXmTQ+9Otd2R16by6cJiVPYU="
 
