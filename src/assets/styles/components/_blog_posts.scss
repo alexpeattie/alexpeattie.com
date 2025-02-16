@@ -1,5 +1,21 @@
 @use "../variables";
-@use "~breakpoint-sass" as bp;
+
+.layout .post-layout.main {
+  grid-template-columns: 1fr minmax(400px, 800px) minmax(0px, 1fr);
+  display: grid;
+  grid-gap: 24px;
+  grid-template-rows: 1fr;
+}
+
+.post-layout article {
+  width: 100%;
+}
+
+.back-all-posts {
+  font-family: variables.$font-family-sans-serif;
+  margin: 2rem 0 1rem;
+  font-size: 0.8rem;
+}
 
 .wordle-answer {
   font-family: monospace;

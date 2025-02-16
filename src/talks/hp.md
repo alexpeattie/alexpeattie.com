@@ -2,6 +2,7 @@
 title: 'Ruby-us Hagrid: Writing Harry Potter with Ruby'
 layout: post
 image: /assets/images/meta/hp.jpg
+showToc: true
 ---
 
 Hi there 👋! Here are my extended notes for [the talk](https://brightonruby.com/2018/writing-harry-potter-with-ruby-alex-peattie/) I gave at Brighton Ruby 2018, and RubyConf 2019.

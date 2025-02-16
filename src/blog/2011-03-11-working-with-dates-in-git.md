@@ -1,5 +1,6 @@
 ---
 title: Working with dates in Git
+showToc: true
 ---
 
 When working in [git](http://git-scm.com/), you most commonly trace a repository's history using commits' SHA-1 hashes. To revert to a previous commit, you might write something like this:

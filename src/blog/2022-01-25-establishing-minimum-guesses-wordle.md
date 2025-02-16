@@ -1,6 +1,7 @@
 ---
 title: Establishing the minimum number of guesses needed to (always) win Wordle
 image: /assets/images/meta/posts/establishing-minimum-guesses-wordle.png
+showToc: true
 ---
 
 <p><img src="/assets/images/posts/establishing-minimum-guesses-wordle/wordle-example.png" alt="An example Wordle grid" width="400"></p>

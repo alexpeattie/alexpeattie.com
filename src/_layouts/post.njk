@@ -1,7 +1,8 @@
 ---
-layout: base
+layout: base-post
 ---
-
+<div class='grid-spacer'>
+</div>
 <article class='container post'>
   {% if tags == 'post' %}
     <div class='back-all-posts'>
@@ -41,3 +42,12 @@ layout: base
 
   {% include 'comments.njk' %}
 </article>
+
+{% if showToc %}
+  <nav class='toc__container' data-controller='scrollspy'>
+    <div class='toc__inner'>
+      <a class='toc__title' href='#main'>On this page {% icon 'scroll-top' %}</a>
+      {{ content | toc | safe }}
+    </div>
+  </nav>
+{% endif %}

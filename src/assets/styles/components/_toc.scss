@@ -1,0 +1,82 @@
+@use "../variables";
+@use "~breakpoint-sass" as bp;
+
+.toc__container {
+  padding-top: 2rem;
+  display: flex;
+  opacity: 0.5;
+  transition: opacity 250ms ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.toc__inner {
+  min-width: 300px;
+  max-width: 350px;
+  margin: 0 0 0 2rem;
+  position: sticky;
+  top: 20px;
+  min-height: 200px;
+  max-height: calc(100vh - 450px);
+  font-family: variables.$font-family-sans-serif;
+
+  ol {
+    margin: 0;
+    font-size: 0.8rem;
+    padding: 0;
+
+    ol {
+      margin-top: 0.35rem;
+      padding: 0 0 0 1rem;
+    }
+  }
+
+  li {
+    list-style: none;
+    padding-left: 0;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+
+    a {
+      line-height: 1.5;
+    }
+
+    &:has(ol a.active) > a, &:has(ol a.section-active) > a {
+      color: variables.$link-color;
+    }
+  }
+
+  a:not(:hover) {
+    color: variables.$text-color-dark;
+    box-shadow: none;
+
+    &.active, &.section-active {
+      color: variables.$link-color;
+      font-weight: bold;
+    }
+  }
+}
+
+@include bp.breakpoint(variables.$not-widescreen) {
+  .toc__container {
+    display: none;
+  }
+}
+
+.toc__title {
+  font-style: normal;
+  font-family: Inter;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 0.75rem;
+
+  .icon {
+    height: 14px;
+    width: 14px;
+    vertical-align: text-top;
+  }
+}

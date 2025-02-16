@@ -29,6 +29,7 @@ import typographicArrows from 'typographic-arrows'
 import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
 import rehypeRaw from 'rehype-raw'
+import eleventyToc from 'eleventy-plugin-nesting-toc'
 import h from 'hastscript'
 import s from 'hastscript/svg.js'
 import u from 'unist-builder'
@@ -48,6 +49,7 @@ export default async function (config) {
   config.addPlugin(pluginRss)
   config.addPlugin(pluginNavigation)
   config.addPlugin(pluginSvgContents)
+  config.addPlugin(eleventyToc)
 
   config.setFrontMatterParsingOptions({
     excerpt: true,

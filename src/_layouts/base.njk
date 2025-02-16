@@ -25,7 +25,7 @@
 
     <div class='layout' role='document'>
       {% include 'header.njk' %}
-      <main id='main' class='main' tabindex='-1' {% include 'observable.njk' %}>
+      <main id='main' class='main {% block mainClasses %}{% endblock %}' tabindex='-1' {% include 'observable.njk' %}>
         {{ content | safe }}
       </main>
       {% include 'footer.njk' %}

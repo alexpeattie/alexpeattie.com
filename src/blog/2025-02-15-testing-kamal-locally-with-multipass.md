@@ -1,6 +1,7 @@
 ---
 title: Testing Kamal Locally with Multipass
 image: /assets/images/meta/posts/establishing-minimum-guesses-wordle.png
+showToc: true
 ---
 
 From Rails 7.1 onwards, [Kamal 2](https://github.com/basecamp/kamal) is included as a first-class tool for container-based deployments. Kamal aims to make shipping Rails apps to production as painless as possible using Docker. However, before you set things loose on your production servers, it’s often helpful to test your entire deployment flow locally, but deployed to a virtual machine (VM). Unfortunately, I couldn't find any good documentation on how to do this, even though it turns out to be quite straightforward.
