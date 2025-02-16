@@ -1,6 +1,6 @@
 @use "../variables";
 @use "~open-color/open-color" as oc;
-
+@use "~breakpoint-sass" as bp;
 pre {
   padding: 1rem;
   overflow: auto;
@@ -26,7 +26,12 @@ p, li, figcaption {
     border-radius: 3px;
     line-height: 1.2;
     margin-bottom: 5px;
-    white-space: nowrap;
+  }
+
+  @include bp.breakpoint(variables.$mobile) {
+    code {
+      overflow-wrap: anywhere;
+    }
   }
 }
 
