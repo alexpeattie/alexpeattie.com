@@ -1,6 +1,6 @@
 ---
 title: Testing Kamal Locally with Multipass
-image: /assets/images/meta/posts/establishing-minimum-guesses-wordle.png
+image: /assets/images/meta/posts/testing-kamal-locally-with-multipass.png
 showToc: true
 ---
 
@@ -247,7 +247,7 @@ servers:
   #     - 192.168.0.1
   #   cmd: bin/jobs
 
-proxy:
+proxy: # [!code --]
   ssl: true # [!code --]
   host: app.example.com # [!code --]
 

@@ -1,7 +1,6 @@
 @use "../variables";
 @use "~breakpoint-sass" as bp;
 
-
 @include bp.breakpoint(variables.$widescreen) {
   .layout .post-layout.main {
     grid-template-columns: 1fr minmax(400px, 800px) minmax(0px, 1fr);
