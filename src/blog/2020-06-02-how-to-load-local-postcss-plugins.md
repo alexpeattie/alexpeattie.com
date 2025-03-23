@@ -2,7 +2,7 @@
 title: 'How to load local PostCSS plugins with <code>postcss-loader</code>'
 ---
 
-PostCSS is a great tool for enhancing CSS and it has an extensive ecosystem - [postcss.parts](https://www.postcss.parts/) has a great catalog of available plugins. It also make it quite easy to [write your own plugins](https://github.com/postcss/postcss/blob/master/docs/writing-a-plugin.md) to extend CSS in weird and wonderful ways.
+PostCSS is a great tool for enhancing CSS and it has an extensive ecosystem - [postcss.parts](https://github.com/mxstbr/postcss.parts) has a great catalog of available plugins. It also make it quite easy to [write your own plugins](https://github.com/postcss/postcss/blob/master/docs/writing-a-plugin.md) to extend CSS in weird and wonderful ways.
 
 If your plugin is particularly lightweight though, you might not want to bother with the overhead of creating a package, publishing it to NPM etc. Fortunately, it's quite easy to load a PostCSS local plugin inline.
 

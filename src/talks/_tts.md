@@ -964,7 +964,7 @@ We can "swap out" the attention mechanism, giving us a choice of many possible m
 <!-- prettier-ignore -->
 * Easiest option!
 * The [LJSpeech dataset](https://keithito.com/LJ-Speech-Dataset/) (24 hours) is widely used but sounds a little bland IMO
-* I'd recommend the `en_UK` subset of the [M-AILABS Speech Dataset](https://www.caito.de/2019/01/the-m-ailabs-speech-dataset/), which is similar to LJSpeech but longer (45 hours) and sounds a little nice
+* I'd recommend the `en_UK` subset of the [M-AILABS Speech Dataset](https://web.archive.org/web/20240421010552/https://www.caito.de/2019/01/03/the-m-ailabs-speech-dataset/), which is similar to LJSpeech but longer (45 hours) and sounds a little nice
 
 ---
 
@@ -1021,8 +1021,8 @@ And then the waiting begins. Fully training a model will typically take 12 hours
 
 You can use Tensorboard to monitor the progress of your model's training:
 
-![center w:500](https://user-images.githubusercontent.com/1402048/72343551-6fcc1f80-36cf-11ea-88a6-6c549ac824dc.PNG)
-![center w:500](https://discourse-prod-uploads-81679984178418.s3.dualstack.us-west-2.amazonaws.com/optimized/3X/c/0/c06fad5f1ed2e88e3239f2dab122b01761220284_2_690x247.png)
+![center w:500](/assets/images/talks/tts/tensorboard1.png)
+![center w:500](/assets/images/talks/tts/tensorboard2.png)
 
 ---
 

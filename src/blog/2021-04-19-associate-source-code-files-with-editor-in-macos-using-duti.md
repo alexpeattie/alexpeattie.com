@@ -188,7 +188,7 @@ I've since come across (but not personally used) [`openwith`](https://github.com
 :::
 
 [^apple]: Source: [Apple: Choose an app to open a file on Mac](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac#mchlp0fea282)
-[^nick]: Source: [Change Mac OS default file associations from the command line with duti](https://nickficano.com/blog/change-macos-default-file-associations-command-line-duti)
+[^nick]: Source: [Change Mac OS default file associations from the command line with duti](https://web.archive.org/web/20241116192241/https://www.nickficano.com/blog/change-macos-default-file-associations-command-line-duti)
 [^uti]: Or, more technically, a [Uniform Type Identifier](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_intro/understand_utis_intro.html).
 [^survey]: According to Github's [2020 State of the Octoverse survey](https://octoverse.github.com/#overview)
 [^publichtml]: See this issue: [duti#29](https://github.com/moretension/duti/issues/29)

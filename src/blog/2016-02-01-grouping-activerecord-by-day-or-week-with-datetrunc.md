@@ -2,7 +2,7 @@
 title: 'Rails tip – Grouping ActiveRecord objects by day or week using <code>datetrunc</code>'
 ---
 
-Here's a quick Rails question for you. We have a bunch of _Posts_ in a Postgres DB which we want to order by publication day - but Posts published on the **same day** should be ordered by a different column: upvotes. (This is basically how [Product Hunt](https://www.producthunt.com/tech) does it). We're paginating, so we only care about the first 100 posts. How would we do it?
+Here's a quick Rails question for you. We have a bunch of _Posts_ in a Postgres DB which we want to order by publication day - but Posts published on the **same day** should be ordered by a different column: upvotes. (This is basically how [Product Hunt](https://www.producthunt.com/topics/tech) does it). We're paginating, so we only care about the first 100 posts. How would we do it?
 
 <!-- excerpt -->
 
