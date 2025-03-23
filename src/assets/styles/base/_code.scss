@@ -1,6 +1,7 @@
 @use "../variables";
 @use "~open-color/open-color" as oc;
 @use "~breakpoint-sass" as bp;
+
 pre {
   padding: 1rem;
   overflow: auto;
@@ -14,7 +15,6 @@ pre {
 pre,
 code {
   font-family: 'Fira Mono', monospace;
-  font-smoothing: auto;
 }
 
 p, li, figcaption {
