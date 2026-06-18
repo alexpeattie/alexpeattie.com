@@ -72,6 +72,7 @@ export default async function (config) {
   config.addPassthroughCopy('src/site.webmanifest')
   config.addPassthroughCopy('src/assets/images')
   config.addPassthroughCopy('src/assets/audio')
+  config.addPassthroughCopy('src/assets/scripts/talks')
   config.addPassthroughCopy('src/files')
   config.addPassthroughCopy({ 'src/assets/favicons': '/' })
 

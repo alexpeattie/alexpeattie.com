@@ -12,6 +12,7 @@
     "serve": "light-server -c .lightserverrc",
     "serve:prod": "light-server -c .lightserverrc.prod",
     "dev": "npm-run-all clean webpack:dev eleventy:default --parallel eleventy:watch serve --print-label",
+    "dev:talk": "node scripts/dev-talk.mjs",
     "dev:debug": "DEBUG=* npm run dev",
     "check-links": "npx linkinator ./dist --recurse --skip \".+archive.is.+\" --concurrency 5 --timeout 5000 || exit 0",
     "build": "run-s clean webpack:prod eleventy:default check-links --print-label",
@@ -125,6 +126,7 @@
   },
   "marp": {
     "html": true,
+    "lang": "en-US",
     "options": {
       "markdown": {
         "typographer": true

@@ -52,6 +52,14 @@ yarn run dev
 
 The site should be running on <http://localhost:4000> ✅.
 
+### Editing Marpit talks
+
+Interactive talks have a private Marpit source at `src/talks/_<slug>.md` and a generated HTML deck at `src/talks/<slug>.html`. To edit a talk with the site and deck both watching:
+
+```bash
+npm run dev:talk generative-audio
+```
+
 ## 📦 Building for production
 
 To generate a full static production build

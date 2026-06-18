@@ -2,7 +2,7 @@
 title: 'Hearing is Believing: Generating Realistic Speech with Deep Learning'
 ---
 
-<!-- Generate slides with `npx @marp-team/marp-cli src/talks/_tts.md -o src/talks/tts.html` -->
+<!-- Edit slides with `npm run dev:talk tts` -->
 
 <style>
 img[alt~="center"], video {
